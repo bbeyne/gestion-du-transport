@@ -3,6 +3,8 @@ package dev.entity;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,6 +21,8 @@ public class Annonce {
 	private Integer id;
 	private LocalDateTime depart;
 	private int nbPlacesDispo;
+	
+	@Enumerated(EnumType.STRING)
 	private STATUT statut;
 	private int idProfil;
 	private int idAdresseDepart;

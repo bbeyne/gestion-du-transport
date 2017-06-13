@@ -1,6 +1,8 @@
 package dev.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,8 +27,10 @@ public class Voiture {
 	private String immatriculation;
 	private String marque;
 	private String modele;
+	@Enumerated(EnumType.STRING)
 	private CATEGORIE categorie;
 	private int nbPlaces;
+	@Enumerated(EnumType.STRING)
 	private STATUT statut;
 	private String urlImage;
 	private int idCoordonnees;
