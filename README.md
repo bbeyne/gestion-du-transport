@@ -4,6 +4,6 @@
 
 * Front
   * Component
-   * [ ] ReservationComponent : page liste des réservations
+    * [ ] ReservationComponent : page liste des réservations
   * Service
-   * [ ] ReservationService : GET
+    * [ ] ReservationService : GET
