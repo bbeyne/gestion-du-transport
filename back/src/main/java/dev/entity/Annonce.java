@@ -8,6 +8,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Annonce {
@@ -24,17 +25,20 @@ public class Annonce {
 	
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
-	private int idProfil;
-	private int idAdresseDepart;
-	private int idAdresseArrivee;
+	@ManyToOne
+	private Profile idProfil;
+	@ManyToOne
+	private Adresse idAdresseDepart;
+	@ManyToOne
+	private Adresse idAdresseArrivee;
 
 	//CONSTRUCTORS
 	public Annonce() {
 		super();
 	}
 	
-	public Annonce(LocalDateTime depart, int nbPlacesDispo, STATUT statut, int idProfil, int idAdresseDepart,
-			int idAdresseArrivee) {
+	public Annonce(LocalDateTime depart, int nbPlacesDispo, STATUT statut, Profile idProfil, Adresse idAdresseDepart,
+			Adresse idAdresseArrivee) {
 		super();
 		this.depart = depart;
 		this.nbPlacesDispo = nbPlacesDispo;
@@ -74,22 +78,22 @@ public class Annonce {
 	public void setStatut(STATUT statut) {
 		this.statut = statut;
 	}
-	public int getIdProfil() {
+	public Profile getIdProfil() {
 		return idProfil;
 	}
-	public void setIdProfil(int idProfil) {
+	public void setIdProfil(Profile idProfil) {
 		this.idProfil = idProfil;
 	}
-	public int getIdAdresseDepart() {
+	public Adresse getIdAdresseDepart() {
 		return idAdresseDepart;
 	}
-	public void setIdAdresseDepart(int idAdresseDepart) {
+	public void setIdAdresseDepart(Adresse idAdresseDepart) {
 		this.idAdresseDepart = idAdresseDepart;
 	}
-	public int getIdAdresseArrivee() {
+	public Adresse getIdAdresseArrivee() {
 		return idAdresseArrivee;
 	}
-	public void setIdAdresseArrivee(int idAdresseArrivee) {
+	public void setIdAdresseArrivee(Adresse idAdresseArrivee) {
 		this.idAdresseArrivee = idAdresseArrivee;
 	}
 	

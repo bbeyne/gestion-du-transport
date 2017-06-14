@@ -24,12 +24,7 @@ public class Profile {
 	private TYPE type;
 	private int telephone;
 	
-	public int getTelephone() {
-		return telephone;
-	}
-	public void setTelephone(int telephone) {
-		this.telephone = telephone;
-	}
+	
 	public Profile() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -58,5 +53,11 @@ public class Profile {
 	}
 	public void setType(TYPE type) {
 		this.type = type;
+	}
+	public int getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(int telephone) {
+		this.telephone = telephone;
 	}
 }

@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Reservation {
@@ -22,10 +23,12 @@ public class Reservation {
 	private Integer id;
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
-	private int idPersonne;
-	private int idAnnonce;
+	@ManyToOne
+	private Profile idPersonne;
+	@ManyToOne
+	private Annonce idAnnonce;
 	
-	public Reservation(STATUT statut, int idPersonne, int idAnnonce) {
+	public Reservation(STATUT statut, Profile idPersonne, Annonce idAnnonce) {
 		super();
 		this.statut = statut;
 		this.idPersonne = idPersonne;
@@ -47,16 +50,16 @@ public class Reservation {
 	public void setStatut(STATUT statut) {
 		this.statut = statut;
 	}
-	public int getIdPersonne() {
+	public Profile getIdPersonne() {
 		return idPersonne;
 	}
-	public void setIdPersonne(int idPersonne) {
+	public void setIdPersonne(Profile idPersonne) {
 		this.idPersonne = idPersonne;
 	}
-	public int getIdAnnonce() {
+	public Annonce getIdAnnonce() {
 		return idAnnonce;
 	}
-	public void setIdAnnonce(int idAnnonce) {
+	public void setIdAnnonce(Annonce idAnnonce) {
 		this.idAnnonce = idAnnonce;
 	}
 	
