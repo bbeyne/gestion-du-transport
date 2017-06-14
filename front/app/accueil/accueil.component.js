@@ -10,5 +10,7 @@ class controller {
 export let AccueilComponent = {
     template,
     controller,
-    bindings: {}
+    bindings: {
+        titre: '<',
+    }
 };

@@ -6,6 +6,9 @@ export function route ($routeProvider, $locationProvider) {
     .when('/', {
         template: '<accueil></accueil>'
     })
+    .when('/collaborateur/reservations', {
+        template: '<reservations></reservations>'
+    })
     .otherwise({
         redirectTo: '/'
     });
