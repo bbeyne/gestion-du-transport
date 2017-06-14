@@ -10,9 +10,21 @@
 ## Conception
 
 * Back
+  * Controller
+    * [ ] ReservationApiController : GET /collaborateur/reservsations :  Liste des réservations
+
+  * Entite
+    * [x] Reservation
+  
+   * Repository
+    * [x] ReservationRepository
+
+   * Filter
+    * [ ] ConnexionFilter : APIREST
+  
 
 * Front
   * Component
-    * [ ] ReservationComponent : page liste des réservations
+    * [ ] ReservationsComponent : page liste des réservations
   * Service
-    * [ ] ReservationService : GET
+    * [ ] ReservationsService : GET
