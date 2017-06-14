@@ -20,7 +20,7 @@
     * [x] ReservationRepository
 
    * Filter
-    * [ ] ConnexionFilter
+    * [ ] ConnexionFilter : APIREST
   
 
 * Front
