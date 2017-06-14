@@ -26,11 +26,11 @@ public class Annonce {
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
 	@ManyToOne
-	private Profile idProfil;
+	private Profile Profil;
 	@ManyToOne
-	private Adresse idAdresseDepart;
+	private Adresse AdresseDepart;
 	@ManyToOne
-	private Adresse idAdresseArrivee;
+	private Adresse AdresseArrivee;
 
 	//CONSTRUCTORS
 	public Annonce() {
@@ -43,9 +43,9 @@ public class Annonce {
 		this.depart = depart;
 		this.nbPlacesDispo = nbPlacesDispo;
 		this.statut = statut;
-		this.idProfil = idProfil;
-		this.idAdresseDepart = idAdresseDepart;
-		this.idAdresseArrivee = idAdresseArrivee;
+		this.Profil = idProfil;
+		this.AdresseDepart = idAdresseDepart;
+		this.AdresseArrivee = idAdresseArrivee;
 	}
 	
 	
@@ -79,22 +79,22 @@ public class Annonce {
 		this.statut = statut;
 	}
 	public Profile getIdProfil() {
-		return idProfil;
+		return Profil;
 	}
 	public void setIdProfil(Profile idProfil) {
-		this.idProfil = idProfil;
+		this.Profil = idProfil;
 	}
 	public Adresse getIdAdresseDepart() {
-		return idAdresseDepart;
+		return AdresseDepart;
 	}
 	public void setIdAdresseDepart(Adresse idAdresseDepart) {
-		this.idAdresseDepart = idAdresseDepart;
+		this.AdresseDepart = idAdresseDepart;
 	}
 	public Adresse getIdAdresseArrivee() {
-		return idAdresseArrivee;
+		return AdresseArrivee;
 	}
 	public void setIdAdresseArrivee(Adresse idAdresseArrivee) {
-		this.idAdresseArrivee = idAdresseArrivee;
+		this.AdresseArrivee = idAdresseArrivee;
 	}
 	
 	

@@ -22,7 +22,7 @@ public class Profile {
 	private String matricule;
 	@Enumerated(EnumType.STRING)
 	private TYPE type;
-	private int telephone;
+	private String telephone;
 	
 	
 	public Profile() {
@@ -30,7 +30,7 @@ public class Profile {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Profile(String matricule, TYPE type, int telephone) {
+	public Profile(String matricule, TYPE type, String telephone) {
 		super();
 		this.matricule = matricule;
 		this.type = type;
@@ -54,10 +54,10 @@ public class Profile {
 	public void setType(TYPE type) {
 		this.type = type;
 	}
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 }

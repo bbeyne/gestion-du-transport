@@ -24,15 +24,15 @@ public class Reservation {
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
 	@ManyToOne
-	private Profile idPersonne;
+	private Profile Personne;
 	@ManyToOne
-	private Annonce idAnnonce;
+	private Annonce Annonce;
 	
 	public Reservation(STATUT statut, Profile idPersonne, Annonce idAnnonce) {
 		super();
 		this.statut = statut;
-		this.idPersonne = idPersonne;
-		this.idAnnonce = idAnnonce;
+		this.Personne = idPersonne;
+		this.Annonce = idAnnonce;
 	}
 	public Reservation() {
 		super();
@@ -51,16 +51,16 @@ public class Reservation {
 		this.statut = statut;
 	}
 	public Profile getIdPersonne() {
-		return idPersonne;
+		return Personne;
 	}
 	public void setIdPersonne(Profile idPersonne) {
-		this.idPersonne = idPersonne;
+		this.Personne = idPersonne;
 	}
 	public Annonce getIdAnnonce() {
-		return idAnnonce;
+		return Annonce;
 	}
 	public void setIdAnnonce(Annonce idAnnonce) {
-		this.idAnnonce = idAnnonce;
+		this.Annonce = idAnnonce;
 	}
 	
 	
