@@ -11,6 +11,5 @@ export let AccueilComponent = {
     template,
     controller,
     bindings: {
-        titre: '<',
     }
 };
