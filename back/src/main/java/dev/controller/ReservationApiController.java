@@ -1,5 +1,6 @@
 package dev.controller;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +29,7 @@ public class ReservationApiController {
 		Date date = new Date();
 		return this.reservationRepo.findAll()
 				.stream()
-				.filter(d->d.getIdAnnonce().getDateHeureDepart().after(date))
+				.filter(d->d.getIdAnnonce().getDateHeureDepart().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
 	
@@ -38,7 +39,7 @@ public class ReservationApiController {
 		Date date = new Date();
 		return this.reservationRepo.findAll()
 				.stream()
-				.filter(d->d.getIdAnnonce().getDateHeureDepart().before(date))
+				.filter(d->d.getIdAnnonce().getDateHeureDepart().isBefore(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
 	

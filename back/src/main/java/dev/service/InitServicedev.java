@@ -101,13 +101,13 @@ public class InitServicedev implements InitService {
 		coordonneesRep.save(coordonnees5);
 		coordonneesRep.save(coordonnees4);
 
-		Voiture voiture1 = new Voiture("PP-154-MM", "Renault", "Xantia", Voiture.CATEGORIE.BERLINE, 5,
+		Voiture voiture1 = new Voiture("PP-154-MM", "Renault", "Xantia", Voiture.CATEGORIE.BERLINE_TAILLE_M, 5,
 				Voiture.STATUT.EN_SERVICE, "url image", coordonnees1);
-		Voiture voiture2 = new Voiture("LE-123-EL", "Citroen", "ZX", Voiture.CATEGORIE.CITADINE, 6, Voiture.STATUT.HS,
+		Voiture voiture2 = new Voiture("LE-123-EL", "Citroen", "ZX", Voiture.CATEGORIE.CITADINE_POLYVENTES, 6, Voiture.STATUT.HS,
 				"url image", coordonnees2);
-		Voiture voiture3 = new Voiture("AV-781-NN", "Ford", "Fiesta", Voiture.CATEGORIE.BERLINE, 5,
+		Voiture voiture3 = new Voiture("AV-781-NN", "Ford", "Fiesta", Voiture.CATEGORIE.BERLINE_TAILLE_S, 5,
 				Voiture.STATUT.EN_SERVICE, "url image", coordonnees3);
-		Voiture voiture4 = new Voiture("KF-542-LG", "Citroen", "CX", Voiture.CATEGORIE.CITADINE, 6, Voiture.STATUT.HS,
+		Voiture voiture4 = new Voiture("KF-542-LG", "Citroen", "CX", Voiture.CATEGORIE.MICRO_CITADINE, 6, Voiture.STATUT.HS,
 				"url image", coordonnees4);
 		voitureRep.save(voiture1);
 		voitureRep.save(voiture2);
