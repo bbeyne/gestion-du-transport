@@ -4,9 +4,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { route } from './app.route';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+import { ReservationService } from './reservations/reservations.service'
 
 //Création du module app
 angular.module('app', [RouteModule])
+
 .value( 'API_URL', window.API_URL)
 .value('API_RESERVATION', window.API_URL + "collaborateur/reservations" )
 
@@ -14,5 +16,7 @@ angular.module('app', [RouteModule])
 
 .component('accueil', AccueilComponent)
 .component('reservations', ReservationsComponent)
+
+.service('ReservationService', ReservationService)
 
 .config(route);

@@ -9,7 +9,7 @@ class controller {
     }
 
     $onInit () {
-        this.BanqueService.getReservations()
+        this.ReservationService.getReservations()
         .then(reservations => this.reservations = reservations)
     }
 }
