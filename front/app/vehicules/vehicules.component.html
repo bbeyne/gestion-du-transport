@@ -1,97 +1,65 @@
-<form class="form-horizontal">
-    <fieldset>
-        <!-- Form Name -->
-        <legend>Véhicule</legend>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="immatInput">Immatriculation</label>
-            <div class="col-md-4">
-                <input id="immatInput" name="immatInput" type="text" placeholder="XX-NNN-XX" class="form-control input-md">
+
+    <form class="form-horizontal container">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Véhicule</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="immatInput">Immatriculation</label>
+                <div class="col-md-4">
+                    <input id="immatInput" name="immatInput" type="text" placeholder="XX-NNN-XX" class="form-control input-md">
+                </div>
             </div>
-        </div>
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="marqueInput">Marque</label>
-            <div class="col-md-4">
-                <input id="marqueInput" name="marqueInput" type="text" placeholder="" class="form-control input-md">
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="marqueInput">Marque</label>
+                <div class="col-md-4">
+                    <input id="marqueInput" name="marqueInput" type="text" placeholder="" class="form-control input-md">
+                </div>
             </div>
-        </div>
-    </fieldset>
-</form>
-<a href="#" class="btnAddVehicule btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un véhicule</a>
+        </fieldset>
+    <a href="#" class="btnAddVehicule btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un véhicule</a>
+    </form>
 
 <br>
 
-<div ng-repeat="vehicule in $ctrl.vehicules track by $index">
-    {{vehicule.id}}
-</div>
 
 
-
-
-<!--
 <div class="container">
         <div  class="row">
-                <div
+                <div ng-repeat="vehicule in $ctrl.vehicules track by $index"
                     class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <h3 class="panel-title">{{vehicule.immatriculation}}</h3>
+                            <h3 class="panel-title">Voiture numéro #{{vehicule.id}}</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-3 col-lg-3 " align="center">
                                     <img alt="User Pic"
-                                        src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
+                                        ng-src="{{vehicule.image}}"
                                         class="img-circle img-responsive">
                                         <br/>
-                                        <a href="#" class="btn btn-sm btn-primary pull-right"><span class="glyphicon glyphicon-search"></span> Détails</a>
                                 </div>
 
                                 <div style="word-wrap: break-word;" class=" col-md-9 col-lg-9 " >
-                                    <table   class="jumbotron table table-user-information">
+                                    <table class="jumbotron table table-user-information">
                                         <tbody>
                                             <tr>
-                                                <td>Matricule:</td>
-                                                <td >${collab.matricule}</td>
+                                                <td >{{vehicule.immatriculation}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Adresse:</td>
-                                                <td>${collab.adresse}</td>
+                                                <td>{{vehicule.marque}} - {{vehicule.modele}}</td>
                                             </tr>
                                             <tr>
-                                                <td>Date de Naissance</td>
-                                                <td>${collab.dateDeNaissance}</td>
+                                                <td>{{vehicule.categorie}}</td>
                                             </tr>
-
-                                            <tr>
-                                            <tr>
-                                                <td>Numéro de sécu:</td>
-                                                <td>${collab.numSecu}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Email Pro:</td>
-                                                <td ><a href="#" style="display: inline-block; word-break: break-word;">${collab.emailPro}</a></td>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-footer">
-                            <a data-original-title="Broadcast Message" data-toggle="tooltip"
-                                type="button" class="btn btn-sm btn-primary"><i
-                                class="glyphicon glyphicon-envelope"></i></a> <span
-                                class="pull-right"> <a href="editer?matricule=${collab.matricule}"
-                                data-original-title="Edit this user" data-toggle="tooltip"
-                                type="button" class="btn btn-sm btn-warning"><i
-                                    class="glyphicon glyphicon-edit"></i> Modifier</a> <a
-                                data-original-title="Remove this user" data-toggle="tooltip"
-                                type="button" class="btn btn-sm btn-danger"><i
-                                    class="glyphicon glyphicon-remove"></i> Supprimer</a>
-                            </span>
-                        </div>
-
                     </div>
                 </div>
         </div>
-    </div>-->
+    </div>

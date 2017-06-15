@@ -1,15 +1,14 @@
-import './vehicules.component.css';
+import './vehicules.component.css'
 import template from './vehicules.component.html';
 
 class controller {
-    constructor (VehiculesComponent) {
-        this.VehiculesComponent=VehiculesComponent
+    constructor (VehiculesService) {
+        this.VehiculesService = VehiculesService
     }
 
     $onInit () {
-        this.VehiculesComponent.getVehicules()
+        this.VehiculesService.getVehicules()
         .then(vehicules => this.vehicules = vehicules)
-        console.log("VehiculesComponent",this.vehicules)
     }
 }
 
