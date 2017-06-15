@@ -13,7 +13,9 @@ import { AnnoncesService } from './annonces/annonces.service';
 angular.module('app', [RouteModule])
 
 .value( 'API_URL', API_URL)
-.value('API_RESERVATION', API_URL + "/collaborateur/reservations" )
+.value('API_RESERVATION', API_URL + "/collaborateur/reservations/encours" )
+.value('API_HISTORIQUE', API_URL + "/collaborateur/reservations/historique" )
+
 
 
 

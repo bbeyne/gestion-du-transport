@@ -1,5 +1,9 @@
 package dev.controller;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +22,24 @@ public class ReservationApiController {
 	@Autowired
 	private ReservationRepository reservationRepo;
 	
-	@GetMapping
-	public List<Reservation> listereservation() {
-		return this.reservationRepo.findAll();
+	
+	@GetMapping(path="/encours")
+	public List<Reservation> listeReservation() {
+		Date date = new Date();
+		return this.reservationRepo.findAll()
+				.stream()
+				.filter(d->d.getIdAnnonce().getDateHeureDepart().after(date))
+				.collect(Collectors.toList());
+	}
+	
+
+	@GetMapping(path="/historique")
+	public List<Reservation> listeHistorique() {
+		Date date = new Date();
+		return this.reservationRepo.findAll()
+				.stream()
+				.filter(d->d.getIdAnnonce().getDateHeureDepart().before(date))
+				.collect(Collectors.toList());
 	}
 	
 }

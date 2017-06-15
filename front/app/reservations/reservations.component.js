@@ -10,6 +10,9 @@ class controller {
     $onInit () {
         this.ReservationService.getReservations()
         .then(reservations => this.reservations = reservations)
+
+        this.ReservationService.getHistorique()
+        .then(historiques => this.historiques  = historiques )
     }
 }
 
