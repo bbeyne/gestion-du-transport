@@ -1,4 +1,4 @@
-export class AnnonceService {
+export class AnnoncesService {
     constructor($http, $q, API_ANONNCE) {
         this.$http = $http;
         this.$q = $q;
