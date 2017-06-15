@@ -16,10 +16,17 @@ public class Voiture {
 	}
 
 	public enum CATEGORIE {
-		CITADINE, 
-		BERLINE,
-		CAR
-	}// A modifier 
+		MINI_URBAINE,
+		MICRO_CITADINE,
+		CITADINE_POLYVENTES,
+		COMPACTES,
+		BERLINE_TAILLE_S,
+		BERLINE_TAILLE_M,
+		BERLINE_TAILLE_L,
+		SUV,
+		TOUT_TERRAINS,
+		PICK_UP
+	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

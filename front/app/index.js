@@ -6,6 +6,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesComponent } from './annonces/annonces.component';
+import { VehiculesComponent } from './vehicules/vehicules.component';
 import { AnnoncesService } from './annonces/annonces.service';
 
 
@@ -20,6 +21,7 @@ angular.module('app', [RouteModule])
 .component('accueil', AccueilComponent)
 .component('reservations', ReservationsComponent)
 .component('annonces', AnnoncesComponent)
+.component('vehicules', VehiculesComponent)
 
 .service('ReservationService', ReservationService)
 .service('AnnoncesService', AnnoncesService)
