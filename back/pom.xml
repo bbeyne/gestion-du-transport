@@ -13,7 +13,7 @@
 	<artifactId>back</artifactId>
 
 	<build>
-		<finalName>back</finalName>	
+		<finalName>back</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -58,6 +58,11 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
+		
+				<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+		</dependency>
 
 		<!-- Provided -->
 		<dependency>
@@ -77,19 +82,19 @@
 		</dependency>
 	</dependencies>
 
-  <profiles>
+	<profiles>
 		<profile>
 			<id>dev-h2</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
-      <dependencies>
-					<dependency>
-			      <groupId>com.h2database</groupId>
-			      <artifactId>h2</artifactId>
-			      <scope>runtime</scope>
-		      </dependency>
-      </dependencies>
+			<dependencies>
+				<dependency>
+					<groupId>com.h2database</groupId>
+					<artifactId>h2</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
 		</profile>
 	</profiles>
 

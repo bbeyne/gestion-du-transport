@@ -1,5 +1,6 @@
 package dev.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -20,7 +21,7 @@ public class Annonce {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private Date dateHeureDepart;
+	private LocalDateTime dateHeureDepart;
 	private int nbPlacesDispo;
 	
 	@Enumerated(EnumType.STRING)
@@ -37,7 +38,7 @@ public class Annonce {
 		super();
 	}
 	
-	public Annonce(Date dateHeureDepart, int nbPlacesDispo, STATUT statut, Profile idProfil, Adresse idAdresseDepart,
+	public Annonce(LocalDateTime dateHeureDepart, int nbPlacesDispo, STATUT statut, Profile idProfil, Adresse idAdresseDepart,
 			Adresse idAdresseArrivee) {
 		super();
 		this.setDateHeureDepart(dateHeureDepart) ;
@@ -47,11 +48,6 @@ public class Annonce {
 		this.AdresseDepart = idAdresseDepart;
 		this.AdresseArrivee = idAdresseArrivee;
 	}
-	
-	
-	
-	
-	
 	
 	//GETTERS & SETTERS
 	public Integer getId() {
@@ -76,6 +72,30 @@ public class Annonce {
 	public Profile getIdProfil() {
 		return Profil;
 	}
+	public Profile getProfil() {
+		return Profil;
+	}
+
+	public void setProfil(Profile profil) {
+		Profil = profil;
+	}
+
+	public Adresse getAdresseDepart() {
+		return AdresseDepart;
+	}
+
+	public void setAdresseDepart(Adresse adresseDepart) {
+		AdresseDepart = adresseDepart;
+	}
+
+	public Adresse getAdresseArrivee() {
+		return AdresseArrivee;
+	}
+
+	public void setAdresseArrivee(Adresse adresseArrivee) {
+		AdresseArrivee = adresseArrivee;
+	}
+
 	public void setIdProfil(Profile idProfil) {
 		this.Profil = idProfil;
 	}
@@ -92,17 +112,11 @@ public class Annonce {
 		this.AdresseArrivee = idAdresseArrivee;
 	}
 
-	public Date getDateHeureDepart() {
+	public LocalDateTime getDateHeureDepart() {
 		return dateHeureDepart;
 	}
 
-	public void setDateHeureDepart(Date dateHeureDepart) {
+	public void setDateHeureDepart(LocalDateTime dateHeureDepart) {
 		this.dateHeureDepart = dateHeureDepart;
 	}
-	
-	
-	
-	
-	
-	
 }

@@ -38,6 +38,21 @@ public class Reservation {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	public Profile getPersonne() {
+		return Personne;
+	}
+	public void setPersonne(Profile personne) {
+		Personne = personne;
+	}
+	public Annonce getAnnonce() {
+		return Annonce;
+	}
+	public void setAnnonce(Annonce annonce) {
+		Annonce = annonce;
+	}
 	public Integer getId() {
 		return id;
 	}
