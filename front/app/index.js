@@ -8,6 +8,7 @@ import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { VehiculesComponent } from './vehicules/vehicules.component';
 import { AnnoncesService } from './annonces/annonces.service';
+import {DetailController} from './reservations/detailsReservation.controller';
 
 
 //Création du module app
@@ -27,5 +28,7 @@ angular.module('app', [RouteModule])
 
 .service('ReservationService', ReservationService)
 .service('AnnoncesService', AnnoncesService)
+
+.controller('detailReservation', DetailController)
 
 .config(route);

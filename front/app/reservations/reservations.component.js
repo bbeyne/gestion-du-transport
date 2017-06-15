@@ -14,6 +14,12 @@ class controller {
         this.ReservationService.getHistorique()
         .then(historiques => this.historiques  = historiques )
     }
+
+    detailReservation (){
+        window.open('details.html','details','menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
+    
+  
+    }
 }
 
 export let ReservationsComponent = {
