@@ -7,6 +7,17 @@
     <title>Front</title>
     <script src="bundle.js"></script>
     <base href="/gestion-du-transport/">
+
+    <style>
+        img{
+            height: 51px;
+            width: 100px;
+        }
+
+        #logoMenu{
+            padding: 0%;
+        }
+    </style>
 </head>
 
 <body id="body" ng-app="app">
@@ -14,7 +25,9 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a id="logoMenu" class="navbar-brand" href="/"></a>
+                <a id="logoMenu" class="navbar-brand" >
+                   <img src="https://s-media-cache-ak0.pinimg.com/736x/88/7b/86/887b869e7dd648cb648f1c5ae40fad48.jpg" alt="">
+                </a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="collaborateur/reservations">Vos Réservation</a></li>
