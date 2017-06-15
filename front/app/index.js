@@ -4,7 +4,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { route } from './app.route';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ReservationsComponent } from './reservations/reservations.component';
-import { ReservationService } from './reservations/reservations.service'
+import { ReservationService } from './reservations/reservations.service';
+import { AnnoncesComponent } from './annonces/annonces.component';
+import { AnnoncesService } from './annonces/annonces.service';
+
 
 //Création du module app
 angular.module('app', [RouteModule])
@@ -16,7 +19,9 @@ angular.module('app', [RouteModule])
 
 .component('accueil', AccueilComponent)
 .component('reservations', ReservationsComponent)
+.component('annonces', AnnoncesComponent)
 
 .service('ReservationService', ReservationService)
+.service('AnnoncesService', AnnoncesService)
 
 .config(route);
