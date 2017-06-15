@@ -9,8 +9,8 @@ import { ReservationService } from './reservations/reservations.service'
 //Création du module app
 angular.module('app', [RouteModule])
 
-.value( 'API_URL', window.API_URL)
-.value('API_RESERVATION', window.API_URL + "collaborateur/reservations" )
+.value( 'API_URL', API_URL)
+.value('API_RESERVATION', API_URL + "/collaborateur/reservations" )
 
 
 

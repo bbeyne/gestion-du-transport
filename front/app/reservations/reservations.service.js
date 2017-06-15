@@ -4,7 +4,7 @@ export class ReservationService {
         this.$q = $q
         this.apiUrlResa = API_RESERVATION
 
-        console.log( API_RESERVATION)
+        console.log("API_RESERVATION", API_RESERVATION)
     }
 
     getReservations() {
