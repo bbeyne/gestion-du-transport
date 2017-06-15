@@ -9,11 +9,16 @@ export function route ($routeProvider, $locationProvider) {
     .when('/collaborateur/reservations', {
         template: '<reservations></reservations>'
     })
+
     .when('/collaborateur/annonces', {
         template: '<annonces></annonces>'
     })
     .when('/admin/vehicules', {
         template: '<vehicules></vehicules>'
+    .when('/login',{
+
+    .when('/connexion',{
+        template: '<login></login>'
     })
     .otherwise({
         redirectTo: '/'
