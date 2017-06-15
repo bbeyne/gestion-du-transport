@@ -1,8 +1,9 @@
 export class ReservationService {
-    constructor($http, $q, API_RESERVATION) {
+    constructor($http, $q, API_RESERVATION, API_HISTORIQUE) {
         this.$http = $http
         this.$q = $q
         this.apiUrlResa = API_RESERVATION
+        this.apiUrlHisto = API_HISTORIQUE
 
         console.log("API_RESERVATION", API_RESERVATION)
     }
@@ -13,4 +14,14 @@ export class ReservationService {
           
             
     }
+
+    getHistorique() {
+        return this.$http.get(this.apiUrlHisto)
+            .then(response => response.data)
+          
+            
+    }
+   
+
+
 }
