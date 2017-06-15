@@ -10,11 +10,10 @@ import { VehiculesComponent } from './vehicules/vehicules.component';
 
 import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
-<<<<<<< HEAD
+
 import { VehiculesService } from './vehicules/vehicules.service';
-=======
-import {DetailController} from './reservations/detailsReservation.controller';
->>>>>>> origin/master
+import { DetailController } from './reservations/detailsReservation.controller';
+
 
 
 //Création du module app
@@ -29,11 +28,10 @@ angular.module('app', [RouteModule])
 .component('reservations', ReservationsComponent)
 .component('annonces', AnnoncesComponent)
 .component('vehicules', VehiculesComponent)
+.controller('detailReservation', DetailController)
 
 .service('ReservationService', ReservationService)
 .service('AnnoncesService', AnnoncesService)
 .service('VehiculesService', VehiculesService)
-
-.controller('detailReservation', DetailController)
 
 .config(route);
