@@ -5,6 +5,7 @@ import { route } from './app.route';
 
 import { AccueilComponent } from './accueil/accueil.component';
 import { ReservationsComponent } from './reservations/reservations.component';
+
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { VehiculesComponent } from './vehicules/vehicules.component';
 
@@ -14,7 +15,7 @@ import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { DetailController } from './reservations/detailsReservation.controller';
 
-
+import { LoginComponent } from './login/login.component';
 
 //Création du module app
 angular.module('app', [RouteModule])
@@ -29,6 +30,7 @@ angular.module('app', [RouteModule])
 .component('annonces', AnnoncesComponent)
 .component('vehicules', VehiculesComponent)
 .controller('detailReservation', DetailController)
+.component('login',LoginComponent)
 
 .service('ReservationService', ReservationService)
 .service('AnnoncesService', AnnoncesService)
