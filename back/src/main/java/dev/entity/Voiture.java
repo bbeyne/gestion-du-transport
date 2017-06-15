@@ -6,6 +6,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Voiture {
@@ -40,7 +41,8 @@ public class Voiture {
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
 	private String urlImage;
-	private int idCoordonnees;
+	@ManyToOne
+	private Coordonees idCoordonnees;
 
 	
 	//CONSTRUCTOR
@@ -49,7 +51,7 @@ public class Voiture {
 	}
 
 	public Voiture(String immatriculation, String marque, String modele, CATEGORIE categorie, int nbPlaces,
-			STATUT statut, String urlImage, int idCoordonnees) {
+			STATUT statut, String urlImage, Coordonees idCoordonnees) {
 		super();
 		this.immatriculation = immatriculation;
 		this.marque = marque;
@@ -64,6 +66,14 @@ public class Voiture {
 
 
 
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	//GETTERS & SETTERS
 	public String getImmatriculation() {
@@ -108,11 +118,15 @@ public class Voiture {
 	public void setUrlImage(String urlImage) {
 		this.urlImage = urlImage;
 	}
-	public int getIdCoordonnees() {
+
+	public Coordonees getIdCoordonnees() {
 		return idCoordonnees;
 	}
-	public void setIdCoordonnees(int idCoordonnees) {
+
+	public void setIdCoordonnees(Coordonees idCoordonnees) {
 		this.idCoordonnees = idCoordonnees;
 	}
+
+
 
 }

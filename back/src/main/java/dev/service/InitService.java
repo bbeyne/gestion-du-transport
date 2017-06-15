@@ -1,6 +1,6 @@
 package dev.service;
 
-public interface ProfilsService {
+public interface InitService {
 
 	void Init();
 

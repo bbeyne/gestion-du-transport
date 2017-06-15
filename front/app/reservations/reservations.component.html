@@ -6,7 +6,7 @@
 
     <h4>Covoiturage</h4>
     
-    <div >
+    <div ng-controller="detailReservation" >
         <label>Réservations en cours</label>
 
 
@@ -25,7 +25,7 @@
                     <td>{{reservation.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
                     <td>{{reservation.idAnnonce.idAdresseDepart.nomRue}}</td>
                     <td>{{reservation.idAnnonce.idAdresseArrivee.nomRue}}</td>
-                    <td><button id="detail" name="detail">Détails</button></td>
+                    <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
                 </tr>
             </tbody>
         </table>
@@ -46,7 +46,7 @@
                     <td>{{historique.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
                     <td>{{historique.idAnnonce.idAdresseDepart.nomRue}}</td>
                     <td>{{historique.idAnnonce.idAdresseArrivee.nomRue}}</td>
-                    <td><button id="detail" name="detail">Détails</button></td>
+                    <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
                 </tr>
         </tbody>
     </table>
