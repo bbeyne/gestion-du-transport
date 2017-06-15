@@ -1,6 +1,7 @@
 package dev.entity;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,7 +21,7 @@ public class Annonce {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private LocalDateTime depart;
+	private Date dateHeureDepart;
 	private int nbPlacesDispo;
 	
 	@Enumerated(EnumType.STRING)
@@ -37,10 +38,10 @@ public class Annonce {
 		super();
 	}
 	
-	public Annonce(LocalDateTime depart, int nbPlacesDispo, STATUT statut, Profile idProfil, Adresse idAdresseDepart,
+	public Annonce(Date dateHeureDepart, int nbPlacesDispo, STATUT statut, Profile idProfil, Adresse idAdresseDepart,
 			Adresse idAdresseArrivee) {
 		super();
-		this.depart = depart;
+		this.setDateHeureDepart(dateHeureDepart) ;
 		this.nbPlacesDispo = nbPlacesDispo;
 		this.statut = statut;
 		this.Profil = idProfil;
@@ -60,12 +61,7 @@ public class Annonce {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public LocalDateTime getDepart() {
-		return depart;
-	}
-	public void setDepart(LocalDateTime depart) {
-		this.depart = depart;
-	}
+
 	public int getNbPlacesDispo() {
 		return nbPlacesDispo;
 	}
@@ -95,6 +91,14 @@ public class Annonce {
 	}
 	public void setIdAdresseArrivee(Adresse idAdresseArrivee) {
 		this.AdresseArrivee = idAdresseArrivee;
+	}
+
+	public Date getDateHeureDepart() {
+		return dateHeureDepart;
+	}
+
+	public void setDateHeureDepart(Date dateHeureDepart) {
+		this.dateHeureDepart = dateHeureDepart;
 	}
 	
 	

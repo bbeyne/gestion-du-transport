@@ -9,6 +9,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 //Création du module app
 angular.module('app', [RouteModule])
 .value( 'API_URL', API_URL)
+.value('API_RESERVATION', API_URL + "collaborateur/reservations" )
 
 
 .component('accueil', AccueilComponent)
