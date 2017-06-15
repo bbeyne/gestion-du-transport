@@ -10,5 +10,7 @@ export class ReservationService {
     getReservations() {
         return this.$http.get(this.apiUrlResa)
             .then(response => response.data)
+          
+            
     }
 }

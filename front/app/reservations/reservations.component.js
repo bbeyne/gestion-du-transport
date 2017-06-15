@@ -1,11 +1,10 @@
 import template from './reservations.component.html';
 
 class controller {
-    constructor (ReservationService, $location, API_RESERVATION) {
+    constructor (ReservationService) {
 
         this.ReservationService = ReservationService
-        this.$location = $location
-        this.apiUrlResa = API_RESERVATION
+        
     }
 
     $onInit () {

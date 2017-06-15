@@ -22,7 +22,7 @@
 
             <tbody>
                 <tr ng-repeat="reservation in $ctrl.reservations track by $index">
-                    <td>{{reservation.idAnnonce.dateHeureDepart}}</td>
+                    <td>{{reservation.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
                     <td>{{reservation.idAnnonce.idAdresseDepart.nomRue}}</td>
                     <td>{{reservation.idAnnonce.idAdresseArrivee.nomRue}}</td>
                     <td><button id="detail" name="detail">Détails</button></td>
@@ -42,18 +42,12 @@
         </thead>
 
         <tbody>
-            <tr>
-                <td>17/06/2017 16:30</td>
-                <td>Gare de Nantes</td>
-                <td>Gare de Saint-Nazaire</td>
-                <td><button id="detail" name="detail">Détails</button></td>
-            </tr>
-             <tr>
-                <td>16/06/2017 15:30</td>
-                <td>Gare de Nantes</td>
-                <td>Gare de Saint-Nazaire</td>
-                <td><button id="detail" name="detail">Détails</button></td>
-            </tr>
+             <tr ng-repeat="reservation in $ctrl.reservations track by $index">
+                    <td>{{reservation.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td>{{reservation.idAnnonce.idAdresseDepart.nomRue}}</td>
+                    <td>{{reservation.idAnnonce.idAdresseArrivee.nomRue}}</td>
+                    <td><button id="detail" name="detail">Détails</button></td>
+                </tr>
         </tbody>
     </table>
    </div>
