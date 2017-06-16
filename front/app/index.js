@@ -1,4 +1,4 @@
-import {API_URL} from '../config.js' //test pour erreur sonar
+//import {API_URL} from '../config.js' //test pour erreur sonar
 
 import angular from 'angular';
 import ngCookies from 'angular-cookies'

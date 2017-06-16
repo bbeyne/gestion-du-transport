@@ -1,8 +1,9 @@
-import {API_URL} from './config.js'
+//import {API_URL} from '/config.js'
 
 const webpack = require('webpack');
 const path = require('path');
 
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://transports-api.cleverapps.io/' : 'http://localhost:8080';
 const publicPath = process.env.NODE_ENV === 'production' ? '' : '/gestion-du-transport/';
 const output = 'public';
 
