@@ -1,53 +1,44 @@
+<h1>VOS ANNONCES</h1>
 
-    <h1>VOS ANNONCES</h1>
-
-    <button id="creerAnnonce" name="creerAnnonce" class=pull-right>Créer une nouvelle annonce</button></br>
-
-
-    <h4>Annonces</h4>
-
-    <div>
-        <label>Annonces en cours</label>
+<button id="creerAnnonce" name="creerAnnonce" class=pull-right>Créer une nouvelle annonce</button></br>
 
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Date-Heure</th>
-                    <th>Départ</th>
-                    <th>Destination</th>
-                    <th>Nombre de voyageurs</th>
-                    <th></th>
-                </tr>
-            </thead>
+<h4>Annonces</h4>
 
-            <tbody>
-                <tr ng-repeat="annonce in $ctrl.annonces track by $index" >
-                    <td>{{annonce.dateHeureDepart.dayOfMonth}}
-                    {{annonce.dateHeureDepart.month}}
-                    {{annonce.dateHeureDepart.year}}
-                     - {{annonce.dateHeureDepart.hour}}
-                     :{{annonce.dateHeureDepart.minute}}
-                     </td>
-                    <td>
-                        {{annonce.idAdresseDepart.numRue}}
-                        {{annonce.idAdresseDepart.libelle}}
-                        {{annonce.idAdresseDepart.nomRue}}
-                        {{annonce.idAdresseDepart.codePostale}}
-                        {{annonce.idAdresseDepart.ville}}
+<div>
+    <label>Annonces en cours</label>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date-Heure</th>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th>Nombre de voyageurs</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="annonce in $ctrl.annonces track by $index">
+                <td>{{annonce.dateHeureDepart.dayOfMonth}} {{annonce.dateHeureDepart.month}} {{annonce.dateHeureDepart.year}} - {{annonce.dateHeureDepart.hour}} :{{annonce.dateHeureDepart.minute}}
+                </td>
+                <td>
+                    {{annonce.idAdresseDepart.numRue}} {{annonce.idAdresseDepart.libelle}} {{annonce.idAdresseDepart.nomRue}} {{annonce.idAdresseDepart.codePostale}} {{annonce.idAdresseDepart.ville}}
 
 
 
-                    </td>
-                    <td>{{annonce.idAdresseArrivee.nomRue}}</td>
-                    <td>{{annonce.nbPlacesDispo}}</td>
-                    <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
-                </tr>
-            </tbody>
-        </table>
+                </td>
+                <td>{{annonce.idAdresseArrivee.nomRue}}</td>
+                <td>{{annonce.nbPlacesDispo}}</td>
+                <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
+            </tr>
+        </tbody>
+    </table>
 
-     <label>Historique</label>
-      <table class="table table-striped">
+    <label>Historique</label>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Date-Heure</th>
@@ -58,19 +49,28 @@
         </thead>
 
         <tbody>
-            <tr ng-repeat="historique in $ctrl.historiques track by $index" >
+            <tr ng-repeat="historique in $ctrl.historiques track by $index">
                 <!-- <td>{{historique.dateHeureDepart.dayOfMonth}}</td> -->
-                <td>{{historique.dateHeureDepart.dayOfMonth}}
-                {{historique.dateHeureDepart.month}}
-                {{historique.dateHeureDepart.year}}
-                 - {{historique.dateHeureDepart.hour}}
-                 :{{historique.dateHeureDepart.minute}}
-                 </td>
+                <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
+                </td>
                 <td>{{historique.idAdresseDepart.nomRue}}</td>
                 <td>{{historique.idAdresseArrivee.nomRue}}</td>
                 <td>{{historique.nbPlacesDispo}}</td>
                 <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
             </tr>
+
         </tbody>
     </table>
-   </div>
+</div>
+
+<div class="container">
+    <ul class="pagination">
+        <li class="disabled"><a href="#">«</a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">»</a></li>
+    </ul>
+</div>

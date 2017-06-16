@@ -1,7 +1,7 @@
 //import {API_URL} from '../config.js' //test pour erreur sonar
 
 import angular from 'angular';
-import ngCookies from 'angular-cookies'
+import ngCookies from 'angular-cookies';
 import RouteModule from 'angular-route';
 import 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js';
 import 'bootstrap/dist/css/bootstrap.css';

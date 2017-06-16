@@ -23,6 +23,7 @@ public class ReservationApiController {
 	
 	@GetMapping(path="/encours")
 	public List<Reservation> listeReservation(@PathParam(value="matricule") String matricule) {
+
 		return this.reservationRepo.findAll()
 				.stream()
 				.filter(d->d.getIdPersonne().getMatricule().equals(matricule))

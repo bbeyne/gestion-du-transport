@@ -3,11 +3,11 @@ package dev.controller;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import dev.entity.Annonce;
 import dev.repository.AnnonceRepository;
 
@@ -19,21 +19,21 @@ public class AnnonceApiController {
 	private AnnonceRepository annonceRepository;
 
 	@GetMapping(path="/encours")
-	public List<Annonce> listeEnCours() {
+	public List<Annonce> listeEnCours(@PathParam(value="matricule") String matricule) {
 
 		return this.annonceRepository.findAll()
 				.stream()
-				.filter(annonce->annonce.getDateHeureDepart().isAfter(LocalDateTime.now()))
+				.filter(d->d.getProfil().getMatricule().equals(matricule))
+				.filter(d->d.getDateHeureDepart().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
 
-
 	@GetMapping(path="/historique")
-	public List<Annonce> listeHistorique() {
-
+	public List<Annonce> listeHistorique(@PathParam(value="matricule") String matricule) {
 		return this.annonceRepository.findAll()
 				.stream()
-				.filter(annonce->annonce.getDateHeureDepart().isBefore(LocalDateTime.now()))
+				.filter(d->d.getProfil().getMatricule().equals(matricule))
+				.filter(d->d.getDateHeureDepart().isBefore(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
 
