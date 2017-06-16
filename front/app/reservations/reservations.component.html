@@ -1,12 +1,14 @@
 
     <h1>VOS RESERVATIONS</h1>
 
-    <button id="reserver" name="reserver" class=pull-right>Réserver un transport</button></br>
+    <button id="reserver" name="reserver" class=pull-right >Réserver un transport</button></br>
 
 
     <h4>Covoiturage</h4>
 
-    <div ng-controller="detailReservation" >
+    
+    <div >
+        
         <label>Réservations en cours</label>
 
 
@@ -29,8 +31,10 @@
                      :{{reservation.idAnnonce.dateHeureDepart.minute}}
                      </td>
                     <td>{{reservation.idAnnonce.idAdresseDepart.nomRue |date:'MM/dd/yyyy @ h:mma'}}</td>
+                    <td>{{reservation.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
+                    <td>{{reservation.idAnnonce.idAdresseDepart.nomRue }}</td>
                     <td>{{reservation.idAnnonce.idAdresseArrivee.nomRue}}</td>
-                    <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
+                    <td><button id="detail" name="detail" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myDetail" >Détails</button></td>
                 </tr>
             </tbody>
         </table>
@@ -55,10 +59,17 @@
                      :{{historique.idAnnonce.dateHeureDepart.minute}}
                      </td>
 
-                    <td>{{historique.idAnnonce.idAdresseDepart.nomRue | date:'MM/dd/yyyy HH:mm'}}</td>
+                    <td>{{historique.idAnnonce.idAdresseDepart.nomRue}}</td>
                     <td>{{historique.idAnnonce.idAdresseArrivee.nomRue}}</td>
-                    <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
+                    <td><button id="detail" name="detail"  class="btn btn-info btn-lg" ng-click="$ctrl.detailsReservation(historique)">Détails</button></td>
+
+                    
                 </tr>
         </tbody>
     </table>
-   </div>
+
+
+   
+</div>
+  
+

@@ -1,6 +1,7 @@
 import angular from 'angular';
 import ngCookies from 'angular-cookies'
 import RouteModule from 'angular-route';
+import 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import { route } from './app.route';
 
@@ -15,12 +16,14 @@ import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
 
-import { DetailController } from './reservations/detailsReservation.controller';
+
+import { LoginComponent } from './login/login.component';
 
 
 
 //Création du module app
-angular.module('app', [RouteModule, ngCookies])
+angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
+
 
 .value( 'API_URL', API_URL)
 
@@ -38,12 +41,11 @@ angular.module('app', [RouteModule, ngCookies])
 .component('vehicules', VehiculesComponent)
 .component('login',LoginComponent)
 
-
 .service('LoginService', LoginService)
 .service('ReservationService', ReservationService)
 .service('AnnoncesService', AnnoncesService)
 .service('VehiculesService', VehiculesService)
 
-.controller('detailReservation', DetailController)
-
 .config(route);
+
+
