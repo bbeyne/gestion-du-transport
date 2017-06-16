@@ -4,23 +4,31 @@ export function route ($routeProvider, $locationProvider) {
 
     $routeProvider
     .when('/', {
-        template: '<accueil></accueil>'
+        template: '<accueil></accueil>',
+        requireAuth: true,
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"] 
     })
     .when('/collaborateur/reservations', {
-        template: '<reservations></reservations>'
+        template: '<reservations></reservations>',
+        requireAuth: true,
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"] 
     })
 
     .when('/collaborateur/annonces', {
-        template: '<annonces></annonces>'
+        template: '<annonces></annonces>',
+        requireAuth: true,
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"] 
     })
     .when('/admin/vehicules', {
-        template: '<vehicules></vehicules>'
+        template: '<vehicules></vehicules>',
+        requireAuth: true,
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"] 
     })
     .when('/connexion',{
         template: '<login></login>'
     })
     .otherwise({
-        redirectTo: '/'
+        redirectTo: '/connexion'
     });
 
 }

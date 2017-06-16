@@ -9,7 +9,7 @@ export class ReservationService {
     }
 
     getReservations() {
-        console.log(this.LoginService.LoadCookie().matricule)
+        console.log(this.LoginService.LoadCookie())
         return this.$http.get(this.apiUrlResa+"?matricule="+this.LoginService.LoadCookie().matricule)
             .then(response => response.data)
           

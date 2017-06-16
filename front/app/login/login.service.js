@@ -15,7 +15,7 @@ export class LoginService {
     	this.$cookies.putObject('profil',profil)
     }
     RemoveCookie(){
-    	this.$cookies.remove('profil')
+    	return this.$cookies.remove('profil')
     }
     LoadCookie(){
     	return this.$cookies.getObject('profil')
