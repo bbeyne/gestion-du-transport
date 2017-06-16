@@ -1,16 +1,20 @@
 import template from './annonces.component.html';
 
 class controller {
-    constructor (AnnonceService, $location, API_ANONNCE) {
-
-        this.AnnonceService = AnnonceService;
-        this.$location = $location;
-        this.apiUrlAnnonce = API_ANONNCE;
+    constructor (AnnoncesService) {
+        this.AnnoncesService = AnnoncesService;
     }
 
     $onInit () {
-        this.AnnonceService.getAnnonces()
+        this.AnnoncesService.getReservations()
         .then(annonces => this.annonces = annonces);
+
+        this.AnnoncesService.getHistorique()
+        .then(historiques => this.historiques = historiques);
+    }
+
+    detailAnnonce (){
+        window.open('details.html','details','menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
     }
 }
 
