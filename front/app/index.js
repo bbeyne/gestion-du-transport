@@ -18,6 +18,7 @@ import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
 
+
 //Création du module app
 angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 
