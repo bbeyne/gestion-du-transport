@@ -17,13 +17,17 @@ import { DetailController } from './reservations/detailsReservation.controller';
 
 import { LoginComponent } from './login/login.component';
 
+
+const API = API_URL || "http://localhost:8080"
+
 //Création du module app
 angular.module('app', [RouteModule])
 
-.value( 'API_URL', API_URL)
-.value('API_RESERVATION', API_URL + "/collaborateur/reservations/encours" )
-.value('API_HISTORIQUE', API_URL + "/collaborateur/reservations/historique" )
-.value('API_VEHICULE', API_URL + "/admin/vehicule/listerVehicule" )
+
+.value( 'API_URL', API)
+.value('API_RESERVATION', API + "/collaborateur/reservations/encours" )
+.value('API_HISTORIQUE', API + "/collaborateur/reservations/historique" )
+.value('API_VEHICULE', API + "/admin/vehicule/" )
 
 .component('accueil', AccueilComponent)
 .component('reservations', ReservationsComponent)

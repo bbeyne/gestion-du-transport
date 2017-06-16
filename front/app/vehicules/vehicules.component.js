@@ -9,6 +9,9 @@ class controller {
     $onInit () {
         this.VehiculesService.getVehicules()
         .then(vehicules => this.vehicules = vehicules)
+
+        this.VehiculesService.getNbCategorie()
+        .then(nbCategorie => this.categories = nbCategorie)
     }
 }
 
