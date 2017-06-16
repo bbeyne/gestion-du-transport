@@ -24,15 +24,14 @@ public class LoginController {
 	private PersonneService persRep;
 	@GetMapping
 	public Profile Authentification(@RequestParam(value = "email") String email, @RequestParam(value = "password") String password){
-		List<Personne> list = persRep.listerPersonne();
-		Personne personne = list.stream().filter(p -> p.email.equals(email)).collect(Collectors.toList()).get(0);
-		if (personne==null) return null;
-		else{
-			if (!personne.password.equals(DigestUtils.sha1Hex(password))) return null;
-			else{
+		List<Personne> list = persRep.listerPersonne().stream().filter(p -> p.email.equals(email)).collect(Collectors.toList());
+		if (!list.isEmpty()){
+			Personne personne = list.get(0);
+			if (personne.password.equals(DigestUtils.sha1Hex(password))){
 				return profilRep.findByMatricule(personne.matricule).get(0);
 			}
 		}
+		return null;
 	}
 
 }

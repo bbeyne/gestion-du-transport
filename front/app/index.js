@@ -43,7 +43,7 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .service('VehiculesService', VehiculesService)
 
 
-.controller('detailReservation', DetailController)
+// .controller('detailReservation', DetailController)
 .controller('DeconnectionController', class DeconnectionController {
     constructor (LoginService,$location) {
         this.LoginService = LoginService
@@ -56,5 +56,3 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 })
 
 .config(route);
-
-

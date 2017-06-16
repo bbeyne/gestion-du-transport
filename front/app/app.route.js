@@ -6,7 +6,7 @@ export function route ($routeProvider, $locationProvider) {
     .when('/', {
         template: '<accueil></accueil>',
         requireAuth: true,
-        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"] 
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
     })
     .when('/collaborateur/reservations', {
         template: '<reservations></reservations>',
@@ -17,12 +17,12 @@ export function route ($routeProvider, $locationProvider) {
     .when('/collaborateur/annonces', {
         template: '<annonces></annonces>',
         requireAuth: true,
-        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"] 
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
     })
     .when('/admin/vehicules', {
         template: '<vehicules></vehicules>',
         requireAuth: true,
-        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"] 
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
     })
     .when('/connexion',{
         template: '<login></login>'

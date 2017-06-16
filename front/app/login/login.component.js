@@ -11,10 +11,9 @@ class controller {
         .then(profil => this.LoginService.SaveCookie(profil))
         .then(() => this.$location.path('/'))
     }
-    deconnection(){
-        console.log("ddd")
-        this.LoginService.RemoveCookie().then(() => this.$location.path('/connexion'))
-    }
+    // deconnection(){
+    //     this.LoginService.RemoveCookie().then(() => this.$location.path('/connexion'))
+    // }
 }
 
 export let LoginComponent = {
