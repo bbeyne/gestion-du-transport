@@ -1,8 +1,12 @@
 import './vehicules.component.css'
 import template from './vehicules.component.html';
+import templateAddVehicule from './ajouterVehicule.html';
+
+
 
 class controller {
-    constructor (VehiculesService) {
+    constructor (VehiculesService,$uibModal) {
+        this.$uibModal=$uibModal
         this.VehiculesService = VehiculesService
     }
 
@@ -12,6 +16,15 @@ class controller {
 
         this.VehiculesService.getNbCategorie()
         .then(nbCategorie => this.categories = nbCategorie)
+    }
+
+    ajouterVehicule(){
+        this.$uibModal.open({
+            animation: true,
+            template: templateAddVehicule,
+            controller,
+            controllerAs: '$ctrl',
+        });
     }
 }
 

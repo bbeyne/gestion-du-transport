@@ -17,100 +17,10 @@
             </div>
         </div>
     </fieldset>
-    <a href="#" class="btnAddVehicule btn btn-primary" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus"></span> Ajouter un véhicule</a>
+    <a href="#" ng-click="$ctrl.ajouterVehicule()" class="btnAddVehicule btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Ajouter un véhicule</a>
 </form>
 
 <br>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form name="addVoiture" class="form-horizontal" method="post">
-                    <fieldset>
-
-                        <!-- Form Name -->
-                        <legend>Ajout d'un véhicule</legend>
-
-                        <!-- Text input-->
-                        <div class="form-group form-group has-error has-feedback">
-                            <label class="col-md-4 control-label" for="immatriculationInput">Immatriculation</label>
-                            <div class="col-md-4 " >
-                                <span
-                                class="glyphicon glyphicon-remove form-control-feedback"
-                                ng-show="addVoiture.immatriculationInput.$touched &&
-                                 addVoiture.immatriculationInput.$invalid" >
-                                 L'immatriculation est obligatoire*
-                                 </span>
-                                <input  id="immatriculationInput" ng-model="immatriculationInput" name="immatriculationInput" type="text" placeholder="" class="form-control input-md" required>
-
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="marqueInput">Marque</label>
-                            <div class="col-md-4">
-                                <input id="marqueInput" name="marqueInput" type="text" placeholder="" class="form-control input-md" required>
-
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="modeleInput">Modèle</label>
-                            <div class="col-md-4">
-                                <input id="modeleInput" name="modeleInput" type="text" placeholder="" class="form-control input-md" required="">
-
-                            </div>
-                        </div>
-
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="selectCategorie">Catégorie</label>
-                            <div class="col-md-4">
-                                <select id="selectCategorie" name="selectCategorie" class="form-control">
-                                    <option ng-repeat="categorie in $ctrl.categories ">{{categorie}}</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="nbPlaceInput">Nombre de places</label>
-                            <div class="col-md-4">
-                                <input id="nbPlaceInput" name="nbPlaceInput" type="text" placeholder="" class="form-control input-md" placeholder="maxi 20 places" required="">
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="urlImageInput">Photo</label>
-                            <div class="col-md-4">
-                                <input id="urlImageInput" name="urlImageInput" type="text" placeholder="" class="form-control input-md" required="">
-
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
-
-
-            </div>
-            <div class="modal-footer">
-                <button href="#" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                <button type="submit" class="btn btn-primary">Ajouter</button>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 
 <div class="container">
