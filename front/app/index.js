@@ -1,24 +1,26 @@
 import angular from 'angular';
+import ngCookies from 'angular-cookies'
 import RouteModule from 'angular-route';
 import 'bootstrap/dist/css/bootstrap.css';
 import { route } from './app.route';
 
 import { AccueilComponent } from './accueil/accueil.component';
 import { ReservationsComponent } from './reservations/reservations.component';
-
 import { AnnoncesComponent } from './annonces/annonces.component';
 import { VehiculesComponent } from './vehicules/vehicules.component';
+import { LoginComponent } from './login/login.component';
 
 import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
+import { LoginService } from './login/login.service';
 
 import { DetailController } from './reservations/detailsReservation.controller';
 
-import { LoginComponent } from './login/login.component';
+
 
 //Création du module app
-angular.module('app', [RouteModule])
+angular.module('app', [RouteModule, ngCookies])
 
 .value( 'API_URL', API_URL)
 .value('API_RESERVATION', API_URL + "/collaborateur/reservations/encours" )
@@ -32,7 +34,7 @@ angular.module('app', [RouteModule])
 .component('login',LoginComponent)
 
 
-
+.service('LoginService', LoginService)
 .service('ReservationService', ReservationService)
 .service('AnnoncesService', AnnoncesService)
 .service('VehiculesService', VehiculesService)

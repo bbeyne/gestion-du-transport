@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -39,5 +40,9 @@ public class PersonneServiceDev implements PersonneService{
 	        e.printStackTrace();
 	    }
 		return null;
+	}
+	public Personne PersonneByMatricule(String matricule){
+		List<Personne> list= listerPersonne();
+		return list.stream().filter(p->p.matricule==matricule).collect(Collectors.toList()).get(0);	
 	}
 }
