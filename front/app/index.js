@@ -38,6 +38,5 @@ angular.module('app', [RouteModule])
 .service('VehiculesService', VehiculesService)
 
 .controller('detailReservation', DetailController)
-.controller('detailReservation', DetailController)
 
 .config(route);

@@ -23,7 +23,7 @@
             <tbody >
                 <tr ng-repeat="reservation in $ctrl.reservations track by $index" >
                     <td>{{reservation.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
-                    <td>{{reservation.idAnnonce.idAdresseDepart.nomRue}}</td>
+                    <td>{{reservation.idAnnonce.idAdresseDepart.nomRue |date:'MM/dd/yyyy @ h:mma'}}</td>
                     <td>{{reservation.idAnnonce.idAdresseArrivee.nomRue}}</td>
                     <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
                 </tr>
@@ -43,8 +43,14 @@
 
         <tbody>
              <tr ng-repeat="historique in $ctrl.historiques  track by $index">
-                    <td>{{historique.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
-                    <td>{{historique.idAnnonce.idAdresseDepart.nomRue}}</td>
+                    <td>{{historique.idAnnonce.dateHeureDepart.dayOfMonth}}
+                    {{historique.idAnnonce.dateHeureDepart.month}}
+                    {{historique.idAnnonce.dateHeureDepart.year}}
+                     - {{historique.idAnnonce.dateHeureDepart.hour}}
+                     :{{historique.idAnnonce.dateHeureDepart.minute}}
+                     </td>
+
+                    <td>{{historique.idAnnonce.idAdresseDepart.nomRue | date:'MM/dd/yyyy HH:mm'}}</td>
                     <td>{{historique.idAnnonce.idAdresseArrivee.nomRue}}</td>
                     <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
                 </tr>

@@ -15,8 +15,7 @@ export function route ($routeProvider, $locationProvider) {
     })
     .when('/admin/vehicules', {
         template: '<vehicules></vehicules>'
-    .when('/login',{
-
+    })
     .when('/connexion',{
         template: '<login></login>'
     })
