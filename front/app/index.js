@@ -16,9 +16,6 @@ import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
 
-
-import { LoginComponent } from './login/login.component';
-
 const API = API_URL || "http://localhost:8080"
 
 
