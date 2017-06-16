@@ -4,7 +4,7 @@ class controller {
     constructor (ReservationService) {
 
         this.ReservationService = ReservationService
-        
+
     }
 
     $onInit () {

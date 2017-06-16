@@ -23,8 +23,13 @@ import { DetailController } from './reservations/detailsReservation.controller';
 angular.module('app', [RouteModule, ngCookies])
 
 .value( 'API_URL', API_URL)
+
 .value('API_RESERVATION', API_URL + "/collaborateur/reservations/encours" )
 .value('API_HISTORIQUE', API_URL + "/collaborateur/reservations/historique" )
+
+.value('API_ANNONCE', API_URL + "/collaborateur/annonces/encours" )
+.value('API_ANNONCE_HISTORIQUE', API_URL + "/collaborateur/annonces/historique" )
+
 .value('API_VEHICULE', API_URL + "/admin/vehicule/listerVehicule" )
 
 .component('accueil', AccueilComponent)
