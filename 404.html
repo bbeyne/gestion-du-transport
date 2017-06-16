@@ -32,6 +32,7 @@
 </head>
 
 <body class="container" id="body" ng-app="app">
+<auth></auth>
 <header>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
@@ -41,14 +42,15 @@
                 </a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="collaborateur/reservations">Vos Réservation</a></li>
-                <li><a href="collaborateur/annonces">Vos annonces</a></li>
-                <li><a href="collaborateur/statistiques">Statistiques</a></li>
-                <li><a href="chauffeur/planning">Planning</a></li>
-                <li><a href="chauffeur/occupation">Occupation</a></li>
-                <li><a href="admin/vehicules">Véhicule</a></li>
-                <li><a href="admin/occupation">Chauffeur</a></li>
-                <li><a href="connexion">Login</a></li>
+                <li><a ng-href="collaborateur/reservations">Vos Réservation</a></li>
+                <li><a ng-href="collaborateur/annonces">Vos annonces</a></li>
+                <li><a ng-href="collaborateur/statistiques">Statistiques</a></li>
+                <li><a ng-href="chauffeur/planning">Planning</a></li>
+                <li><a ng-href="chauffeur/occupation">Occupation</a></li>
+                <li><a ng-href="admin/vehicules">Véhicule</a></li>
+                <li><a ng-href="admin/occupation">Chauffeur</a></li>
+                <li><a ng-href="connexion">Login</a></li>
+                <li ng-controller="DeconnectionController as $ctrl"><button ng-click="$ctrl.deconnection()">Deconnection</button>
             </ul>
         </div>
     </nav>
