@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.entity.Personne;
 import dev.entity.Profile;
+import dev.entity.Profile.TYPE;
 import dev.repository.ProfilRepository;
 import dev.service.PersonneService;
 
@@ -31,7 +32,7 @@ public class LoginController {
 				return profilRep.findByMatricule(personne.matricule).get(0);
 			}
 		}
-		return null;
+		return new Profile("", TYPE.INCONNU, "");
 	}
 
 }

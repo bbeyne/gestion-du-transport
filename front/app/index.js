@@ -14,6 +14,7 @@ import { AnnoncesComponent } from './annonces/annonces.component';
 import { VehiculesComponent } from './vehicules/vehicules.component';
 import { LoginComponent } from './login/login.component';
 import { AuthComponent} from './auth/auth.component';
+import { MenuComponent} from './menu/menu.component';
 
 import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
@@ -37,6 +38,7 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .component('vehicules', VehiculesComponent)
 .component('login',LoginComponent)
 .component('auth',AuthComponent)
+.component('menu',MenuComponent)
 
 .service('LoginService', LoginService)
 .service('ReservationService', ReservationService)
@@ -45,15 +47,6 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 
 
 // .controller('detailReservation', DetailController)
-.controller('DeconnectionController', class DeconnectionController {
-    constructor (LoginService,$location) {
-        this.LoginService = LoginService
-        this.$location= $location
-    }
-    deconnection(){
-    	this.LoginService.RemoveCookie()
-    	this.$location.path('/connexion')
-    }
-})
+
 
 .config(route);

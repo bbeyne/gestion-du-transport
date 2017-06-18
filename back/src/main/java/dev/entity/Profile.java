@@ -13,7 +13,8 @@ public class Profile {
 	public enum TYPE {
 		COLLABORATEUR, 
 		CHAUFFEUR,
-		ADMIN
+		ADMIN,
+		INCONNU
 	}
 	
 	@Id

@@ -8,12 +8,12 @@ class controller {
 
     authentif (form) {
         this.LoginService.Authentification(this.email,this.password)
-        .then(profil => this.LoginService.SaveCookie(profil))
-        .then(() => this.$location.path('/'))
+        .then(profil => {
+            this.LoginService.SaveCookie(profil);
+            this.$location.path('/');
+        });
     }
-    // deconnection(){
-    //     this.LoginService.RemoveCookie().then(() => this.$location.path('/connexion'))
-    // }
+
 }
 
 export let LoginComponent = {
