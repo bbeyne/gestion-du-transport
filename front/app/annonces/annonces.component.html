@@ -61,16 +61,69 @@
 
         </tbody>
     </table>
+
+
+    <label>Historique</label>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date-Heure</th>
+                <th>Départ</th>
+                <th>Destination</th>
+                <th>Nombre de voyageurs</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat="historique in $ctrl.historiques track by $index">
+                <!-- <td>{{historique.dateHeureDepart.dayOfMonth}}</td> -->
+                <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
+                </td>
+                <td>{{historique.idAdresseDepart.nomRue}}</td>
+                <td>{{historique.idAdresseArrivee.nomRue}}</td>
+                <td>{{historique.nbPlacesDispo}}</td>
+                <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
+            </tr>
+
+        </tbody>
+    </table>
 </div>
+
+test
+<label>Historique</label>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date-Heure</th>
+            <th>Départ</th>
+            <th>Destination</th>
+            <th>Nombre de voyageurs</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
+
+            <!-- <td>{{historique.dateHeureDepart.dayOfMonth}}</td> -->
+            <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
+            </td>
+            <td>{{historique.idAdresseDepart.nomRue}}</td>
+            <td>{{historique.idAdresseArrivee.nomRue}}</td>
+            <td>{{historique.nbPlacesDispo}}</td>
+            <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
+        </tr>
+
+    </tbody>
+</table>
+</div>
+
+<pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
 
 <div class="container">
     <ul class="pagination">
-        <li class="disabled"><a href="#">«</a></li>
-        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">»</a></li>
+        <li ng-class="{disabled:$ctrl.currentPage === 1}" ><a ng-click="$ctrl.changePage($ctrl.currentPage-1)" >«</a></li>
+        <li ng-repeat="page in $ctrl.pages" ng-class="{active:$ctrl.currentPage === page}">
+        <a  ng-click="$ctrl.changePage(page)">{{page}} <span class="sr-only">(current)</span></a></li>
+        <li class="{disabled:$ctrl.currentPage===$ctrl.maxSize-1"><a ng-click="$ctrl.changePage($ctrl.currentPage+1)">»</a></li>
     </ul>
 </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,49 +13,51 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <base href="/gestion-du-transport/">
     <style>
+        header {
+            padding: 7%;
+        }
 
-       header {
-           padding: 7%;
-       }
+        img {
+            height: 51px;
+            width: 100px;
+        }
 
-       img {
-           height: 51px;
-           width: 100px;
-       }
+        #logoMenu {
+            padding: 0%;
+        }
 
-       #logoMenu {
-           padding: 0%;
-       }
-
-
+        a {
+            cursor: pointer;
+        }
     </style>
 
 </head>
 
 <body class="container" id="body" ng-app="app">
-<auth></auth>
-<header>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a id="logoMenu" class="navbar-brand" >
+    <auth></auth>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a id="logoMenu" class="navbar-brand">
                    <img src="https://s-media-cache-ak0.pinimg.com/736x/88/7b/86/887b869e7dd648cb648f1c5ae40fad48.jpg" alt="">
                 </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a ng-href="collaborateur/reservations">Vos Réservation</a></li>
+                    <li><a ng-href="collaborateur/annonces">Vos annonces</a></li>
+                    <li><a ng-href="collaborateur/statistiques">Statistiques</a></li>
+                    <li><a ng-href="chauffeur/planning">Planning</a></li>
+                    <li><a ng-href="chauffeur/occupation">Occupation</a></li>
+                    <li><a ng-href="admin/vehicules">Véhicule</a></li>
+                    <li><a ng-href="admin/occupation">Chauffeur</a></li>
+                    <li><a ng-href="connexion">Login</a></li>
+                    <li ng-controller="DeconnectionController as $ctrl"><button ng-click="$ctrl.deconnection()">Deconnection</button>
+                </ul>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a ng-href="collaborateur/reservations">Vos Réservation</a></li>
-                <li><a ng-href="collaborateur/annonces">Vos annonces</a></li>
-                <li><a ng-href="collaborateur/statistiques">Statistiques</a></li>
-                <li><a ng-href="chauffeur/planning">Planning</a></li>
-                <li><a ng-href="chauffeur/occupation">Occupation</a></li>
-                <li><a ng-href="admin/vehicules">Véhicule</a></li>
-                <li><a ng-href="admin/occupation">Chauffeur</a></li>
-                <li><a ng-href="connexion">Login</a></li>
-                <li ng-controller="DeconnectionController as $ctrl"><button ng-click="$ctrl.deconnection()">Deconnection</button>
-            </ul>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
     <ng-view></ng-view>
 </body>
+
 </html>

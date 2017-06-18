@@ -5,6 +5,7 @@ import ngCookies from 'angular-cookies';
 import RouteModule from 'angular-route';
 import 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js';
 import 'bootstrap/dist/css/bootstrap.css';
+import ngPagination from 'angular-simple-pagination';
 import { route } from './app.route';
 
 import { AccueilComponent } from './accueil/accueil.component';

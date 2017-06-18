@@ -75,7 +75,7 @@ public class InitServicedev implements InitService {
 				adresse1);
 		Annonce annonce3 = new Annonce(dateHeureDepart2, 1, Annonce.STATUT.TERMINE, profilrep.getOne(3), adresse1,
 				adresse2);
-		Annonce annonce4 = new Annonce(dateHeureDepart3, 5, Annonce.STATUT.ANNULE, profilrep.getOne(2), adresse1,
+		Annonce annonce4 = new Annonce(dateHeureDepart1, 5, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
 				adresse2);
 		Annonce annonce5 = new Annonce(dateHeureDepart4, 5, Annonce.STATUT.TERMINE, profilrep.getOne(5), adresse2,
 				adresse1);
@@ -84,6 +84,8 @@ public class InitServicedev implements InitService {
 		annonceRepository.save(annonce3);
 		annonceRepository.save(annonce4);
 		annonceRepository.save(annonce5);
+		annonceRepository.save(new Annonce(dateHeureDepart1, 3, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
+				adresse2));
 
 		Reservation reservation1 = new Reservation(Reservation.STATUT.ANNULE, profilrep.getOne(1), annonce3);
 		Reservation reservation2 = new Reservation(Reservation.STATUT.EN_COURS, profilrep.getOne(2), annonce2);
