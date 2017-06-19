@@ -4,7 +4,7 @@ import templateModal from './detailsResa.html';
 
 
 class controller {
-    constructor (ReservationService, $uibModal, $location) {
+    constructor (ReservationService, $uibModal) {
 
         this.ReservationService = ReservationService
         this.$uibModal = $uibModal
@@ -14,7 +14,6 @@ class controller {
         this.itemsPerPage = 2;
         this.maxSize = 0;
         this.pages = [];
-        this.$location=$location;
 
     }
 
@@ -45,6 +44,7 @@ class controller {
 
 
         this.$uibModal.open({
+           
             animation: true,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
@@ -54,16 +54,21 @@ class controller {
                  this.fermer = () => {
                         $uibModalInstance.dismiss('cancel');
                  }
+            
+                
             },
             controllerAs: '$ctrl',
-    });
+            backdrop:false
+           
+    })
+    .result.catch(function (res) {
+           if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
+               console.log(res)
+               throw res;
+           }
+       });
 
    }
-
-   close(){
-       // $uibModal.close();
-        this.$location.path('/collaborateur/reservations')
-    }
 }
 
 
