@@ -22,7 +22,7 @@ export function route ($routeProvider, $locationProvider) {
     .when('/admin/vehicules', {
         template: '<menu></menu> <vehicules></vehicules>',
         requireAuth: true,
-        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
+        authorizeRole: ["ADMIN"]
     })
     .when('/connexion',{
         template: '<login></login>'

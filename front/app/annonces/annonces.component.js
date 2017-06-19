@@ -23,7 +23,6 @@ class controller {
                 this.maxSize = Math.ceil(this.totalItems / this.itemsPerPage);
                 for (var i = 1; i <= this.maxSize; i++) {
                     this.pages.push(i);
-                    console.log(this.maxSize);
                 }
             });
     }

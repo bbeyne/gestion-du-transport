@@ -8,7 +8,6 @@ export class AnnoncesService {
     }
 
     getReservations() {
-        console.log(this.LoginService.LoadCookie().matricule);
         return this.$http.get(this.apiUrlAnnonce+"?matricule="+this.LoginService.LoadCookie().matricule)
             .then(response => response.data);
     }

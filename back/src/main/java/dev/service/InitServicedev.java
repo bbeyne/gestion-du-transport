@@ -95,6 +95,8 @@ public class InitServicedev implements InitService {
 		reservationRepository.save(reservation2);
 		reservationRepository.save(reservation3);
 		reservationRepository.save(reservation4);
+		reservationRepository.save(new Reservation(Reservation.STATUT.EN_COURS, profilrep.getOne(3), annonce1));
+		reservationRepository.save(new Reservation(Reservation.STATUT.EN_COURS, profilrep.getOne(3), annonce1));
 
 		LocalDateTime dateCoordonnees1 = LocalDateTime.of(2017, 5, 4, 12, 00, 55);
 		LocalDateTime dateCoordonnees2 = LocalDateTime.of(2017, 1, 6, 12, 12, 41);
