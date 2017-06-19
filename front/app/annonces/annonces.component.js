@@ -27,7 +27,10 @@ class controller {
             });
     }
     changePage(num) {
-        this.currentPage = num;
+        if ( !(num ===0 || num > this.historiques.length-1) ) {
+                    this.currentPage = num;
+        }
+
     }
     detailAnnonce() {
         window.open('details.html', 'details', 'menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
