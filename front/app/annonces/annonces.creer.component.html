@@ -1,2 +1,114 @@
-<h1>Creer une annonce</h1>
+<form class="form-horizontal">
+    <fieldset>
 
+        <!-- Form Name -->
+        <legend>Publier une annonce</legend>
+
+        <pre>Itinéraire</pre>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="adresseDepart">Adresse de départ *</label>
+            <div class="col-md-4">
+                <input id="adresseDepart" name="adresseDepart" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="adresseDestination">Adresse de destination *</label>
+            <div class="col-md-4">
+                <input id="adresseDestination" name="adresseDestination" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <div class="col-md-offset-4 ">
+
+            <p>Durée du trajet : 2 h 15 min</p>
+
+            <p>Distance : 250 km</p>
+        </div>
+
+        <pre>Véhicule</pre>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Immatriculation">Immatriculation *</label>
+            <div class="col-md-4">
+                <input id="Immatriculation" name="Immatriculation" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="marque">Marque *</label>
+            <div class="col-md-4">
+                <input id="marque" name="marque" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="modele">Modèle *</label>
+            <div class="col-md-4">
+                <input id="modele" name="modele" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nbPlace">Nombre de places disponibles *</label>
+            <div class="col-md-2">
+                <input id="nbPlace" name="nbPlace" type="text" placeholder="" class="form-control input-md" required="">
+
+            </div>
+        </div>
+
+        <pre>Date et horaire</pre>
+
+        <div class="container">
+            <div class="row">
+                <div class='col-sm-6'>
+                    <div class="form-group">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function() {
+                        $('#datetimepicker1').datetimepicker();
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="container">
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'ru'
+                });
+            });
+        </script>
+    </div>
+</div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="publier"></label>
+            <div class="col-md-4">
+                <button id="publier" name="publier" class="btn btn-primary">Publier</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
