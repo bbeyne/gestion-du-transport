@@ -23,6 +23,9 @@ public class Annonce {
 	private Integer id;
 	private LocalDateTime dateHeureDepart;
 	private int nbPlacesDispo;
+	private String immatriculation;
+	private String marque;
+	private String modele;
 	
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
@@ -47,6 +50,20 @@ public class Annonce {
 		this.Profil = idProfil;
 		this.AdresseDepart = idAdresseDepart;
 		this.AdresseArrivee = idAdresseArrivee;
+	}
+	
+	public Annonce(LocalDateTime dateHeureDepart, int nbPlacesDispo, String immatriculation, String marque,
+			String modele, STATUT statut, Profile profil, Adresse adresseDepart, Adresse adresseArrivee) {
+		super();
+		this.dateHeureDepart = dateHeureDepart;
+		this.nbPlacesDispo = nbPlacesDispo;
+		this.immatriculation = immatriculation;
+		this.marque = marque;
+		this.modele = modele;
+		this.statut = statut;
+		Profil = profil;
+		AdresseDepart = adresseDepart;
+		AdresseArrivee = adresseArrivee;
 	}
 
 	//GETTERS & SETTERS
@@ -119,4 +136,30 @@ public class Annonce {
 	public void setDateHeureDepart(LocalDateTime dateHeureDepart) {
 		this.dateHeureDepart = dateHeureDepart;
 	}
+
+	public String getImmatriculation() {
+		return immatriculation;
+	}
+
+	public void setImmatriculation(String immatriculation) {
+		this.immatriculation = immatriculation;
+	}
+
+	public String getMarque() {
+		return marque;
+	}
+
+	public void setMarque(String marque) {
+		this.marque = marque;
+	}
+
+	public String getModele() {
+		return modele;
+	}
+
+	public void setModele(String modele) {
+		this.modele = modele;
+	}
+	
+	
 }
