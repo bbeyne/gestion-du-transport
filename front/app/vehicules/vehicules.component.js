@@ -18,13 +18,31 @@ class controller {
         .then(nbCategorie => this.categories = nbCategorie)
     }
 
-    ajouterVehicule(){
+    ouvrirPopUP(){
         this.$uibModal.open({
             animation: true,
             template: templateAddVehicule,
             controller,
             controllerAs: '$ctrl',
         });
+    }
+
+    closePopUp(){
+        console.log(this.$uibModal)
+    }
+
+    ajouterVehicule(infoForm){
+        console.log(infoForm)
+        let vehicule = []
+
+        vehicule.push(infoForm.marqueInput.$modelValue)
+        vehicule.push(infoForm.modeleInput.$modelValue)
+        vehicule.push(infoForm.immatriculationInput.$modelValue)
+        vehicule.push(infoForm.selectCategorie.$modelValue)
+        vehicule.push(infoForm.urlImageInput.$modelValue)
+
+
+       this.VehiculesService.createNewVehicule(vehicule)
     }
 }
 

@@ -13,4 +13,10 @@ export class VehiculesService {
         return this.$http.get(this.apiUrlVehicule+'categories')
             .then(response => response.data)
     }
+
+    createNewVehicule (vehicule) {
+        console.log(vehicule)
+        /*return this.$http.post( this.apiUrlVehicule+'ajouterVoiture', vehicule)
+        .then(response => response.data)    */
+    }
 }

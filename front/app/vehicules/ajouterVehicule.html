@@ -1,25 +1,25 @@
 <div class="">
 
-    <form name="addVoiture" class="form-horizontal" method="post">
+    <form name="addVoiture" class="form-horizontal" method="post" ng-submit="$ctrl.ajouterVehicule(addVoiture)">
         <fieldset>
             <!-- Form Name -->
             <legend>Ajout d'un véhicule</legend>
             <!-- Text input-->
-            <div class="form-group form-group has-error has-feedback">
+            <div class="form-group ">
                 <label class="col-md-4 control-label" for="immatriculationInput">Immatriculation</label>
                 <div class="col-md-4 ">
-                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="addVoiture.immatriculationInput.$touched &&
+                    <input id="immatriculationInput" ng-model="immatriculationInput" name="immatriculationInput" type="text" placeholder="" class="form-control input-md" required>
+                    <span class="" ng-show="addVoiture.immatriculationInput.$touched &&
                                  addVoiture.immatriculationInput.$invalid">
                                  L'immatriculation est obligatoire*
                                  </span>
-                    <input id="immatriculationInput" ng-model="immatriculationInput" name="immatriculationInput" type="text" placeholder="" class="form-control input-md" required>
                 </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="marqueInput">Marque</label>
                 <div class="col-md-4">
-                    <input id="marqueInput" name="marqueInput" type="text" placeholder="" class="form-control input-md" required>
+                    <input id="marqueInput" ng-model="marqueInput" name="marqueInput" type="text" placeholder="" class="form-control input-md" required>
 
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="modeleInput">Modèle</label>
                 <div class="col-md-4">
-                    <input id="modeleInput" name="modeleInput" type="text" placeholder="" class="form-control input-md" required="">
+                    <input ng-model="modelInput" id="modeleInput" name="modeleInput" type="text" placeholder="" class="form-control input-md" required="">
 
                 </div>
             </div>
@@ -35,8 +35,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectCategorie">Catégorie</label>
                 <div class="col-md-4">
-                    <select id="selectCategorie" name="selectCategorie" class="form-control">
-                                    <option ng-repeat="categorie in $ctrl.categories ">{{categorie}}</option>
+                    <select id="selectCategorie" name="selectCategorie" class="form-control" ng-model="categorie">
+                                    <option  ng-repeat="categorie in $ctrl.categories ">{{categorie}}</option>
                                 </select>
                 </div>
             </div>
@@ -44,16 +44,19 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="nbPlaceInput">Nombre de places</label>
                 <div class="col-md-4">
-                    <input id="nbPlaceInput" name="nbPlaceInput" type="text" placeholder="" class="form-control input-md" placeholder="maxi 20 places" required="">
+                    <input ng-model="nbPlaceInput" id="nbPlaceInput" name="nbPlaceInput" type="text" placeholder="" class="form-control input-md" placeholder="maxi 20 places" required="">
                 </div>
             </div>
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="urlImageInput">Photo</label>
                 <div class="col-md-4">
-                    <input id="urlImageInput" name="urlImageInput" type="text" placeholder="" class="form-control input-md" required="">
+                    <input ng-model="urlImageInput" id="urlImageInput" name="urlImageInput" type="text" placeholder="" class="form-control input-md" required="">
                 </div>
             </div>
         </fieldset>
+
+        <button type="submit" href="#" class="btn btn-primary">Ajouter</button>
     </form>
+    <button href="#" class="btn btn-danger" ng-click="$ctrl.closePopUp()">Fermer</button>
 </div>
