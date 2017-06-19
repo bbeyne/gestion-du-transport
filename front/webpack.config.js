@@ -1,4 +1,4 @@
-//import {API_URL} from '/config.js'
+import {API_URL} from '/config.js'
 
 const webpack = require('webpack');
 const path = require('path');
