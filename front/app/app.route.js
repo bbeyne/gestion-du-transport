@@ -13,22 +13,33 @@ export function route ($routeProvider, $locationProvider) {
         requireAuth: true,
         authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
     })
+    .when('/collaborateur/propositions/creer', {
+        template: '<menu></menu> <reservationscreer></reservationscreer>',
+        requireAuth: true,
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
+    })
 
     .when('/collaborateur/annonces', {
         template: '<menu></menu> <annonces></annonces>',
         requireAuth: true,
         authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
     })
+        .when('/collaborateur/annonces/creer', {
+        template: '<menu></menu> <annoncescreer></annoncescreer>',
+        requireAuth: true,
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
+    })
     .when('/admin/vehicules', {
         template: '<menu></menu> <vehicules></vehicules>',
         requireAuth: true,
-        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
+        authorizeRole: ["ADMIN"]
     })
     .when('/connexion',{
         template: '<login></login>'
     })
+
     .otherwise({
-        redirectTo: '/connexion'
+        redirectTo: '/'
     });
 
 }

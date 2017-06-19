@@ -79,12 +79,16 @@ public class InitServicedev implements InitService {
 				adresse2);
 		Annonce annonce5 = new Annonce(dateHeureDepart4, 5, Annonce.STATUT.TERMINE, profilrep.getOne(5), adresse2,
 				adresse1);
+		
+		
 		annonceRepository.save(annonce1);
 		annonceRepository.save(annonce2);
 		annonceRepository.save(annonce3);
 		annonceRepository.save(annonce4);
 		annonceRepository.save(annonce5);
 		annonceRepository.save(new Annonce(dateHeureDepart1, 3, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
+				adresse2));
+		annonceRepository.save(new Annonce(dateHeureDepart3, 3, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
 				adresse2));
 
 		Reservation reservation1 = new Reservation(Reservation.STATUT.ANNULE, profilrep.getOne(1), annonce3);
@@ -95,6 +99,8 @@ public class InitServicedev implements InitService {
 		reservationRepository.save(reservation2);
 		reservationRepository.save(reservation3);
 		reservationRepository.save(reservation4);
+		reservationRepository.save(new Reservation(Reservation.STATUT.EN_COURS, profilrep.getOne(3), annonce1));
+		reservationRepository.save(new Reservation(Reservation.STATUT.EN_COURS, profilrep.getOne(3), annonce1));
 
 		LocalDateTime dateCoordonnees1 = LocalDateTime.of(2017, 5, 4, 12, 00, 55);
 		LocalDateTime dateCoordonnees2 = LocalDateTime.of(2017, 1, 6, 12, 12, 41);

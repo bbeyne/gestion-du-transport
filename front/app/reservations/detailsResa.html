@@ -4,12 +4,14 @@
 <label>Depart : {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.nomRue}}</label> </br>
 <label>Destination : {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.nomRue}} </label></br>
 
-<label>Date/Heure: {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.dayOfMonth}}
+<label>Date/Heure : {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.dayOfMonth}}
                     {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.month}}
                     {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.year}}
                      - {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.hour}}
                      :{{$ctrl.unHistorique.idAnnonce.dateHeureDepart.minute}}</label></br>
 
-<label>Vehicule</label></br>
-<label>Chauffeur</label>
+<label>Vehicule : </label></br>
+<label>Chauffeur : {{$ctrl.unHistorique.idAnnonce.idProfil.matricule}}</label></br>
+
+<button class=pull-right>Fermer</button>
 

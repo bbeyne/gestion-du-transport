@@ -5,6 +5,9 @@ class controller {
         this.LoginService = LoginService;
         this.$location= $location;
     }
+    $onInit () {
+        this.type=this.LoginService.LoadCookie().type;
+    }
     deconnection(){
         this.LoginService.RemoveCookie();
         this.$location.path('/connexion');

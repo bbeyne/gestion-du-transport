@@ -7,17 +7,37 @@ class controller {
     constructor (ReservationService, $uibModal) {
 
         this.ReservationService = ReservationService
-
         this.$uibModal = $uibModal
+        this.viewby = 10;
+        this.totalItems = 0;
+        this.currentPage = 1;
+        this.itemsPerPage = 2;
+        this.maxSize = 0;
+        this.pages = [];
 
     }
 
     $onInit () {
         this.ReservationService.getReservations()
-        .then(reservations => this.reservations = reservations)
+        .then(reservations =>this.reservations = reservations)
 
         this.ReservationService.getHistorique()
-        .then(historiques => this.historiques  = historiques )
+        .then(historiques =>{
+            this.historiques  = historiques;
+            this.totalItems = this.historiques.length;
+            this.maxSize = Math.ceil(this.totalItems / this.itemsPerPage);
+
+            for (var i = 1; i <= this.maxSize; i++) {
+                this.pages.push(i);
+            }
+        }
+        )
+    }
+
+    changePage(num) {
+        if ( !(num ===0 || num > this.historiques.length-1) ) {
+            this.currentPage = num;
+        }
     }
 
    detailsReservation(historique){
@@ -35,11 +55,9 @@ class controller {
             controllerAs: '$ctrl',
     });
 
-
-
-      // window.open('detailsResa.html','nom_de_ma_popup','menubar=no, scrollbars=no, top=100, left=100, width=300, height=200');
    }
 }
+
 
 export let ReservationsComponent = {
     template,

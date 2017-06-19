@@ -1,7 +1,7 @@
 
     <h1>VOS RESERVATIONS</h1>
 
-    <button id="reserver" name="reserver" class=pull-right >Réserver un transport</button></br>
+    <a href="collaborateur/propositions/creer"><button id="reserver" name="reserver" class=pull-right >Réserver un transport</button><a></br>
 
 
     <h4>Covoiturage</h4>
@@ -30,11 +30,10 @@
                      - {{reservation.idAnnonce.dateHeureDepart.hour}}
                      :{{reservation.idAnnonce.dateHeureDepart.minute}}
                      </td>
-                    <td>{{reservation.idAnnonce.idAdresseDepart.nomRue |date:'MM/dd/yyyy @ h:mma'}}</td>
-                    <td>{{reservation.idAnnonce.dateHeureDepart | date : 'dd/MM/yyyy HH:mm'}}</td>
+
                     <td>{{reservation.idAnnonce.idAdresseDepart.nomRue }}</td>
                     <td>{{reservation.idAnnonce.idAdresseArrivee.nomRue}}</td>
-                    <td><button id="detail" name="detail" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myDetail" >Détails</button></td>
+                    <td><button id="detail" name="detail" class="btn btn-info btn-lg" ng-click="$ctrl.detailsReservation(reservation)" >Détails</button></td>
                 </tr>
             </tbody>
         </table>
@@ -51,7 +50,7 @@
         </thead>
 
         <tbody>
-             <tr ng-repeat="historique in $ctrl.historiques  track by $index">
+             <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
                     <td>{{historique.idAnnonce.dateHeureDepart.dayOfMonth}}
                     {{historique.idAnnonce.dateHeureDepart.month}}
                     {{historique.idAnnonce.dateHeureDepart.year}}
@@ -68,8 +67,18 @@
         </tbody>
     </table>
 
-
-
 </div>
 
+<!-- <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination> -->
+
+<div class="container" >
+    <ul class="pagination">
+        <li ng-class="{disabled:$ctrl.currentPage === 1}" ><a ng-click="$ctrl.changePage($ctrl.currentPage-1)" >«</a></li>
+        <li ng-repeat="page in $ctrl.pages" ng-class="{active:$ctrl.currentPage === page}">
+        <a  ng-click="$ctrl.changePage(page)">{{page}} <span class="sr-only">(current)</span></a></li>
+        <li ng-class="($ctrl.currentPage !== $ctrl.maxSize-1) ? 'disabled': ''"><a ng-click="$ctrl.changePage($ctrl.currentPage+1)">»</a></li>
+
+        <!-- "(page === currentPage) ? 'active': ''" -->
+    </ul>
+</div>
 

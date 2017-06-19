@@ -1,8 +1,5 @@
-import template from './auth.component.html'
-
 class controller {
   constructor (LoginService, $location, $scope) {
-    console.log('constructor')
     this.LoginService = LoginService
     this.$location = $location
 
@@ -10,19 +7,18 @@ class controller {
       let profil = this.LoginService.LoadCookie()
       console.log('auth profil', profil)
       if (newUrl.requireAuth) {
-        if (profil === undefined || !newUrl.authorizeRole.includes(profil.type)) {
-          console.log('nope!')
+        if (profil === undefined) {
           $location.path('login')
         }
-      } else {
-        console.log('free')
+        if (!newUrl.authorizeRole.includes(profil.type)){
+          $location.path('/')
+        }
       }
     })
   }
 }
 
 export let AuthComponent = {
-  template,
   controller,
   bindings: {
   }

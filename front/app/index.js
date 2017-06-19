@@ -14,6 +14,8 @@ import { VehiculesComponent } from './vehicules/vehicules.component';
 import { LoginComponent } from './login/login.component';
 import { AuthComponent} from './auth/auth.component';
 import { MenuComponent} from './menu/menu.component';
+import { AnnoncesCreerComponent} from './annonces/annonces.creer.component';
+import { ReservationsCreerComponent} from './reservations/reservations.creer.component';
 
 import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
@@ -38,6 +40,8 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .component('login',LoginComponent)
 .component('auth',AuthComponent)
 .component('menu',MenuComponent)
+.component('annoncescreer',AnnoncesCreerComponent)
+.component('reservationscreer', ReservationsCreerComponent)
 
 .service('LoginService', LoginService)
 .service('ReservationService', ReservationService)
