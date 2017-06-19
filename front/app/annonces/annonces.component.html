@@ -8,8 +8,6 @@
 
 <div>
     <label>Annonces en cours</label>
-
-
     <table class="table table-striped">
         <thead>
             <tr>
@@ -27,13 +25,9 @@
                 </td>
                 <td>
                     {{annonce.idAdresseDepart.numRue}} {{annonce.idAdresseDepart.libelle}} {{annonce.idAdresseDepart.nomRue}} {{annonce.idAdresseDepart.codePostale}} {{annonce.idAdresseDepart.ville}}
-
-
-
                 </td>
-                <td>{{annonce.idAdresseArrivee.nomRue}}</td>
+                <td>{{annonce.idAdresseArrivee.numRue}} {{annonce.idAdresseArrivee.libelle}} {{annonce.idAdresseArrivee.nomRue}} {{annonce.idAdresseArrivee.codePostale}} {{annonce.idAdresseArrivee.ville}} </td>
                 <td>{{annonce.nbPlacesDispo}}</td>
-                <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
             </tr>
         </tbody>
     </table>
@@ -55,10 +49,12 @@
                 <!-- <td>{{historique.dateHeureDepart.dayOfMonth}}</td> -->
                 <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
                 </td>
-                <td>{{historique.idAdresseDepart.nomRue}}</td>
-                <td>{{historique.idAdresseArrivee.nomRue}}</td>
+                <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
+                </td>
+                <td>
+                    {{historique.idAdresseDepart.numRue}} {{historique.idAdresseDepart.libelle}} {{historique.idAdresseDepart.nomRue}} {{historique.idAdresseDepart.codePostale}} {{historique.idAdresseDepart.ville}}
+                </td>
                 <td>{{historique.nbPlacesDispo}}</td>
-                <td><button id="detail" name="detail" ng-click="showAlert($event)">Détails</button></td>
             </tr>
 
         </tbody>
