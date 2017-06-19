@@ -4,7 +4,7 @@ class controller {
     constructor (LoginService,$location) {
         this.$location=$location
         this.LoginService = LoginService
-        this.profil=''
+        this.type=''
     }
 
     authentif (form) {
