@@ -3,11 +3,11 @@ import template from './vehicules.component.html';
 import templateAddVehicule from './ajouterVehicule.html';
 
 
-
 class controller {
     constructor (VehiculesService,$uibModal) {
         this.$uibModal=$uibModal
         this.VehiculesService = VehiculesService
+        this.modalInstance
     }
 
     $onInit () {
@@ -19,32 +19,36 @@ class controller {
     }
 
     ouvrirPopUP(){
-        this.$uibModal.open({
+        this.modalInstance=this.$uibModal.open({
             animation: true,
             template: templateAddVehicule,
-            controller,
+            controller: function($uibModalInstance) {
+                this.fermer = () => {
+                    $uibModalInstance.dismiss('cancel');
+                }
+            },
             controllerAs: '$ctrl',
+            backdrop: false,
+        }).result.catch(function (res) {
+            if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
+                throw res;
+            }
         });
     }
 
-    closePopUp(){
-        console.log(this.$uibModal)
-    }
 
     ajouterVehicule(infoForm){
-        console.log(infoForm)
         let vehicule = []
-
         vehicule.push(infoForm.marqueInput.$modelValue)
         vehicule.push(infoForm.modeleInput.$modelValue)
         vehicule.push(infoForm.immatriculationInput.$modelValue)
         vehicule.push(infoForm.selectCategorie.$modelValue)
         vehicule.push(infoForm.urlImageInput.$modelValue)
 
-
-       this.VehiculesService.createNewVehicule(vehicule)
+        this.VehiculesService.createNewVehicule(vehicule)
     }
 }
+
 
 export let VehiculesComponent = {
     template,
