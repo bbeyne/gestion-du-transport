@@ -20,7 +20,7 @@ class controller {
     $onInit () {
         this.ReservationService.getReservations()
         .then(reservations =>this.reservations = reservations)
-
+        this.afficheCovoit=this.ReservationService.getAffiche();
         this.ReservationService.getHistorique()
         .then(historiques =>{
             this.historiques  = historiques;
@@ -30,14 +30,17 @@ class controller {
             for (var i = 1; i <= this.maxSize; i++) {
                 this.pages.push(i);
             }
-        }
-        )
+        })
     }
 
     changePage(num) {
         if ( !(num ===0 || num > this.historiques.length-1) ) {
             this.currentPage = num;
         }
+    }
+    afficherCovoit(){
+        this.ReservationService.ChangeAffiche();
+        this.afficheCovoit=this.ReservationService.getAffiche();
     }
 
    detailsReservation(historique){
@@ -49,8 +52,10 @@ class controller {
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: templateModal,
-            controller: function($uibModalInstance) {
+            controller: function($uibModalInstance,ReservationService) {
                  this.unHistorique = historique;
+                 ReservationService.getChauffeur(this.unHistorique.idAnnonce.idProfil.matricule)
+                    .then(chauffeur => this.chauffeur=chauffeur)
                  this.fermer = () => {
                         $uibModalInstance.dismiss('cancel');
                  }

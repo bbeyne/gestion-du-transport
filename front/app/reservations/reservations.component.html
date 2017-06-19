@@ -1,15 +1,15 @@
 
     <h1>VOS RESERVATIONS</h1>
 
-<a href="collaborateur/propositions/creer" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Réserver un transport</a></br></br></br>
+<a href="collaborateur/reservations/creer" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Réserver un transport</a></br></br></br>
 
 
-    <div style="border-style:groove"><h4>Covoiturage</h4></div>
+   <div style="border-style:groove" ng-click=$ctrl.afficherCovoit()><h4>Covoiturage</h4></div>
 
     
-    <div style="border-style:groove">
+    <div style="border-style:groove" ng-if=$ctrl.afficheCovoit>
 
-        <label>Réservations en cours</label>
+        <label>Réservations en cours</label> 
 
 
         <table class="table table-striped">
@@ -92,7 +92,12 @@
         </ul>
     </div>
 </div>
+   <div style="border-style:groove" ng-click=$ctrl.afficherCovoit()><h4>Véhicule de société</h4></div>
 
+    
+    <div style="border-style:groove" ng-if=!$ctrl.afficheCovoit>
+
+        <label>Réservations en cours</label>
 
 
 
