@@ -13,6 +13,11 @@ export function route ($routeProvider, $locationProvider) {
         requireAuth: true,
         authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
     })
+    .when('/collaborateur/propositions/creer', {
+        template: '<menu></menu> <reservationscreer></reservationscreer>',
+        requireAuth: true,
+        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
+    })
 
     .when('/collaborateur/annonces', {
         template: '<menu></menu> <annonces></annonces>',
