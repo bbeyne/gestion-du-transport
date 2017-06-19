@@ -21,7 +21,7 @@ import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
-
+import {API_URL} from '../config.js'
 
 //Création du module app
 angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
