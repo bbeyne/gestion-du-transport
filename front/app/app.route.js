@@ -3,11 +3,6 @@ export function route ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
-    .when('/', {
-        template: '<menu></menu> <accueil></accueil>',
-        requireAuth: true,
-        authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
-    })
     .when('/collaborateur/reservations', {
         template: '<menu></menu> <reservations></reservations>',
         requireAuth: true,
@@ -39,7 +34,7 @@ export function route ($routeProvider, $locationProvider) {
     })
 
     .otherwise({
-        redirectTo: '/'
+        redirectTo: '/collaborateur/reservations'
     });
 
 }
