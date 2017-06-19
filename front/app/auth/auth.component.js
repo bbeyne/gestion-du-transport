@@ -2,15 +2,16 @@ class controller {
   constructor (LoginService, $location, $scope) {
     this.LoginService = LoginService
     this.$location = $location
+    this.profil=""
 
     $scope.$on('$routeChangeStart', (angularEvent, newUrl) => {
-      let profil = this.LoginService.LoadCookie()
-      console.log('auth profil', profil)
+      this.profil=this.LoginService.LoadCookie()
+      console.log('auth profil', this.profil)
       if (newUrl.requireAuth) {
-        if (profil === undefined) {
+        if (this.profil === undefined) {
           $location.path('connexion')
         }
-        if (!newUrl.authorizeRole.includes(profil.type)){
+        if (!newUrl.authorizeRole.includes(this.profil.type)){
           $location.path('/')
         }
       }
