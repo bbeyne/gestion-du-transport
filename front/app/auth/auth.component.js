@@ -11,7 +11,7 @@ class controller {
         if (this.profil === undefined) {
           $location.path('connexion')
         }
-        if (!newUrl.authorizeRole.includes(this.profil.type)){
+        else if (!newUrl.authorizeRole.includes(this.profil.type)){
           $location.path('/')
         }
       }
