@@ -15,8 +15,10 @@ export class VehiculesService {
     }
 
     createNewVehicule (vehicule) {
-        console.log(vehicule)
-        /*return this.$http.post( this.apiUrlVehicule+'ajouterVoiture', vehicule)
-        .then(response => response.data)    */
+    /*    console.log(vehicule)
+        var jsonArray = JSON.stringify(vehicule)
+        console.log(jsonArray)
+        return this.$http.post( this.apiUrlVehicule+'ajouterVoiture', jsonArray)
+        .then(response => response.data) */
     }
 }

@@ -8,7 +8,7 @@ class controller {
       console.log('auth profil', profil)
       if (newUrl.requireAuth) {
         if (profil === undefined) {
-          $location.path('login')
+          $location.path('connexion')
         }
         if (!newUrl.authorizeRole.includes(profil.type)){
           $location.path('/')
