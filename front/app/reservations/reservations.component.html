@@ -24,26 +24,21 @@
 
             <tbody >
                 <tr ng-repeat="reservation in $ctrl.reservations track by $index" >
-                    <td ng-if="reservation.idAnnonce.dateHeureDepart.minute>9">{{reservation.idAnnonce.dateHeureDepart.dayOfMonth}}
-                    {{reservation.idAnnonce.dateHeureDepart.month}}
-                    {{reservation.idAnnonce.dateHeureDepart.year}}
-                     - {{reservation.idAnnonce.dateHeureDepart.hour}}
-                     :{{reservation.idAnnonce.dateHeureDepart.minute}}
-                     </td>
-                     <td ng-if="reservation.idAnnonce.dateHeureDepart.minute<10">{{reservation.idAnnonce.dateHeureDepart.dayOfMonth}}
-                    {{reservation.idAnnonce.dateHeureDepart.month}}
-                    {{reservation.idAnnonce.dateHeureDepart.year}}
-                     - {{reservation.idAnnonce.dateHeureDepart.hour}}
-                     :0{{reservation.idAnnonce.dateHeureDepart.minute}}
-                     </td>
+                    <td >
+                        {{reservation.idAnnonce.dateHeureDepart}}
+                    </td>
 
-                    <td>{{reservation.idAnnonce.idAdresseDepart.numRue}} {{reservation.idAnnonce.idAdresseDepart.libelle}}
+                    <td>
+                        {{reservation.idAnnonce.idAdresseDepart.numRue}} {{reservation.idAnnonce.idAdresseDepart.libelle}}
                         {{reservation.idAnnonce.idAdresseDepart.nomRue}} {{reservation.idAnnonce.idAdresseDepart.codePostale}}
-                        {{reservation.idAnnonce.idAdresseDepart.ville}}</td>
+                        {{reservation.idAnnonce.idAdresseDepart.ville}}
+                    </td>
 
-                    <td>{{reservation.idAnnonce.idAdresseArrivee.numRue}} {{reservation.idAnnonce.idAdresseArrivee.libelle}}
+                    <td>
+                        {{reservation.idAnnonce.idAdresseArrivee.numRue}} {{reservation.idAnnonce.idAdresseArrivee.libelle}}
                         {{reservation.idAnnonce.idAdresseArrivee.nomRue}} {{reservation.idAnnonce.idAdresseArrivee.codePostale}}
-                        {{reservation.idAnnonce.idAdresseArrivee.ville}}</td>
+                        {{reservation.idAnnonce.idAdresseArrivee.ville}}
+                    </td>
 
                     <td><button id="detail" name="detail" class="btn btn-info btn-lg" ng-click="$ctrl.detailsReservation(reservation)" >Détails</button></td>
                 </tr>
@@ -63,19 +58,10 @@
 
         <tbody>
              <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
-                    <td ng-if="historique.idAnnonce.dateHeureDepart.minute>9">  {{historique.idAnnonce.dateHeureDepart.dayOfMonth}}
-                        {{historique.idAnnonce.dateHeureDepart.month}}
-                        {{historique.idAnnonce.dateHeureDepart.year}}
-                        - {{historique.idAnnonce.dateHeureDepart.hour}}
-                        :{{historique.idAnnonce.dateHeureDepart.minute}}
-                     </td>
-                     <td ng-if="historique.idAnnonce.dateHeureDepart.minute<10">  {{historique.idAnnonce.dateHeureDepart.dayOfMonth}}
-                        {{historique.idAnnonce.dateHeureDepart.month}}
-                        {{historique.idAnnonce.dateHeureDepart.year}}
-                        - {{historique.idAnnonce.dateHeureDepart.hour}}
-                        :0{{historique.idAnnonce.dateHeureDepart.minute}}
-                     </td>
-
+                    <td >
+                        {{historique.idAnnonce.dateHeureDepart}}
+                    </td>
+                     
                     <td>{{historique.idAnnonce.idAdresseDepart.numRue}} {{historique.idAnnonce.idAdresseDepart.libelle}}
                         {{historique.idAnnonce.idAdresseDepart.nomRue}} {{historique.idAnnonce.idAdresseDepart.codePostale}}
                         {{historique.idAnnonce.idAdresseDepart.ville}}</td>
@@ -124,34 +110,11 @@
 
             <tbody >
                 <tr ng-repeat="reservationV in $ctrl.reservationsVehicule track by $index" >
-                    <td ng-if="reservationV.dateHeureDebut.minute<10">{{reservationV.dateHeureDebut.dayOfMonth}}
-                    {{reservationV.dateHeureDebut.month}}
-                    {{reservationV.dateHeureDebut.year}}
-                     - {{reservationV.dateHeureDebut.hour}}
-                     :0{{reservationV.dateHeureDebut.minute}}</td>
-                    <td ng-if="reservationV.dateHeureDebut.minute>9">{{reservationV.dateHeureDebut.dayOfMonth}}
-                    {{reservationV.dateHeureDebut.month}}
-                    {{reservationV.dateHeureDebut.year}}
-                     - {{reservationV.dateHeureDebut.hour}}
-                     :{{reservationV.dateHeureDebut.minute}}</td>
-
-                    <td ng-if="reservationV.dateHeureFin.minute<10">{{reservationV.dateHeureFin.dayOfMonth}}
-                    {{reservationV.dateHeureFin.month}}
-                    {{reservationV.dateHeureFin.year}}
-                     - {{reservationV.dateHeureFin.hour}}
-                     :0{{reservationV.dateHeureFin.minute}}</td>
-                    <td ng-if="reservationV.dateHeureFin.minute>9">{{reservationV.dateHeureFin.dayOfMonth}}
-                    {{reservationV.dateHeureFin.month}}
-                    {{reservationV.dateHeureFin.year}}
-                     - {{reservationV.dateHeureFin.hour}}
-                     :{{reservationV.dateHeureFin.minute}}</td>
-
-                    <td>{{reservation.idVoiture.immatriculation}} 
-                    </td>
-                    <td>{{reservation.idVoiture.marque}} 
-                    </td>
-                    <td>{{reservation.idVoiture.modele}} 
-                    </td>
+                    <td >{{reservationV.dateHeureDebut}}</td>
+                     <td>{{reservationV.dateHeureFin}}</td>
+                    <td>{{reservation.idVoiture.immatriculation}} </td>
+                    <td>{{reservation.idVoiture.marque}} </td>
+                    <td>{{reservation.idVoiture.modele}} </td>
                 </tr>
             </tbody>
         </table>
@@ -170,34 +133,11 @@
 
         <tbody>
              <tr ng-repeat="historiqueV in $ctrl.historiquesVehicule.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
-                    <td ng-if="historiqueV.dateHeureDebut.minute<10">{{historiqueV.dateHeureDebut.dayOfMonth}}
-                    {{historiqueV.dateHeureDebut.month}}
-                    {{historiqueV.dateHeureDebut.year}}
-                     - {{historiqueV.dateHeureDebut.hour}}
-                     :0{{historiqueV.dateHeureDebut.minute}} 
-                     </td>
-                     <td ng-if="historiqueV.dateHeureDebut.minute>9">{{historiqueV.dateHeureDebut.dayOfMonth}}
-                    {{historiqueV.dateHeureDebut.month}}
-                    {{historiqueV.dateHeureDebut.year}}
-                     - {{historiqueV.dateHeureDebut.hour}}
-                     :{{historiqueV.dateHeureDebut.minute}} 
-                     </td>
-                    <td ng-if="historiqueV.dateHeureDebut.minute>9">{{historiqueV.dateHeureFin.dayOfMonth}}
-                    {{historiqueV.dateHeureFin.month}}
-                    {{historiqueV.dateHeureFin.year}}
-                     - {{historiqueV.dateHeureFin.hour}}
-                     :{{historiqueV.dateHeureFin.minute}}</td>
-                     <td ng-if="historiqueV.dateHeureDebut.minute<10">{{historiqueV.dateHeureFin.dayOfMonth}}
-                    {{historiqueV.dateHeureFin.month}}
-                    {{historiqueV.dateHeureFin.year}}
-                     - {{historiqueV.dateHeureFin.hour}}
-                     :{{historiqueV.dateHeureFin.minute}}</td>
-                    <td>{{historiqueV.voiture.immatriculation}} 
-                    </td>
-                    <td>{{historiqueV.voiture.marque}} 
-                    </td>
-                    <td>{{historiqueV.voiture.modele}} 
-                    </td>
+                    <td >{{historiqueV.dateHeureDebut}}</td>
+                    <td >{{historiqueV.dateHeureFin}}</td>
+                     <td>{{historiqueV.voiture.immatriculation}} </td>
+                    <td>{{historiqueV.voiture.marque}} </td>
+                    <td>{{historiqueV.voiture.modele}} </td>
 
 
                 </tr>
