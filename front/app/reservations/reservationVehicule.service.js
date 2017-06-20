@@ -1,23 +1,16 @@
-export class ReservationService {
-    constructor($http, $q, API_RESERVATION, API_HISTORIQUE, LoginService) {
+export class ReservationVehiculeService {
+    constructor($http, $q, API_RESERVATION_Vehicule, API_HISTORIQUE_Vehicule, LoginService) {
         this.$http = $http
         this.$q = $q
-        this.apiUrlResa = API_RESERVATION
-        this.apiUrlHisto = API_HISTORIQUE
+        this.apiUrlResa = API_RESERVATION_Vehicule
+        this.apiUrlHisto = API_HISTORIQUE_Vehicule
         this.LoginService= LoginService
-        this.afficheCovoit =false;
-    }
-    getAffiche() {
-        return this.afficheCovoit;
-    }
-    ChangeAffiche(){
-        this.afficheCovoit=!this.afficheCovoit;
+
     }
     getReservations() {
         return this.$http.get(this.apiUrlResa+"?matricule="+this.LoginService.LoadCookie().matricule)
             .then(response => response.data)   
     }
-    
     getChauffeur(matricule){
         return this.$http.get(this.apiUrlHisto+"/chauffeur?matricule="+matricule)
             .then(response => response.data) 
@@ -26,9 +19,9 @@ export class ReservationService {
     getHistorique() {
         return this.$http.get(this.apiUrlHisto+"?matricule="+this.LoginService.LoadCookie().matricule)
             .then(response => response.data)
-          
+    }     
             
-    }
+    
 
     
 
