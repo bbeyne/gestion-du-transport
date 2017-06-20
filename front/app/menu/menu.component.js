@@ -1,5 +1,4 @@
 import template from './menu.component.html';
-import './menu.component.css';
 
 class controller {
     constructor (LoginService,$location,$scope) {
