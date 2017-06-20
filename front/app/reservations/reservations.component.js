@@ -16,6 +16,7 @@ class controller {
         this.itemsPerPage = 2;
         this.maxSize = 0;
         this.pages = [];
+        this.viewbyV = 10;
         this.totalItemsV = 0;
         this.currentPageV = 1;
         this.itemsPerPageV = 2;
@@ -53,12 +54,12 @@ class controller {
     }
 
     changePage(num) {
-        if ( !(num ===0 || num > this.historiques.length-1) ) {
+        if ( !(num ===0 || num > this.maxSize) ) {
             this.currentPage = num;
         }
     }
     changePageV(num){
-        if ( !(num ===0 || num > this.historiquesVehicule.length-1) ) {
+        if ( !(num ===0 || num > this.maxSizeV) ) {
             this.currentPageV = num;
         }
     }

@@ -132,7 +132,7 @@
         </thead>
 
         <tbody>
-             <tr ng-repeat="historiqueV in $ctrl.historiquesVehicule.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
+             <tr ng-repeat="historiqueV in $ctrl.historiquesVehicule.slice((($ctrl.currentPageV-1)*$ctrl.itemsPerPageV), (($ctrl.currentPageV)*$ctrl.itemsPerPageV))">
                     <td >{{historiqueV.dateHeureDebut}}</td>
                     <td >{{historiqueV.dateHeureFin}}</td>
                      <td>{{historiqueV.voiture.immatriculation}} </td>
