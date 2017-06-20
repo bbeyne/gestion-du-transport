@@ -26,31 +26,34 @@ class controller {
 
     $onInit () {
 
-        this.afficheCovoit=this.ReservationService.getAffiche();
-        this.ReservationService.getReservations()
-        .then(reservations => this.reservations = reservations)
-        this.ReservationService.getHistorique()
-        .then(historiques =>{
-            this.historiques  = historiques;
-            this.totalItems = this.historiques.length;
-            this.maxSize = Math.ceil(this.totalItems / this.itemsPerPage);
+            this.afficheCovoit=this.ReservationService.getAffiche();
+            this.ReservationService.getReservations()
+            .then(reservations => this.reservations = reservations)
 
-            for (var i = 1; i <= this.maxSize; i++) {
-                this.pages.push(i);
-            }
-        })
-        this.ReservationVehiculeService.getReservations()
-        .then(reservationsVehicule =>this.reservationsVehicule = reservationsVehicule)
-        this.ReservationVehiculeService.getHistorique()
-        .then(historiques =>{
-            this.historiquesVehicule  = historiques;
-            this.totalItemsV = this.historiquesVehicule.length;
-            this.maxSizeV = Math.ceil(this.totalItemsV / this.itemsPerPageV);
+            this.ReservationService.getHistorique()
+            .then(historiques =>{
+                this.historiques  = historiques;
+                this.totalItems = this.historiques.length;
+                this.maxSize = Math.ceil(this.totalItems / this.itemsPerPage);
 
-            for (var i = 1; i <= this.maxSizeV; i++) {
-                this.pagesV.push(i);
-            }
-        })
+                for (var i = 1; i <= this.maxSize; i++) {
+                    this.pages.push(i);
+                }
+            })
+
+            this.ReservationVehiculeService.getReservations()
+            .then(reservationsVehicule =>this.reservationsVehicule = reservationsVehicule)
+
+            this.ReservationVehiculeService.getHistorique()
+            .then(historiques =>{
+                this.historiquesVehicule  = historiques;
+                this.totalItemsV = this.historiquesVehicule.length;
+                this.maxSizeV = Math.ceil(this.totalItemsV / this.itemsPerPageV);
+
+                for (var i = 1; i <= this.maxSizeV; i++) {
+                    this.pagesV.push(i);
+                }
+            })
     }
 
     changePage(num) {
@@ -58,15 +61,18 @@ class controller {
             this.currentPage = num;
         }
     }
+
     changePageV(num){
         if ( !(num ===0 || num > this.maxSizeV) ) {
             this.currentPageV = num;
         }
     }
+    
     afficherCovoit(){
         this.ReservationService.ChangeAffiche();
         this.afficheCovoit=this.ReservationService.getAffiche();
     }
+
    detailsReservation(historique){
 
 

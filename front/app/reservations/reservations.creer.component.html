@@ -1,12 +1,49 @@
+
 <a ng-href="collaborateur/reservations"> Retour à la liste </a>
 <h1> Réserver un véhicule</h1>
-<div style="border-style: groove" ng-click=$ctrl.afficherCovoit()> Covoiturage </div>
-<div style="border-style: groove; padding:0 15px;" ng-if=$ctrl.afficheCovoit>
-<h3> Critères</h3>
 
-</div>
-<div style="border-style: groove" ng-click=$ctrl.afficherCovoit()> Reservation </div>
-<div style="border-style: groove; padding:0 15px;" ng-if=!$ctrl.afficheCovoit>
-<h3> Critères pour reservation </h3>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="titre" role="button" ng-click=$ctrl.afficherCovoit()><h2 class="container">Covoiturage</h2></div>
+
+        <div class="contenuRubrique" ng-if=$ctrl.afficheCovoit>
+
+            <label class="lead"> Critères </label>
+
+            <!-- Text input-->
+             <div class="form-group">
+                <label class="col-md-2 control-label" for="adresseDepart">Adresse de départ *</label>
+           
+                <div class="col-md-2">
+                    <input id="adresseDepart" name="adresseDepart" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+        
+                <label class="col-md-3 control-label" for="adresseDestination">Adresse de destination *</label>
+
+                <div class="col-md-2">
+                    <input id="adresseDestination" name="adresseDestination" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+
+                <div >
+                    <p class="col-md-3 form-control-static">Durée du trajet : 2 h 15 min</p>
+                </div>
+            </div>  
+
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="adresseDepart">Date de départ</label>
+               
+
+                <div class="col-md-offset-4 ">
+                    <p class="col-md-3 form-control-static">Distance : 250 km</p>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<div class="titre" role="button" ng-click=$ctrl.afficherCovoit()><h2 class="container"> Reservation</h2></div>
+
+<div  class="contenuRubrique" ng-if=!$ctrl.afficheCovoit>
+     <label class="lead">Critères pour reservation </label>
 
 </div>
