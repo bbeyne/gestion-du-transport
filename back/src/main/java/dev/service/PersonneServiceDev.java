@@ -43,6 +43,6 @@ public class PersonneServiceDev implements PersonneService{
 	}
 	public Personne PersonneByMatricule(String matricule){
 		List<Personne> list= listerPersonne();
-		return list.stream().filter(p->p.matricule==matricule).collect(Collectors.toList()).get(0);
+		return list.stream().filter(p->p.matricule.equals(matricule)).collect(Collectors.toList()).get(0);
 	}
 }

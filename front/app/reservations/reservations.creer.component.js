@@ -1,24 +1,23 @@
 import template from './reservations.creer.component.html';
 
 class controller {
-    constructor(AnnoncesService) {
-        this.AnnoncesService = AnnoncesService;
-
-    }
-
-    $onInit() {
-        this.AnnoncesService.getReservations()
-            .then(annonces => this.annonces = annonces);
-
+    constructor(ReservationService) {
+        this.ReservationService = ReservationService;
         
     }
 
+    $onInit() {
+        this.afficheCovoit=this.ReservationService.getAffiche();
+        
+    }
+    afficherCovoit(){
+        ;this.afficheCovoit = !this.afficheCovoit
+    }
 }
 
 export let ReservationsCreerComponent = {
     template,
     controller,
     bindings: {
-
     }
 };

@@ -20,7 +20,7 @@ class controller {
     $onInit () {
         this.ReservationService.getReservations()
         .then(reservations =>this.reservations = reservations)
-
+        this.afficheCovoit=this.ReservationService.getAffiche();
         this.ReservationService.getHistorique()
         .then(historiques =>{
             this.historiques  = historiques;
@@ -30,8 +30,7 @@ class controller {
             for (var i = 1; i <= this.maxSize; i++) {
                 this.pages.push(i);
             }
-        }
-        )
+        })
     }
 
     changePage(num) {
@@ -39,24 +38,44 @@ class controller {
             this.currentPage = num;
         }
     }
+    afficherCovoit(){
+        this.ReservationService.ChangeAffiche();
+        this.afficheCovoit=this.ReservationService.getAffiche();
+    }
 
    detailsReservation(historique){
 
 
         this.$uibModal.open({
+           
             animation: true,
             ariaLabelledBy: 'modal-title',
             ariaDescribedBy: 'modal-body',
             template: templateModal,
-            controller: function() {
-                 this.depart = "yo!"
+            controller: function($uibModalInstance,ReservationService) {
                  this.unHistorique = historique;
+                 ReservationService.getChauffeur(this.unHistorique.idAnnonce.idProfil.matricule)
+                    .then(chauffeur => this.chauffeur=chauffeur)
+                 this.fermer = () => {
+                        $uibModalInstance.dismiss('cancel');
+                 }
+            
+                
             },
             controllerAs: '$ctrl',
-    });
+            backdrop:false
+           
+    })
+    .result.catch(function (res) {
+           if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
+               console.log(res)
+               throw res;
+           }
+       });
 
    }
 }
+
 
 
 export let ReservationsComponent = {

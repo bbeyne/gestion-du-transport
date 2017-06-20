@@ -1,15 +1,15 @@
 
     <h1>VOS RESERVATIONS</h1>
 
-<a href="collaborateur/propositions/creer"><button id="reserver" name="reserver" class=pull-right >Réserver un transport</button></a></br>
+<a href="collaborateur/reservations/creer" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Réserver un transport</a></br></br></br>
 
 
-    <h4>Covoiturage</h4>
+   <div style="border-style:groove" ng-click=$ctrl.afficherCovoit()><h4>Covoiturage</h4></div>
 
     
-    <div >
+    <div style="border-style:groove" ng-if=$ctrl.afficheCovoit>
 
-        <label>Réservations en cours</label>
+        <label>Réservations en cours</label> 
 
 
         <table class="table table-striped">
@@ -31,8 +31,14 @@
                      :{{reservation.idAnnonce.dateHeureDepart.minute}}
                      </td>
 
-                    <td>{{reservation.idAnnonce.idAdresseDepart.nomRue }}</td>
-                    <td>{{reservation.idAnnonce.idAdresseArrivee.nomRue}}</td>
+                    <td>{{reservation.idAnnonce.idAdresseDepart.numRue}} {{reservation.idAnnonce.idAdresseDepart.libelle}}
+                        {{reservation.idAnnonce.idAdresseDepart.nomRue}} {{reservation.idAnnonce.idAdresseDepart.codePostale}}
+                        {{reservation.idAnnonce.idAdresseDepart.ville}}</td>
+
+                    <td>{{reservation.idAnnonce.idAdresseArrivee.numRue}} {{reservation.idAnnonce.idAdresseArrivee.libelle}}
+                        {{reservation.idAnnonce.idAdresseArrivee.nomRue}} {{reservation.idAnnonce.idAdresseArrivee.codePostale}}
+                        {{reservation.idAnnonce.idAdresseArrivee.ville}}</td>
+
                     <td><button id="detail" name="detail" class="btn btn-info btn-lg" ng-click="$ctrl.detailsReservation(reservation)" >Détails</button></td>
                 </tr>
             </tbody>
@@ -52,14 +58,20 @@
         <tbody>
              <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
                     <td>{{historique.idAnnonce.dateHeureDepart.dayOfMonth}}
-                    {{historique.idAnnonce.dateHeureDepart.month}}
-                    {{historique.idAnnonce.dateHeureDepart.year}}
-                     - {{historique.idAnnonce.dateHeureDepart.hour}}
-                     :{{historique.idAnnonce.dateHeureDepart.minute}}
+                        {{historique.idAnnonce.dateHeureDepart.month}}
+                        {{historique.idAnnonce.dateHeureDepart.year}}
+                        - {{historique.idAnnonce.dateHeureDepart.hour}}
+                        :{{historique.idAnnonce.dateHeureDepart.minute}}
                      </td>
 
-                    <td>{{historique.idAnnonce.idAdresseDepart.nomRue}}</td>
-                    <td>{{historique.idAnnonce.idAdresseArrivee.nomRue}}</td>
+                    <td>{{historique.idAnnonce.idAdresseDepart.numRue}} {{historique.idAnnonce.idAdresseDepart.libelle}}
+                        {{historique.idAnnonce.idAdresseDepart.nomRue}} {{historique.idAnnonce.idAdresseDepart.codePostale}}
+                        {{historique.idAnnonce.idAdresseDepart.ville}}</td>
+
+                    <td>{{historique.idAnnonce.idAdresseArrivee.numRue}} {{historique.idAnnonce.idAdresseArrivee.libelle}}
+                        {{historique.idAnnonce.idAdresseArrivee.nomRue}} {{historique.idAnnonce.idAdresseArrivee.codePostale}}
+                        {{historique.idAnnonce.idAdresseArrivee.ville}}</td>
+
                     <td><button id="detail" name="detail"  class="btn btn-info btn-lg" ng-click="$ctrl.detailsReservation(historique)">Détails</button></td>
 
 
@@ -67,18 +79,28 @@
         </tbody>
     </table>
 
+        <!-- <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination> -->
+
+    <div class="container" >
+        <ul class="pagination">
+            <li ng-class="{disabled:$ctrl.currentPage === 1}" ><a ng-click="$ctrl.changePage($ctrl.currentPage-1)" >«</a></li>
+            <li ng-repeat="page in $ctrl.pages" ng-class="{active:$ctrl.currentPage === page}">
+            <a  ng-click="$ctrl.changePage(page)">{{page}} <span class="sr-only">(current)</span></a></li>
+            <li ng-class="($ctrl.currentPage !== $ctrl.maxSize-1) ? 'disabled': ''"><a ng-click="$ctrl.changePage($ctrl.currentPage+1)">»</a></li>
+
+            <!-- "(page === currentPage) ? 'active': ''" -->
+        </ul>
+    </div>
 </div>
+   <div style="border-style:groove" ng-click=$ctrl.afficherCovoit()><h4>Véhicule de société</h4></div>
 
-<!-- <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination> -->
+    
+    <div style="border-style:groove" ng-if=!$ctrl.afficheCovoit>
 
-<div class="container" >
-    <ul class="pagination">
-        <li ng-class="{disabled:$ctrl.currentPage === 1}" ><a ng-click="$ctrl.changePage($ctrl.currentPage-1)" >«</a></li>
-        <li ng-repeat="page in $ctrl.pages" ng-class="{active:$ctrl.currentPage === page}">
-        <a  ng-click="$ctrl.changePage(page)">{{page}} <span class="sr-only">(current)</span></a></li>
-        <li ng-class="($ctrl.currentPage !== $ctrl.maxSize-1) ? 'disabled': ''"><a ng-click="$ctrl.changePage($ctrl.currentPage+1)">»</a></li>
+        <label>Réservations en cours</label>
 
-        <!-- "(page === currentPage) ? 'active': ''" -->
-    </ul>
-</div>
+
+
+
+
 

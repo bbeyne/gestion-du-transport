@@ -69,15 +69,15 @@ public class InitServicedev implements InitService {
 		adresseRepository.save(adresse1);
 		adresseRepository.save(adresse2);
 
-		Annonce annonce1 = new Annonce(dateHeureDepart1, 2, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
+		Annonce annonce1 = new Annonce(dateHeureDepart1, 2, "XX-123-VF","renault", "scenic",Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
 				adresse2);
-		Annonce annonce2 = new Annonce(dateHeureDepart2, 3, Annonce.STATUT.TERMINE, profilrep.getOne(2), adresse2,
+		Annonce annonce2 = new Annonce(dateHeureDepart2, 3, "XX-123-VF","renault", "scenic", Annonce.STATUT.TERMINE, profilrep.getOne(2), adresse2,
 				adresse1);
-		Annonce annonce3 = new Annonce(dateHeureDepart2, 1, Annonce.STATUT.TERMINE, profilrep.getOne(3), adresse1,
+		Annonce annonce3 = new Annonce(dateHeureDepart2, 1,"XX-123-VF","renault", "scenic", Annonce.STATUT.TERMINE, profilrep.getOne(3), adresse1,
 				adresse2);
-		Annonce annonce4 = new Annonce(dateHeureDepart1, 5, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
+		Annonce annonce4 = new Annonce(dateHeureDepart1, 5, "XX-123-VF","renault", "scenic", Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
 				adresse2);
-		Annonce annonce5 = new Annonce(dateHeureDepart4, 5, Annonce.STATUT.TERMINE, profilrep.getOne(5), adresse2,
+		Annonce annonce5 = new Annonce(dateHeureDepart4, 5,  "XX-123-VF","renault", "scenic",Annonce.STATUT.TERMINE, profilrep.getOne(5), adresse2,
 				adresse1);
 		
 		
@@ -86,9 +86,9 @@ public class InitServicedev implements InitService {
 		annonceRepository.save(annonce3);
 		annonceRepository.save(annonce4);
 		annonceRepository.save(annonce5);
-		annonceRepository.save(new Annonce(dateHeureDepart1, 3, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
+		annonceRepository.save(new Annonce(dateHeureDepart1, 3,  "XX-123-VF","renault", "scenic",Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
 				adresse2));
-		annonceRepository.save(new Annonce(dateHeureDepart3, 3, Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
+		annonceRepository.save(new Annonce(dateHeureDepart3, 3, "XX-123-VF","renault", "scenic", Annonce.STATUT.ANNULE, profilrep.getOne(1), adresse1,
 				adresse2));
 
 		Reservation reservation1 = new Reservation(Reservation.STATUT.ANNULE, profilrep.getOne(1), annonce3);

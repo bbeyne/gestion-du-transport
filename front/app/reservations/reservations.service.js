@@ -5,14 +5,21 @@ export class ReservationService {
         this.apiUrlResa = API_RESERVATION
         this.apiUrlHisto = API_HISTORIQUE
         this.LoginService= LoginService
-
+        this.afficheCovoit =false;
     }
-
+    getAffiche() {
+        return this.afficheCovoit;
+    }
+    ChangeAffiche(){
+        this.afficheCovoit=!this.afficheCovoit;
+    }
     getReservations() {
         return this.$http.get(this.apiUrlResa+"?matricule="+this.LoginService.LoadCookie().matricule)
-            .then(response => response.data)
-          
-            
+            .then(response => response.data)   
+    }
+    getChauffeur(matricule){
+        return this.$http.get(this.apiUrlHisto+"/chauffeur?matricule="+matricule)
+            .then(response => response.data) 
     }
 
     getHistorique() {

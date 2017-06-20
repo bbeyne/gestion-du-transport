@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import dev.entity.Personne;
 import dev.entity.Reservation;
 import dev.repository.ReservationRepository;
+import dev.service.PersonneService;
 
 
 
@@ -19,7 +22,8 @@ public class ReservationApiController {
 	
 	@Autowired
 	private ReservationRepository reservationRepo;
-	
+	@Autowired
+	private PersonneService persoServ;
 	
 	@GetMapping(path="/encours")
 	public List<Reservation> listeReservation(@PathParam(value="matricule") String matricule) {
@@ -30,7 +34,10 @@ public class ReservationApiController {
 				.filter(d->d.getIdAnnonce().getDateHeureDepart().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
-	
+	@GetMapping(path="/historique/chauffeur")
+	public Personne NomChauffeur(@PathParam(value="matricule") String matricule) {
+		return persoServ.PersonneByMatricule(matricule);
+	}
 
 	@GetMapping(path="/historique")
 	public List<Reservation> listeHistorique(@PathParam(value="matricule") String matricule) {

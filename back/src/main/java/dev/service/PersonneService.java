@@ -6,4 +6,5 @@ import dev.entity.Personne;
 
 public interface PersonneService {
 	List<Personne> listerPersonne();
+	Personne PersonneByMatricule(String matricule);
 }
