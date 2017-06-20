@@ -208,10 +208,10 @@
 
     <div class="container" >
         <ul class="pagination">
-            <li ng-class="{disabled:$ctrl.currentPage === 1}" ><a ng-click="$ctrl.changePage($ctrl.currentPage-1)" >«</a></li>
-            <li ng-repeat="page in $ctrl.pages" ng-class="{active:$ctrl.currentPage === page}">
-            <a  ng-click="$ctrl.changePage(page)">{{page}} <span class="sr-only">(current)</span></a></li>
-            <li ng-class="($ctrl.currentPage !== $ctrl.maxSize-1) ? 'disabled': ''"><a ng-click="$ctrl.changePage($ctrl.currentPage+1)">»</a></li>
+            <li ng-class="{disabled:$ctrl.currentPageV === 1}" ><a ng-click="$ctrl.changePageV($ctrl.currentPageV-1)" >«</a></li>
+            <li ng-repeat="pageV in $ctrl.pagesV" ng-class="{active:$ctrl.currentPageV === pageV}">
+            <a  ng-click="$ctrl.changePageV(pageV)">{{pageV}} <span class="sr-only">(current)</span></a></li>
+            <li ng-class="($ctrl.currentPageV !== $ctrl.maxSizeV-1) ? 'disabled': ''"><a ng-click="$ctrl.changePageV($ctrl.currentPageV+1)">»</a></li>
 
             <!-- "(page === currentPage) ? 'active': ''" -->
         </ul>
