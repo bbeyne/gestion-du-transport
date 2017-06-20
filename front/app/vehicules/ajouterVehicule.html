@@ -55,8 +55,9 @@
                 </div>
             </div>
         </fieldset>
-
-        <button type="submit" href="#" class="btn btn-primary">Ajouter</button>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" ng-click="$ctrl.fermer()" data-dismiss="modal">Fermer</button>
+            <button type="submit" href="#" class="btn btn-primary">Ajouter</button>
+        </div>
     </form>
-    <button href="#" class="btn btn-danger" ng-click="$ctrl.fermer()">Fermer</button>
 </div>
