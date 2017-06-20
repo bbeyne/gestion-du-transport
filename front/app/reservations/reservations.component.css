@@ -1,0 +1,12 @@
+.titre{
+    border-style: groove;
+}
+
+.contenuRubrique{
+     border-style: groove;
+     padding: 0 15px;
+}
+
+.contourTableau{
+    border:2px solid
+}

@@ -1,5 +1,6 @@
 import template from './reservations.component.html';
 import templateModal from './detailsResa.html';
+import './reservations.component.css'
 
 
 
