@@ -36,6 +36,8 @@ class controller {
         window.open('details.html', 'details', 'menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
     }
 
+    
+
 }
 
 export let AnnoncesComponent = {
