@@ -6,7 +6,7 @@ class controller {
         this.viewby = 10;
         this.totalItems = 0;
         this.currentPage = 1;
-        this.itemsPerPage = 2;
+        this.itemsPerPage = 1;
         this.maxSize = 0;
         this.pages = [];
 
@@ -36,7 +36,7 @@ class controller {
         window.open('details.html', 'details', 'menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
     }
 
-    
+
 
 }
 
