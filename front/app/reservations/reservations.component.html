@@ -4,15 +4,15 @@
 <a href="collaborateur/reservations/creer" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Réserver un transport</a></br></br></br>
 
 
-   <div style="border-style:groove" class="container" ng-click=$ctrl.afficherCovoit()><h4>Covoiturage</h4></div>
+   <div class="titre" ng-click=$ctrl.afficherCovoit()><h2 class="container">Covoiturage</h2></div>
 
     
-    <div style="border-style:groove" class="container" ng-if=$ctrl.afficheCovoit>
+    <div class="contenuRubrique" ng-if=$ctrl.afficheCovoit>
 
-        <label>Réservations en cours</label> 
+        <label class="lead">Réservations en cours</label> 
 
 
-        <table class="table table-striped">
+        <table class="table table-striped contourTableau">
             <thead>
                 <tr>
                     <th>Date-Heure</th>
@@ -50,8 +50,8 @@
             </tbody>
         </table>
 
-     <label>Historique</label>
-      <table class="table table-striped">
+     <label class="lead">Historique</label>
+      <table class="table table-striped contourTableau">
         <thead>
             <tr>
                 <th>Date-Heure</th>
@@ -104,14 +104,14 @@
         </ul>
     </div>
 </div>
-   <div style="border-style:groove" class="container" ng-click=$ctrl.afficherCovoit()><h4>Véhicule de société</h4></div>
+   <div class="titre"  ng-click=$ctrl.afficherCovoit()><h2 class="container">Véhicule de société</h2></div>
 
     
-    <div style="border-style:groove" class="container" ng-if=!$ctrl.afficheCovoit>
+    <div class="contenuRubrique" ng-if=!$ctrl.afficheCovoit>
 
-        <label>Réservations en cours</label>
+        <label class="lead">Réservations en cours</label>
 
-        <table class="table table-striped">
+        <table class="table table-striped contourTableau">
             <thead>
                 <tr>
                      <th>Date/Heure Debut</th>
@@ -156,8 +156,8 @@
             </tbody>
         </table>
 
-     <label>Historique</label>
-      <table class="table table-striped">
+     <label class="lead">Historique</label>
+      <table class="table table-striped contourTableau">
         <thead>
             <tr>
                 <th>Date/Heure Debut</th>
