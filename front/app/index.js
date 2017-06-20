@@ -21,7 +21,8 @@ import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
-import {ReservationVehiculeService} from './reservations/reservationVehicule.service'
+import { ReservationVehiculeService } from './reservations/reservationVehicule.service'
+import { LibrairieMapsService } from './apiGoogleMaps/librairieMaps.service'
 
 
 //Création du module app
@@ -51,6 +52,8 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .service('AnnoncesService', AnnoncesService)
 .service('VehiculesService', VehiculesService)
 .service('ReservationVehiculeService', ReservationVehiculeService)
+.service('LibrairieMapsService', LibrairieMapsService)
+
 
 
 // .controller('detailReservation', DetailController)

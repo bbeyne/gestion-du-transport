@@ -30,3 +30,9 @@
     * [ ] ReservationsComponent : page liste des réservations
   * Service
     * [ ] ReservationsService : GET
+  * API Google Maps 
+    * [ ] key : AIzaSyB3dvlV0OS-AYMU66DxCJ8PYA_Psmqh6zA
+    * [ ] lien : https://developers.google.com/maps/?hl=fr
+    
+    
+    
