@@ -24,36 +24,19 @@ import dev.repository.VoitureRepository;
 @RestController
 @RequestMapping("/admin/vehicule")
 public class VehiculeApiController {
-	@Autowired private VoitureRepository vehiculeRepo;
+	@Autowired private VoitureRepository voitureRepo;
 
 	@GetMapping(path="/listerVehicule")
 	public List<Voiture> listeVehicule() {
-		return this.vehiculeRepo.findAll();
+		return this.voitureRepo.findAll();
 	}
 	@GetMapping(path="/categories")
 	public List<Voiture.CATEGORIE> listeCategorie() {
 		return Arrays.asList(Voiture.CATEGORIE.values());
 	}
 
-
-//	@PostMapping(value = "/ajouterVoiture",consumes="application/json")
-//	public @ResponseBody String registerUser(@RequestBody Voiture newVoiture,HttpServletRequest request) {
-//	    String resp=null;
-//	    try{
-//	        System.out.println("$$$$$$$$$$ "+newVoiture.getImmatriculation());
-//
-//	    resp="success";
-//	    }catch(Exception e){
-//	        resp="fail";
-//	        System.out.println(e);
-//	    }
-//	    return resp;
-//
-//	}
-//
-/*	@PostMapping(path="/ajouterVoiture")
-	public void addVoiture(@RequestBody List<String> test,HttpServletRequest request) {
-		System.out.println(test);
-	}*/
-
+	@PostMapping("/ajouterVoiture")
+    public void addMission(@RequestBody Voiture voiture) {
+		voitureRepo.save(voiture);
+    }
 }

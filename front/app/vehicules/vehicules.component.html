@@ -22,7 +22,6 @@
 
 <br>
 
-
 <div class="container">
     <div class="row">
         <div ng-repeat="vehicule in $ctrl.vehicules | filter:search" class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad">
@@ -33,7 +32,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-3 col-lg-3 " align="center">
-                            <img alt="Car Pic" ng-src="{{vehicule.image}}" class="img-circle img-responsive">
+                            <img alt="Car Pic" ng-src="{{vehicule.urlImage}}"  class="img-circle img-responsive">
                             <br/>
                         </div>
 
@@ -42,6 +41,9 @@
                                 <tbody>
                                     <tr>
                                         <td>{{vehicule.immatriculation}}</td>
+                                    </tr>
+                                   <tr>
+                                        <td>{{vehicule.urlImage}}</td>
                                     </tr>
                                     <tr>
                                         <td>{{vehicule.marque}} - {{vehicule.modele}}</td>
