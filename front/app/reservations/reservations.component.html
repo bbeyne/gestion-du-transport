@@ -4,13 +4,12 @@
 <a href="collaborateur/reservations/creer" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Réserver un transport</a></br></br></br>
 
 
-   <div class="titre" ng-click=$ctrl.afficherCovoit()><h4 class="container">Covoiturage</h4></div>
+   <div class="titre" ng-click=$ctrl.afficherCovoit()><h2 class="container">Covoiturage</h2></div>
 
     
-    <div class="contenuRubrique"  ng-if=$ctrl.afficheCovoit>
+    <div class="contenuRubrique "  ng-if=$ctrl.afficheCovoit>
 
-        <label style="margin-top: 5px">Réservations en cours</label> 
-
+        <label class="lead">Réservations en cours</label> 
 
         <table class="table table-striped contourTableau"  >
             <thead>
@@ -44,7 +43,7 @@
             </tbody>
         </table>
 
-     <label>Historique</label>
+     <label class="lead">Historique</label>
       <table class="table table-striped contourTableau">
         <thead>
             <tr>
@@ -92,7 +91,7 @@
         </ul>
     </div>
 </div>
-   <div  class="titre" ng-click=$ctrl.afficherCovoit()><h4>Véhicule de société</h4></div>
+   <div  class="titre" ng-click=$ctrl.afficherCovoit()><h2 class="container">Véhicule de société</h2></div>
 
     
     <div style="border-style:groove" ng-if=!$ctrl.afficheCovoit>
