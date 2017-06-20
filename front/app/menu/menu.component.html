@@ -7,12 +7,12 @@
             </a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a ng-href="collaborateur/reservations">Vos Réservation</a></li>
-                <li><a ng-href="collaborateur/annonces">Vos annonces</a></li>
-                <!-- <li><a ng-href="collaborateur/statistiques">Statistiques</a></li>
+                <li ng-class="{active:isActive('/collaborateur/reservations')}"><a ng-href="collaborateur/reservations">Vos Réservation</a></li>
+                <li ng-class="{active:isActive('/collaborateur/annonces')}"><a ng-href="collaborateur/annonces">Vos annonces</a></li>
+                <!-- <li><a ng-href="collaborateur/statistiques" ng-class="{ active: isActive('/statistiques')}">Statistiques</a></li>
                 <li><a ng-href="chauffeur/planning" ng-if="$ctrl.type==='CHAUFFEUR'">Planning</a></li>
                 <li><a ng-href="chauffeur/occupation" ng-if="$ctrl.type==='CHAUFFEUR'">Occupation</a></li> -->
-                <li><a ng-href="admin/vehicules" ng-if="$ctrl.type==='ADMIN'">Véhicule</a></li>
+                <li ng-class="{active:isActive('/admin/vehicules')}"><a ng-href="admin/vehicules" class="active" ng-if="$ctrl.type==='ADMIN'">Véhicule</a></li>
                 <!-- <li><a ng-href="admin/occupation" ng-if="$ctrl.type==='ADMIN'">Chauffeur</a></li> -->
                 <li><button class="btn btn-danger pull-right" ng-click="$ctrl.deconnection()">Se deconnecter</button>
             </ul>

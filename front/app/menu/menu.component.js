@@ -1,16 +1,22 @@
 import template from './menu.component.html';
+import './menu.component.css';
 
 class controller {
-    constructor (LoginService,$location) {
-        this.LoginService = LoginService;
-        this.$location= $location;
+    constructor (LoginService,$location,$scope) {
+        this.LoginService = LoginService
+        this.$location= $location
+        this.$scope=$scope
     }
     $onInit () {
-        this.type=this.LoginService.LoadCookie().type;
+        this.type=this.LoginService.LoadCookie().type
+
+        this.$scope.isActive = function (viewLocation) {
+            return viewLocation === this.$location.path()
+        }.bind(this)
     }
     deconnection(){
-        this.LoginService.RemoveCookie();
-        this.$location.path('/connexion');
+        this.LoginService.RemoveCookie()
+        this.$location.path('/connexion')
     }
 }
 
