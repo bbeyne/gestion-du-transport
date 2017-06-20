@@ -133,9 +133,14 @@ public class InitServicedev implements InitService {
 		voitureRep.save(voiture4);
 
 		ReservVehicule reserv1 = new ReservVehicule(dateHeureDepart1, dateHeureDepart2, voiture3, profilrep.getOne(1));
+		ReservVehicule reserv4 = new ReservVehicule(dateHeureDepart1, dateHeureDepart2, voiture2, profilrep.getOne(1));
+		ReservVehicule reserv3 = new ReservVehicule(dateHeureDepart1, dateHeureDepart2, voiture1, profilrep.getOne(1));
 		ReservVehicule reserv2 = new ReservVehicule(dateHeureDepart2, dateCoordonnees3, voiture4, profilrep.getOne(2));
+		
 		reservVoitRep.save(reserv1);
 		reservVoitRep.save(reserv2);
+		reservVoitRep.save(reserv4);
+		reservVoitRep.save(reserv3);
 		
 		
 		
