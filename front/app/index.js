@@ -21,6 +21,7 @@ import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
+import {ReservationVehiculeService} from './reservations/reservationVehicule.service'
 
 
 //Création du module app
@@ -32,6 +33,8 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .value('API_VEHICULE', API_URL + "/admin/vehicule/" )
 .value('API_ANNONCE', API_URL + "/collaborateur/annonces/encours" )
 .value('API_ANNONCE_HISTORIQUE', API_URL + "/collaborateur/annonces/historique" )
+.value('API_RESERVATION_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/encours" )
+.value('API_HISTORIQUE_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/historique" )
 
 .component('accueil', AccueilComponent)
 .component('reservations', ReservationsComponent)
@@ -47,6 +50,7 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .service('ReservationService', ReservationService)
 .service('AnnoncesService', AnnoncesService)
 .service('VehiculesService', VehiculesService)
+.service('ReservationVehiculeService', ReservationVehiculeService)
 
 
 // .controller('detailReservation', DetailController)

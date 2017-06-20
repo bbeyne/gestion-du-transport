@@ -4,15 +4,15 @@
 <a href="collaborateur/reservations/creer" class="btn btn-primary pull-right" ><span class="glyphicon glyphicon-plus"></span> Réserver un transport</a></br></br></br>
 
 
-   <div style="border-style:groove" ng-click=$ctrl.afficherCovoit()><h4>Covoiturage</h4></div>
+   <div class="titre" role="button" ng-click=$ctrl.afficherCovoit()><h2 class="container">Covoiturage</h2></div>
 
     
-    <div style="border-style:groove" ng-if=$ctrl.afficheCovoit>
+    <div class="contenuRubrique" ng-if=$ctrl.afficheCovoit>
 
-        <label>Réservations en cours</label> 
+        <label class="lead">Réservations en cours</label> 
 
 
-        <table class="table table-striped">
+        <table class="table table-striped contourTableau">
             <thead>
                 <tr>
                     <th>Date-Heure</th>
@@ -24,28 +24,29 @@
 
             <tbody >
                 <tr ng-repeat="reservation in $ctrl.reservations track by $index" >
-                    <td>{{reservation.idAnnonce.dateHeureDepart.dayOfMonth}}
-                    {{reservation.idAnnonce.dateHeureDepart.month}}
-                    {{reservation.idAnnonce.dateHeureDepart.year}}
-                     - {{reservation.idAnnonce.dateHeureDepart.hour}}
-                     :{{reservation.idAnnonce.dateHeureDepart.minute}}
-                     </td>
+                    <td >
+                        {{reservation.idAnnonce.dateHeureDepart}}
+                    </td>
 
-                    <td>{{reservation.idAnnonce.idAdresseDepart.numRue}} {{reservation.idAnnonce.idAdresseDepart.libelle}}
+                    <td>
+                        {{reservation.idAnnonce.idAdresseDepart.numRue}} {{reservation.idAnnonce.idAdresseDepart.libelle}}
                         {{reservation.idAnnonce.idAdresseDepart.nomRue}} {{reservation.idAnnonce.idAdresseDepart.codePostale}}
-                        {{reservation.idAnnonce.idAdresseDepart.ville}}</td>
+                        {{reservation.idAnnonce.idAdresseDepart.ville}}
+                    </td>
 
-                    <td>{{reservation.idAnnonce.idAdresseArrivee.numRue}} {{reservation.idAnnonce.idAdresseArrivee.libelle}}
+                    <td>
+                        {{reservation.idAnnonce.idAdresseArrivee.numRue}} {{reservation.idAnnonce.idAdresseArrivee.libelle}}
                         {{reservation.idAnnonce.idAdresseArrivee.nomRue}} {{reservation.idAnnonce.idAdresseArrivee.codePostale}}
-                        {{reservation.idAnnonce.idAdresseArrivee.ville}}</td>
+                        {{reservation.idAnnonce.idAdresseArrivee.ville}}
+                    </td>
 
                     <td><button id="detail" name="detail" class="btn btn-info btn-lg" ng-click="$ctrl.detailsReservation(reservation)" >Détails</button></td>
                 </tr>
             </tbody>
         </table>
 
-     <label>Historique</label>
-      <table class="table table-striped">
+     <label class="lead">Historique</label>
+      <table class="table table-striped contourTableau">
         <thead>
             <tr>
                 <th>Date-Heure</th>
@@ -57,13 +58,10 @@
 
         <tbody>
              <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
-                    <td>{{historique.idAnnonce.dateHeureDepart.dayOfMonth}}
-                        {{historique.idAnnonce.dateHeureDepart.month}}
-                        {{historique.idAnnonce.dateHeureDepart.year}}
-                        - {{historique.idAnnonce.dateHeureDepart.hour}}
-                        :{{historique.idAnnonce.dateHeureDepart.minute}}
-                     </td>
-
+                    <td >
+                        {{historique.idAnnonce.dateHeureDepart}}
+                    </td>
+                     
                     <td>{{historique.idAnnonce.idAdresseDepart.numRue}} {{historique.idAnnonce.idAdresseDepart.libelle}}
                         {{historique.idAnnonce.idAdresseDepart.nomRue}} {{historique.idAnnonce.idAdresseDepart.codePostale}}
                         {{historique.idAnnonce.idAdresseDepart.ville}}</td>
@@ -81,7 +79,7 @@
 
         <!-- <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination> -->
 
-    <div class="container" >
+    <div  >
         <ul class="pagination">
             <li ng-class="{disabled:$ctrl.currentPage === 1}" ><a ng-click="$ctrl.changePage($ctrl.currentPage-1)" >«</a></li>
             <li ng-repeat="page in $ctrl.pages" ng-class="{active:$ctrl.currentPage === page}">
@@ -92,13 +90,73 @@
         </ul>
     </div>
 </div>
-   <div style="border-style:groove" ng-click=$ctrl.afficherCovoit()><h4>Véhicule de société</h4></div>
+   <div class="titre" role="button"  ng-click=$ctrl.afficherCovoit()><h2 class="container">Véhicule de société</h2></div>
 
     
-    <div style="border-style:groove" ng-if=!$ctrl.afficheCovoit>
+    <div class="contenuRubrique" ng-if=!$ctrl.afficheCovoit>
 
-        <label>Réservations en cours</label>
+        <label class="lead">Réservations en cours</label>
 
+        <table class="table table-striped contourTableau">
+            <thead>
+                <tr>
+                     <th>Date/Heure Debut</th>
+                    <th>Date/Heure Fin</th>
+                    <th>Immatriculation</th>
+                    <th>Marque</th>
+                    <th>Modele</th>
+                </tr>
+            </thead>
+
+            <tbody >
+                <tr ng-repeat="reservationV in $ctrl.reservationsVehicule track by $index" >
+                    <td >{{reservationV.dateHeureDebut}}</td>
+                     <td>{{reservationV.dateHeureFin}}</td>
+                    <td>{{reservation.idVoiture.immatriculation}} </td>
+                    <td>{{reservation.idVoiture.marque}} </td>
+                    <td>{{reservation.idVoiture.modele}} </td>
+                </tr>
+            </tbody>
+        </table>
+
+     <label class="lead">Historique</label>
+      <table class="table table-striped contourTableau">
+        <thead>
+            <tr>
+                <th>Date/Heure Debut</th>
+                <th>Date/Heure Fin</th>
+                <th>Immatriculation</th>
+                <th>Marque</th>
+                <th>Modele</th>
+            </tr>
+        </thead>
+
+        <tbody>
+             <tr ng-repeat="historiqueV in $ctrl.historiquesVehicule.slice((($ctrl.currentPageV-1)*$ctrl.itemsPerPageV), (($ctrl.currentPageV)*$ctrl.itemsPerPageV))">
+                    <td >{{historiqueV.dateHeureDebut}}</td>
+                    <td >{{historiqueV.dateHeureFin}}</td>
+                     <td>{{historiqueV.voiture.immatriculation}} </td>
+                    <td>{{historiqueV.voiture.marque}} </td>
+                    <td>{{historiqueV.voiture.modele}} </td>
+
+
+                </tr>
+        </tbody>
+    </table>
+
+        <!-- <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination> -->
+
+    <div class="container" >
+        <ul class="pagination">
+            <li ng-class="{disabled:$ctrl.currentPageV === 1}" ><a ng-click="$ctrl.changePageV($ctrl.currentPageV-1)" >«</a></li>
+            <li ng-repeat="pageV in $ctrl.pagesV" ng-class="{active:$ctrl.currentPageV === pageV}">
+            <a  ng-click="$ctrl.changePageV(pageV)">{{pageV}} <span class="sr-only">(current)</span></a></li>
+            <li ng-class="($ctrl.currentPageV !== $ctrl.maxSizeV-1) ? 'disabled': ''"><a ng-click="$ctrl.changePageV($ctrl.currentPageV+1)">»</a></li>
+
+            <!-- "(page === currentPage) ? 'active': ''" -->
+        </ul>
+    </div>
+</div>
 
 
 

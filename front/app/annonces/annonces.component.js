@@ -27,7 +27,7 @@ class controller {
             });
     }
     changePage(num) {
-        if ( !(num ===0 || num > this.historiques.length-1) ) {
+        if ( !(num ===0 || num > this.maxSize) ) {
                     this.currentPage = num;
         }
 
@@ -35,6 +35,8 @@ class controller {
     detailAnnonce() {
         window.open('details.html', 'details', 'menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
     }
+
+    
 
 }
 

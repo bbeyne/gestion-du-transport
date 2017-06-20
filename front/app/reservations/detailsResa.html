@@ -1,30 +1,68 @@
 
-<div class="container">
-        <fieldset class="form-horizontal">
-            <legend>Détails du covoiturage</legend>
+  <div class="">
+          <fieldset class="form-horizontal">
+              <legend class="container" >Détails du covoiturage</legend>
 
-            <label>Départ : </label>{{$ctrl.unHistorique.idAnnonce.idAdresseDepart.numRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.libelle}}
-                                    {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.nomRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.codePostale}}
-                                    {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.ville}}
-        </br>
+          <div class="form-group ">
+            <label class="col-md-4 control-label">Départ : </label> 
 
-        <label>Destination : </label> {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.numRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.libelle}}
-                                      {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.nomRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.codePostale}}
-                                     {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.ville}}</br>
+             <div class="col-md-8 ">
+                <p class="form-control-static">
+                  {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.numRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.libelle}}
+                  {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.nomRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.codePostale}}
+                  {{$ctrl.unHistorique.idAnnonce.idAdresseDepart.ville}}
+                </p>
+             </div>
 
-        <label>Date/Heure : </label>{{$ctrl.unHistorique.idAnnonce.dateHeureDepart.dayOfMonth}}
-                                    {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.month}}
-                                    {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.year}}
-                                    - {{$ctrl.unHistorique.idAnnonce.dateHeureDepart.hour}}
-                                    :{{$ctrl.unHistorique.idAnnonce.dateHeureDepart.minute}}</br>
+          </div>
 
-        <label>Vehicule :  </label> {{$ctrl.unHistorique.idAnnonce.marque}}</br>
-        <label>Chauffeur :  </label>{{$ctrl.chauffeur.nom}} {{$ctrl.chauffeur.prenom}} </br>
-  </fieldset>
+          
+          <div class="form-group ">
+            <label  class="col-md-4 control-label"  >Destination : </label>
+            <div class="col-md-8 "> 
+               <p class="form-control-static">
+                {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.numRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.libelle}}
+                {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.nomRue}} {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.codePostale}}
+                {{$ctrl.unHistorique.idAnnonce.idAdresseArrivee.ville}}
+               </p>
+            </div>
+          </div>
 
-    
-</div>
 
-<div class="modal-footer">
-         <button type="button" class="btn btn-default" ng-click="$ctrl.fermer()" data-dismiss="modal">Fermer</button>
-</div>
+          <div class="form-group ">
+            <label  class="col-md-4 control-label" >Date/Heure : </label>
+
+            <div class="col-md-8 "> 
+               <p class="form-control-static">
+                {{$ctrl.unHistorique.idAnnonce.dateHeureDepart}}
+               </p>
+            </div>
+          </div>
+                            
+          <div class="form-group ">
+            <label  class="col-md-4 control-label" >Vehicule :  </label> 
+            
+            <div class="col-md-8 "> 
+               <p class="form-control-static">
+                {{$ctrl.unHistorique.idAnnonce.marque}}
+               </p>
+            </div>
+          </div>
+
+          <div class="form-group ">
+            <label  class="col-md-4 control-label" >Chauffeur :  </label>
+            
+             <div class="col-md-8 "> 
+              <p class="form-control-static">
+                {{$ctrl.chauffeur.nom}} {{$ctrl.chauffeur.prenom}}
+              </p>
+             </div>
+          </div>
+    </fieldset>
+
+      
+  </div>
+
+  <div class="modal-footer">
+          <button type="button" class="btn btn-default" ng-click="$ctrl.fermer()" data-dismiss="modal">Fermer</button>
+  </div>

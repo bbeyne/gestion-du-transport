@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.entity.Personne;
+import dev.entity.ReservVehicule;
 import dev.entity.Reservation;
+import dev.repository.ReservVehiculeRepository;
 import dev.repository.ReservationRepository;
 import dev.service.PersonneService;
 
@@ -24,6 +26,8 @@ public class ReservationApiController {
 	private ReservationRepository reservationRepo;
 	@Autowired
 	private PersonneService persoServ;
+	@Autowired
+	private ReservVehiculeRepository reservVehiculeRepo;
 	
 	@GetMapping(path="/encours")
 	public List<Reservation> listeReservation(@PathParam(value="matricule") String matricule) {
@@ -47,5 +51,20 @@ public class ReservationApiController {
 				.filter(d->d.getIdAnnonce().getDateHeureDepart().isBefore(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
-	
+	@GetMapping(path="/Vehicule/encours")
+	public List<ReservVehicule> listeReservationVehicule(@PathParam(value="matricule") String matricule) {
+		return this.reservVehiculeRepo.findAll()
+				.stream()
+				.filter(d->d.getProfil().getMatricule().equals(matricule))
+				.filter(d->d.getDateHeureDebut().isAfter(LocalDateTime.now()))
+				.collect(Collectors.toList());
+	}
+	@GetMapping(path="/Vehicule/historique")
+	public List<ReservVehicule> listeHistoriqueVehicule(@PathParam(value="matricule") String matricule) {
+		return this.reservVehiculeRepo.findAll()
+				.stream()
+				.filter(d->d.getProfil().getMatricule().equals(matricule))
+				.filter(d->d.getDateHeureDebut().isBefore(LocalDateTime.now()))
+				.collect(Collectors.toList());
+	}
 }

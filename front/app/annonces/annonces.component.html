@@ -21,8 +21,11 @@
 
         <tbody>
             <tr ng-repeat="annonce in $ctrl.annonces track by $index">
-                <td>{{annonce.dateHeureDepart.dayOfMonth}} {{annonce.dateHeureDepart.month}} {{annonce.dateHeureDepart.year}} - {{annonce.dateHeureDepart.hour}} :{{annonce.dateHeureDepart.minute}}
+                <td>
+                    {{annonce.dateHeureDepart}}
                 </td>
+                <!-- <td>{{annonce.dateHeureDepart.dayOfMonth}} {{annonce.dateHeureDepart.month}} {{annonce.dateHeureDepart.year}} - {{annonce.dateHeureDepart.hour}} :{{annonce.dateHeureDepart.minute}}
+                </td> -->
                 <td>
                     {{annonce.idAdresseDepart.numRue}} {{annonce.idAdresseDepart.libelle}} {{annonce.idAdresseDepart.nomRue}} {{annonce.idAdresseDepart.codePostale}} {{annonce.idAdresseDepart.ville}}
                 </td>
@@ -47,12 +50,17 @@
             <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
 
                 <!-- <td>{{historique.dateHeureDepart.dayOfMonth}}</td> -->
-                <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
+                <td >
+                    {{historique.dateHeureDepart}}
                 </td>
-                <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
-                </td>
+                  
+                <!-- <td>{{historique.dateHeureDepart.dayOfMonth}} {{historique.dateHeureDepart.month}} {{historique.dateHeureDepart.year}} - {{historique.dateHeureDepart.hour}} :{{historique.dateHeureDepart.minute}}
+                </td> -->
                 <td>
                     {{historique.idAdresseDepart.numRue}} {{historique.idAdresseDepart.libelle}} {{historique.idAdresseDepart.nomRue}} {{historique.idAdresseDepart.codePostale}} {{historique.idAdresseDepart.ville}}
+                </td>
+                <td>
+                    {{historique.idAdresseArrivee.numRue}} {{historique.idAdresseArrivee.libelle}} {{historique.idAdresseArrivee.nomRue}} {{historique.idAdresseArrivee.codePostale}} {{historique.idAdresseArrivee.ville}}
                 </td>
                 <td>{{historique.nbPlacesDispo}}</td>
             </tr>

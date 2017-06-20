@@ -57,10 +57,10 @@ public class InitServicedev implements InitService {
 			}
 		}
 
-		LocalDateTime dateHeureDepart1 = LocalDateTime.of(2017, 5, 4, 12, 30);
-		LocalDateTime dateHeureDepart2 = LocalDateTime.of(2017, 1, 7, 11, 00);
-		LocalDateTime dateHeureDepart3 = LocalDateTime.of(2018, 1, 7, 11, 00);
-		LocalDateTime dateHeureDepart4 = LocalDateTime.of(2017, 12, 7, 9, 00);
+		LocalDateTime dateHeureDepart1 = LocalDateTime.of(2017, 5, 4, 12, 30, 00);
+		LocalDateTime dateHeureDepart2 = LocalDateTime.of(2017, 1, 7, 11, 00, 00);
+		LocalDateTime dateHeureDepart3 = LocalDateTime.of(2018, 1, 7, 11, 00, 00);
+		LocalDateTime dateHeureDepart4 = LocalDateTime.of(2017, 12, 7, 9, 00, 00);
 
 		// LocalDate.parse("1993-06-25")
 
@@ -133,9 +133,14 @@ public class InitServicedev implements InitService {
 		voitureRep.save(voiture4);
 
 		ReservVehicule reserv1 = new ReservVehicule(dateHeureDepart1, dateHeureDepart2, voiture3, profilrep.getOne(1));
+		ReservVehicule reserv4 = new ReservVehicule(dateHeureDepart1, dateHeureDepart2, voiture2, profilrep.getOne(1));
+		ReservVehicule reserv3 = new ReservVehicule(dateHeureDepart1, dateHeureDepart2, voiture1, profilrep.getOne(1));
 		ReservVehicule reserv2 = new ReservVehicule(dateHeureDepart2, dateCoordonnees3, voiture4, profilrep.getOne(2));
+		
 		reservVoitRep.save(reserv1);
 		reservVoitRep.save(reserv2);
+		reservVoitRep.save(reserv4);
+		reservVoitRep.save(reserv3);
 		
 		
 		
