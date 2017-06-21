@@ -4,46 +4,113 @@
 
 <form class="form-horizontal">
     <fieldset>
-        <div class="titre" role="button" ng-click=$ctrl.afficherCovoit()><h2 class="container">Covoiturage</h2></div>
+        <div class="titre"  role="button" ng-click=$ctrl.afficherCovoit()><h2 class="container">Covoiturage</h2></div>
 
         <div class="contenuRubrique" ng-if=$ctrl.afficheCovoit>
 
             <label class="lead"> Critères </label>
-
-            <!-- Text input-->
+ <!-- Text input-->
              <div class="form-group">
-                <label class="col-md-2 control-label" for="adresseDepart">Adresse de départ *</label>
+
+                <label class="col-md-3 control-label" for="adresseDepart" >Adresse de départ *</label>
            
-                <div class="col-md-2">
-                    <input id="adresseDepart" name="adresseDepart" type="text" placeholder="" class="form-control input-md" required="">
-                </div>
-        
-                <label class="col-md-3 control-label" for="adresseDestination">Adresse de destination *</label>
+                <div class="col-md-6">
+                    <input id="adresseDepart" name="adresseDepart" type="text" placeholder=""  class="form-control input-md"
 
-                <div class="col-md-2">
-                    <input id="adresseDestination" name="adresseDestination" type="text" placeholder="" class="form-control input-md" required="">
+                        ng-model="query"
+                        ng-places-autocomplete
+                        pa-options="optionsObject"
+                        pa-trigger="triggerFunc"
+                        pa-on-place-ready="placesCallback"
+                        required="">
                 </div>
-
-                <div >
-                    <p class="col-md-3 form-control-static">Durée du trajet : 2 h 15 min</p>
-                </div>
-            </div>  
+             </div>
 
             <div class="form-group">
-                <label class="col-md-2 control-label" for="adresseDepart">Date de départ</label>
-               
 
-                <div class="col-md-offset-4 ">
-                    <p class="col-md-3 form-control-static">Distance : 250 km</p>
+                <label class="col-md-3 control-label" for="adresseDestination">Adresse de destination *</label>
+
+                <div class="col-md-6">
+                    <input id="adresseDestination" name="adresseDestination" type="text" placeholder="" class="form-control input-md"
+                        ng-model="query2"
+                        ng-places-autocomplete
+                        pa-options="optionsObject"
+                        pa-trigger="triggerFunc"
+                        pa-on-place-ready="finCallback"
+
+                        required="">
                 </div>
             </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="adresseDepart">Date de départ</label>
+
+                <div class="col-md-2">
+                    <input class="form-control input-md" type="text">
+                </div>
+            </div>
+
+         <!--    <div class="form-group">
+                <div >
+                    <p class="col-md-offset-6 form-control-static">Durée du trajet :</p>
+                    <button ng-click="$ctrl.calculate()">essai</button>
+                </div>
+             </div>
+
+             <div class="form-group">
+                <div >
+                    <p class="col-md-offset-6 form-control-static">Distance : 250 km</p>
+                </div>
+            </div>-->
+
+             <label class="lead"> Covoiturages </label>
+
+             <table class="table table-striped contourTableau">
+                <thead>
+                    <tr>
+                        <th>Date-Heure</th>
+                        <th>Départ</th>
+                        <th>Destination</th>
+                        <th>Véhicule</th>
+                        <th>Chauffeur</th>
+                        <th>Places disponibles</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+             </table>
+
+
+
         </div>
     </fieldset>
 </form>
 
-<div class="titre" role="button" ng-click=$ctrl.afficherCovoit()><h2 class="container"> Reservation</h2></div>
+<div class="titre" role="button" ng-click=$ctrl.afficherCovoit()><h2 class="container"> Véhicule de société</h2></div>
 
 <div  class="contenuRubrique" ng-if=!$ctrl.afficheCovoit>
-     <label class="lead">Critères pour reservation </label>
+    <label class="lead">Critères pour reservation </label><br>
+    <div ng-repeat="vehicule in $ctrl.vehicules.slice($ctrl.currentPage-1,$ctrl.currentPage)">
+    <button class="col-md-1" style="height: 300px" ng-click="$ctrl.changePage(-2)"><span class="glyphicon glyphicon-chevron-left" style="vertical-align: center"></span></button>
+    <img  ng-src="{{vehicule.urlImage}}"  class="col-md-10" style="height: 300px">
+    <button class="col-md-1" style="height: 300px" ng-click="$ctrl.changePage(-2)"><span class="glyphicon glyphicon-chevron-right" style="vertical-align: center"></span></button><br>
+    <div style="text-align: center" class="col-md-offset-5">
+        <table>
+                <tbody>
 
+                <tr>
+                    <td>{{vehicule.immatriculation}}</td>
+                </tr>
+                <tr>
+                    <td>{{vehicule.marque}} - {{vehicule.modele}}</td>
+                </tr>
+                <tr>
+                    <td>{{vehicule.categorie}}</td>
+                </tr>
+                <tr><td><button class="btn btn-default">Reserver</button></td></tr>
+                </tbody>
+        </table>
+    </div>
 </div>
