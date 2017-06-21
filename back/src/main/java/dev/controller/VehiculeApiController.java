@@ -34,4 +34,6 @@ public class VehiculeApiController {
     public void addMission(@RequestBody Voiture v) {
 		voitureRepo.save(v);
     }
+
+
 }

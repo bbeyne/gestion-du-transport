@@ -120,13 +120,13 @@ public class InitServicedev implements InitService {
 		coordonneesRep.save(coordonnees4);
 
 		Voiture voiture1 = new Voiture("PP-154-MM", "Renault", "Xantia", Voiture.CATEGORIE.BERLINE_TAILLE_M, 5,
-				Voiture.STATUT.EN_SERVICE, "url image", coordonnees1);
+				Voiture.STATUT.EN_SERVICE, "https://s-media-cache-ak0.pinimg.com/originals/32/62/a9/3262a95d416ea5526738fdfea47432bb.jpg", coordonnees1);
 		Voiture voiture2 = new Voiture("LE-123-EL", "Citroen", "ZX", Voiture.CATEGORIE.CITADINE_POLYVENTES, 6,
-				Voiture.STATUT.HS, "url image", coordonnees2);
+				Voiture.STATUT.HS, "https://s-media-cache-ak0.pinimg.com/originals/32/62/a9/3262a95d416ea5526738fdfea47432bb.jpg", coordonnees2);
 		Voiture voiture3 = new Voiture("AV-781-NN", "Ford", "Fiesta", Voiture.CATEGORIE.BERLINE_TAILLE_S, 5,
-				Voiture.STATUT.EN_SERVICE, "url image", coordonnees3);
+				Voiture.STATUT.EN_SERVICE, "https://s-media-cache-ak0.pinimg.com/originals/32/62/a9/3262a95d416ea5526738fdfea47432bb.jpg", coordonnees3);
 		Voiture voiture4 = new Voiture("KF-542-LG", "Citroen", "CX", Voiture.CATEGORIE.MICRO_CITADINE, 6,
-				Voiture.STATUT.HS, "url image", coordonnees4);
+				Voiture.STATUT.HS, "https://s-media-cache-ak0.pinimg.com/originals/32/62/a9/3262a95d416ea5526738fdfea47432bb.jpg", coordonnees4);
 		voitureRep.save(voiture1);
 		voitureRep.save(voiture2);
 		voitureRep.save(voiture3);

@@ -11,7 +11,4 @@ export class LibrairieMapsService {
             {types: ['geocode']});*/
         //autocomplete.addListener('place_changed', fillInAddress);
     }
-
-
-
 }

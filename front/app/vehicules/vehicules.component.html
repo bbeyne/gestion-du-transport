@@ -22,10 +22,10 @@
 
 <br>
 
-<div class="container">
+<div class="container" >
     <div class="row">
-        <div ng-repeat="vehicule in $ctrl.vehicules | filter:search" class="col-xs-12 col-sm-6 col-md-4 col-lg-4  toppad">
-            <div class="panel panel-info">
+        <div ng-repeat="vehicule in $ctrl.vehicules | filter:search" class="col-xs-12 col-sm-6 col-md-4 col-lg-4  toppad" >
+            <div role="button" class="panel panel-info" ng-click="$ctrl.pageDetailVehicule(vehicule.immatriculation)">
                 <div class="panel-heading">
                     <h3 class="panel-title">Véhicule n°{{vehicule.id}}</h3>
                 </div>

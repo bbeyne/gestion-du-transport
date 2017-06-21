@@ -25,12 +25,31 @@ export function route ($routeProvider, $locationProvider) {
         authorizeRole: ["CHAUFFEUR", "ADMIN", "COLLABORATEUR"]
     })
     .when('/admin/vehicules', {
-        template: '<menu></menu> <vehicules></vehicules>',
+        template: `
+            <menu></menu>
+            <vehicules></vehicules>
+        `,
+        requireAuth: true,
+        authorizeRole: ["ADMIN"]
+    })
+    .when('/admin/vehicules', {
+        template:
+        `
+            <menu></menu>
+            <vehicules></vehicules>
+        `,
         requireAuth: true,
         authorizeRole: ["ADMIN"]
     })
     .when('/connexion',{
         template: '<login></login>'
+    })
+    .when('/admin/vehicules/immatriculation',{
+        template:
+        `
+            <menu></menu>
+            <detail-vehicules></detail-vehicules>
+        `
     })
 
     .otherwise({

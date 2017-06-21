@@ -1,0 +1,81 @@
+<div class="container row col-md-12" ng-repeat="vehicule in $ctrl.vehicules | filter:$ctrl.immatriculation">
+
+   <div class="jumbotron col-md-12">
+
+    <h2>
+        <a ng-click="$ctrl.goBack()" class="btn btn-lg btn-primary">
+            <span class="glyphicon glyphicon-chevron-left"></span> Véhicules</a>
+        Immatriculation : {{$ctrl.immatriculation}}
+    </h2>
+<br>
+    <div class="col-md-4">
+        <img src="{{vehicule.urlImage}}" class="img-rounded">
+    </div>
+    <div class="container col-md-8">
+        <h3>{{vehicule.marque}}</h3>
+        <h3>{{vehicule.modele}}</h3>
+        <h3>{{vehicule.categorie}}</h3>
+    </div>
+   </div>
+    <br>
+    <div class="col-md-12">
+        <label>Prochaine réservations</label>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date / Heure début</th>
+                    <th>Date / heure fin</th>
+                    <th>Responsable</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="reservation in $ctrl.reservations track by $index">
+                    <pre>
+
+                        {{reservation}}
+                    </pre>
+>
+                    <td>
+                        {{annonce.idAdresseDepart.numRue}}
+                    </td>
+                    <td>
+                        {{annonce.idAdresseArrivee.numRue}}
+                    </td>
+                    <td>
+                        {{annonce.nbPlacesDispo}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <label>Historique des réservations</label>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Date / Heure début</th>
+                    <th>Date / heure fin</th>
+                    <th>Responsable</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
+
+                    <!-- <td>{{historique.dateHeureDepart.dayOfMonth}}</td> -->
+                    <td>
+                        {{historique.dateHeureDepart}}
+                    </td>
+                    <td>
+                        {{historique.idAdresseDepart.numRue}}
+                    </td>
+                    <td>
+                        {{historique.idAdresseArrivee.numRue}}
+                    </td>
+                    <td>{{historique.nbPlacesDispo}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

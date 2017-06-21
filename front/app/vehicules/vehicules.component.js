@@ -4,17 +4,22 @@ import templateAddVehicule from './ajouterVehicule.html';
 
 
 class controller {
-    constructor(VehiculesService, $uibModal) {
+    constructor(VehiculesService, $uibModal,$location) {
         this.$uibModal = $uibModal
-
+        this.$location=$location
         this.VehiculesService = VehiculesService
-        this.categories;
+        this.categories
 
     }
 
     $onInit() {
         this.VehiculesService.getVehicules()
             .then(vehicules => this.vehicules = vehicules)
+    }
+
+    pageDetailVehicule(immatriculation){
+        this.$location.hash(immatriculation)
+        this.$location.path('/admin/vehicules/immatriculation')
     }
 
     ouvrirPopUP() {

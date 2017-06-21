@@ -4,7 +4,7 @@
         <legend class="center-title">Ajout d'un véhicule</legend>
         <!-- Text input-->
         <div class="form-group ">
-            <label class="col-md-4 control-label" for="immatriculationInput">Immatriculation</label>
+            <label class="col-md-4 control-label" for="immatriculationInput">Immatriculation *</label>
             <div class="col-md-8 ">
                 <input id="immatriculationInput" ng-model="immatriculationInput" name="immatriculationInput" type="text" placeholder="" class="form-control input-md" required>
 
@@ -16,7 +16,7 @@
         </div>
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="marqueInput">Marque</label>
+            <label class="col-md-4 control-label" for="marqueInput">Marque *</label>
             <div class="col-md-8">
                 <input id="marqueInput" ng-model="marqueInput" name="marqueInput" type="text" placeholder="" class="form-control input-md" required>
 
@@ -24,7 +24,7 @@
         </div>
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="modeleInput">Modèle</label>
+            <label class="col-md-4 control-label" for="modeleInput">Modèle *</label>
             <div class="col-md-8">
                 <input ng-model="modelInput" id="modeleInput" name="modeleInput" type="text" placeholder="" class="form-control input-md" required>
 
@@ -32,7 +32,7 @@
         </div>
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="selectCategorie">Catégorie</label>
+            <label class="col-md-4 control-label" for="selectCategorie">Catégorie *</label>
             <div class="col-md-8">
                 <select id="selectCategorie" name="selectCategorie" class="form-control" ng-model="categorie">
                     <option ng-repeat="categorie in $ctrl.categories" >
@@ -43,21 +43,26 @@
         </div>
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="nbPlaceInput">Nombre de places</label>
+            <label class="col-md-4 control-label" for="nbPlaceInput">Nombre de places *</label>
             <div class="col-md-8">
                 <input ng-model="nbPlaceInput" id="nbPlaceInput" name="nbPlaceInput" type="text" placeholder="" class="form-control input-md" placeholder="maxi 20 places" required>
             </div>
         </div>
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="urlImageInput">Photo</label>
+            <label class="col-md-4 control-label" for="urlImageInput">Photo *</label>
             <div class="col-md-8">
                 <input ng-model="urlImageInput" id="urlImageInput" name="urlImageInput" type="text" placeholder="" class="form-control input-md" required>
             </div>
         </div>
+        <div class="col-md-4 control-label">
+            <h6><span class="label label-default">* Champs obligatoire</span></h6>
+        </div>
         <div class="modal-footer" ng-click="$ctrl.verifImmat(immatriculationInput)">
             <button type="button" class="btn btn-danger" ng-click="$ctrl.fermer()" data-dismiss="modal">Fermer</button>
-            <button type="submit" ng-disabled="addVoiture.$invalid" class="btn btn-primary" ng-click="$ctrl.ajouterVehicule(addVoiture)">Ajouter</button>
+            <button type="submit" ng-disabled="addVoiture.$invalid" class="btn btn-primary" ng-click="$ctrl.ajouterVehicule(addVoiture)" >
+            <span title="Tous les champs sont obligatoire !"><span>Ajouter</span></span>
+            </button>
         </div>
     </fieldset>
 </form>
