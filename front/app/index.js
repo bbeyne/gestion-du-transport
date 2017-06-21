@@ -6,6 +6,7 @@ import RouteModule from 'angular-route';
 import 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js';
 import  'ng-places-autocomplete/ngPlacesAutocomplete.js';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-ui-datetime-picker/dist/datetime-picker.min.js';
 import { route } from './app.route';
 
 import { AccueilComponent } from './accueil/accueil.component';
@@ -23,8 +24,8 @@ import { ReservationService } from './reservations/reservations.service';
 import { AnnoncesService } from './annonces/annonces.service';
 import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
-import { ReservationVehiculeService } from './reservations/reservationVehicule.service'
-import { LibrairieMapsService } from './apiGoogleMaps/librairieMaps.service'
+import { ReservationVehiculeService } from './reservations/reservationVehicule.service';
+import { LibrairieMapsService } from './apiGoogleMaps/librairieMaps.service';
 
 
 //Création du module app
@@ -36,6 +37,7 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap','ngPlacesAutocomple
 .value('API_VEHICULE', API_URL + "/admin/vehicule/" )
 .value('API_ANNONCE', API_URL + "/collaborateur/annonces/encours" )
 .value('API_ANNONCE_HISTORIQUE', API_URL + "/collaborateur/annonces/historique" )
+.value('API_ANNONCE_POST', API_URL + "/collaborateur/annonces/ajouterAnnonce" )
 .value('API_RESERVATION_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/encours" )
 .value('API_HISTORIQUE_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/historique" )
 .component('accueil', AccueilComponent)
