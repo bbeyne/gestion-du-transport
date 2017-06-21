@@ -36,16 +36,5 @@
 <body class="container" id="body" ng-app="app">
     <auth></auth>
     <ng-view></ng-view>
-
-    <!--******************** API GOOGLE MAPS ****************-->
-    <script>
-        function initAutocomplete() {
-            new google.maps.places.Autocomplete(
-                (document.getElementById('autocomplete')),
-                {types: ['geocode']});
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3dvlV0OS-AYMU66DxCJ8PYA_Psmqh6zA&libraries=places&callback=initAutocomplete" async defer></script>
-
 </body>
 </html>
