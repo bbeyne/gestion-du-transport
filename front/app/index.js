@@ -4,6 +4,7 @@ import angular from 'angular';
 import ngCookies from 'angular-cookies';
 import RouteModule from 'angular-route';
 import 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js';
+import  'ng-places-autocomplete/ngPlacesAutocomplete.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import { route } from './app.route';
 
@@ -26,7 +27,7 @@ import { LibrairieMapsService } from './apiGoogleMaps/librairieMaps.service'
 
 
 //Création du module app
-angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
+angular.module('app', [RouteModule, ngCookies,'ui.bootstrap','ngPlacesAutocomplete'])
 
 .value( 'API_URL', API_URL)
 .value('API_RESERVATION', API_URL + "/collaborateur/reservations/encours" )
@@ -36,7 +37,6 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .value('API_ANNONCE_HISTORIQUE', API_URL + "/collaborateur/annonces/historique" )
 .value('API_RESERVATION_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/encours" )
 .value('API_HISTORIQUE_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/historique" )
-
 .component('accueil', AccueilComponent)
 .component('reservations', ReservationsComponent)
 .component('annonces', AnnoncesComponent)
@@ -54,9 +54,6 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap'])
 .service('ReservationVehiculeService', ReservationVehiculeService)
 .service('LibrairieMapsService', LibrairieMapsService)
 
-
-
-// .controller('detailReservation', DetailController)
 
 
 .config(route);
