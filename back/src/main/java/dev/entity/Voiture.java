@@ -1,5 +1,6 @@
 package dev.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -40,6 +41,7 @@ public class Voiture {
 	private int nbPlaces;
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
+	@Column(length=1000)
 	private String urlImage;
 	@ManyToOne
 	private Coordonees idCoordonnees;
