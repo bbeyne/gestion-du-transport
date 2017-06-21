@@ -6,7 +6,6 @@ class controller {
 
     $scope.$on('$routeChangeStart', (angularEvent, newUrl) => {
       this.profil=this.LoginService.LoadCookie()
-      console.log('auth profil', this.profil)
       if (newUrl.requireAuth) {
         if (this.profil === undefined) {
           $location.path('connexion')
