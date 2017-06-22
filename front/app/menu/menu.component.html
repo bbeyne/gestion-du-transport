@@ -15,9 +15,19 @@
                 <li ng-class="{active:isActive('/admin/vehicules')}"><a ng-href="admin/vehicules" class="active" ng-if="$ctrl.type==='ADMIN'">Véhicule</a></li>
                 <!-- <li><a ng-href="admin/occupation" ng-if="$ctrl.type==='ADMIN'">Chauffeur</a></li> -->
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
-                <li><button class="btn btn-danger" ng-click="$ctrl.deconnection()">Se deconnecter</button>
+                <li><button class="btn btn-danger" ng-click="$ctrl.deconnection()">Se deconnecter</button></li>
             </ul>
+
+
+            <ul class="textNav nav navbar-nav navbar-right">
+                    <li>Bienvenu :   </li>
+                    <li>{{ $ctrl.profile.nom }}</li>
+                    <li> - </li>
+                    <li>{{ $ctrl.profile.prenom }}</li>
+            </ul>
+
         </div>
     </nav>
 </header>

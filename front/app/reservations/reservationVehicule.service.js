@@ -20,11 +20,5 @@ export class ReservationVehiculeService {
     getHistorique() {
         return this.$http.get(this.apiUrlHisto+"?matricule="+this.LoginService.LoadCookie().matricule)
             .then(response => response.data)
-    }     
-            
-    
-
-    
-
-
+    }
 }

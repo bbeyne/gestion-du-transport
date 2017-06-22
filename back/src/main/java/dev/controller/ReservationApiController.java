@@ -40,7 +40,6 @@ public class ReservationApiController {
 	}
 	@GetMapping(path="/historique/chauffeur")
 	public Personne NomChauffeur(@PathParam(value="matricule") String matricule) {
-		System.out.println(matricule);
 		return persoServ.PersonneByMatricule(matricule);
 	}
 

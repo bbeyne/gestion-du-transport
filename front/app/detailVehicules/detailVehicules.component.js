@@ -1,9 +1,10 @@
 import template from './detailVehicules.component.html';
 
 class controller {
-    constructor ($location,VehiculesService,ReservationVehiculeService) {
+    constructor ($location,VehiculesService,ReservationVehiculeService,MenuService) {
         this.$location=$location
         this.VehiculesService=VehiculesService
+        this.MenuService=MenuService
         this.ReservationVehiculeService=ReservationVehiculeService
         this.immatriculation=this.$location.$$hash
         this.tabMatricule=[]
@@ -34,7 +35,7 @@ class controller {
     }
 
     getChauffeur(matricule){
-        this.ReservationVehiculeService.getChauffeur(matricule)
+        this.MenuService.getChauffeur(matricule)
             .then(m => this.profile = m)
     }
 

@@ -26,6 +26,7 @@ import { VehiculesService } from './vehicules/vehicules.service';
 import { LoginService } from './login/login.service';
 import { ReservationVehiculeService } from './reservations/reservationVehicule.service';
 import { LibrairieMapsService } from './apiGoogleMaps/librairieMaps.service';
+import { MenuService } from './menu/menu.service';
 
 
 //Création du module app
@@ -57,6 +58,7 @@ angular.module('app', [RouteModule, ngCookies,'ui.bootstrap','ngPlacesAutocomple
 .service('VehiculesService', VehiculesService)
 .service('ReservationVehiculeService', ReservationVehiculeService)
 .service('LibrairieMapsService', LibrairieMapsService)
+.service('MenuService', MenuService)
 
 
 
