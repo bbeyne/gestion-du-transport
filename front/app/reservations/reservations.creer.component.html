@@ -109,7 +109,8 @@
                 <tr>
                     <td>{{vehicule.categorie}}</td>
                 </tr>
-                <tr><td><button class="btn btn-default">Reserver</button></td></tr>
+                <tr><td><button class="btn btn-default" ng-if="$ctrl.dispo">Reserver</button>
+                <span ng-if="!$ctrl.dispo" class="text-danger">Indisponible</span></td></tr>
                 </tbody>
         </table>
     </div>

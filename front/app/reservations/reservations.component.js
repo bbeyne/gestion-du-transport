@@ -41,7 +41,7 @@ class controller {
                 }
             })
 
-            this.ReservationVehiculeService.getReservations()
+            this.ReservationVehiculeService.getReservationsbyMatricule()
             .then(reservationsVehicule =>this.reservationsVehicule = reservationsVehicule)
 
             this.ReservationVehiculeService.getHistorique()

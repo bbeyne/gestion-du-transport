@@ -11,6 +11,7 @@ class controller {
         this.VehiculesService=VehiculesService;
         this.currentPage = 1;
         this.totalItems=0;
+        this.dispo=true;
     }
 
     $onInit() {
@@ -23,7 +24,6 @@ class controller {
     }
     changePage(num) {
             this.currentPage = (this.currentPage+num+this.totalItems)%this.totalItems+1;
-        console.log(this.currentPage)
 
     }
 

@@ -8,7 +8,7 @@ export class ReservationVehiculeService {
         this.LoginService= LoginService
 
     }
-    getReservations() {
+    getReservationsbyMatricule() {
         return this.$http.get(this.apiUrlResa+"?matricule="+this.LoginService.LoadCookie().matricule)
             .then(response => response.data)   
     }
