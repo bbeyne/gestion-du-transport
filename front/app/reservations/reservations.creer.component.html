@@ -92,16 +92,110 @@
 
 <div  class="contenuRubrique" ng-if=!$ctrl.afficheCovoit>
     <label class="lead">Critères pour reservation </label><br>
+    <div class="form-group">
+            <label class="col-md-4 control-label" for="date">Date / heure de réservation* </label>
+            <div class="col-md-4">
+                <input ng-model="$ctrl.date" id="date" name="date" type="date" placeholder="dd/MM/yyyy" class="col-md-11" >
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </div>
+            <!-- <label class="col-md-4 control-label" for="heure"></label> -->
+            <div class="col-md-2">
+                <select ng-model="$ctrl.heure" id="heure" name="heure" class="form-control">
+                                <option value="0">00</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                            </select>
+            </div>
+            <div class="col-md-2">
+            	<h5 class="col-md-1">h</h5>
+            	<div class="col-md-8">
+                <select ng-model="$ctrl.minute" id="minute" name="minute" class="form-control">
+                    <option value="0">00</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select></div>
+            </div>
+            <label class="col-md-4 control-label" for="date">Date / heure de retour* </label>
+            <div class="col-md-4">
+                <input ng-model="$ctrl.dateRetour" id="date" name="dateRetour" type="date" placeholder="" class="col-md-11">
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </div>
+            <!-- <label class="col-md-4 control-label" for="heure"></label> -->
+            <div class="col-md-2">
+                <select ng-model="$ctrl.heureRetour" id="heure" name="heureRetour" class="form-control">
+                                <option value="0">00</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                            </select>
+            </div>
+            <div class="col-md-2">
+            	<h5 class="col-md-1">h</h5>
+            	<div class="col-md-8">
+                <select ng-model="$ctrl.minuteRetour" id="minute" name="minuteRetour" class="form-control">
+                    <option value="0">00</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select></div>
+            </div>
+    </div>
     <div ng-repeat="vehicule in $ctrl.vehicules.slice($ctrl.currentPage-1,$ctrl.currentPage)">
-    <button class="col-md-1" style="height: 300px" ng-click="$ctrl.changePage(-2)"><span class="glyphicon glyphicon-chevron-left" style="vertical-align: center"></span></button>
-    <img  ng-src="{{vehicule.urlImage}}"  class="col-md-10" style="height: 300px">
-    <button class="col-md-1" style="height: 300px" ng-click="$ctrl.changePage(-2)"><span class="glyphicon glyphicon-chevron-right" style="vertical-align: center"></span></button><br>
+    <button class="col-md-1" style="height: 350px" ng-click="$ctrl.changePage(-2)"><span class="glyphicon glyphicon-chevron-left" style="vertical-align: center"></span></button>
+    <img  ng-src="{{vehicule.urlImage}}"  class="col-md-10" style="height: 350px">
+    <button class="col-md-1" style="height: 350px" ng-click="$ctrl.changePage(0)"><span class="glyphicon glyphicon-chevron-right" style="vertical-align: center"></span></button><br>
     <div style="text-align: center" class="col-md-offset-5">
         <table>
                 <tbody>
 
                 <tr>
-                    <td>{{vehicule.immatriculation}}</td>
+                    <td>{{vehicule.immatriculation}} </ctrl></td>
                 </tr>
                 <tr>
                     <td>{{vehicule.marque}} - {{vehicule.modele}}</td>
@@ -109,7 +203,8 @@
                 <tr>
                     <td>{{vehicule.categorie}}</td>
                 </tr>
-                <tr><td><button class="btn btn-default">Reserver</button></td></tr>
+                <tr><td><button ng-click="$ctrl.Reserver()" class="btn btn-default" ng-if="$ctrl.dispo">Reserver</button>
+                <span ng-if="!$ctrl.dispo" class="text-danger">Indisponible</span></td></tr>
                 </tbody>
         </table>
     </div>
