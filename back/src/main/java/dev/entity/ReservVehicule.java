@@ -12,19 +12,20 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class ReservVehicule {
+	
+	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dateHeureDebut;
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dateHeureFin;
 	@ManyToOne
 	private Voiture voiture;
 	@ManyToOne
 	private Profile profil;
-
 
 	public ReservVehicule() {
 		super();

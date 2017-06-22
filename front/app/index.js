@@ -6,8 +6,8 @@ import RouteModule from 'angular-route';
 import 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js';
 import  'ng-places-autocomplete/ngPlacesAutocomplete.js';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-ui-datetime-picker/dist/datetime-picker.min.js';
 import { route } from './app.route';
+import {moment} from 'moment';
 
 import { AccueilComponent } from './accueil/accueil.component';
 import { ReservationsComponent } from './reservations/reservations.component';
@@ -27,9 +27,9 @@ import { LoginService } from './login/login.service';
 import { ReservationVehiculeService } from './reservations/reservationVehicule.service';
 import { LibrairieMapsService } from './apiGoogleMaps/librairieMaps.service';
 
-
+require('angular-moment')
 //Création du module app
-angular.module('app', [RouteModule, ngCookies,'ui.bootstrap','ngPlacesAutocomplete'])
+angular.module('app', [RouteModule, ngCookies, 'angularMoment','ui.bootstrap','ngPlacesAutocomplete'])
 
 .value( 'API_URL', API_URL)
 .value('API_RESERVATION', API_URL + "/collaborateur/reservations/encours" )
