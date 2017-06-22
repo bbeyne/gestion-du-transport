@@ -48,20 +48,15 @@ class controller {
         window.open('details.html', 'details', 'menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
     }
 
+
+
     publierAnnonce(infoForm) {
 
-        //7 Rue du Faubourg Saint-Honoré, Paris, France
 
-        // console.log(infoForm.adresseDepart.$modelValue);
 
-        this.annonce.adresseDepart = this.parseAdresse(infoForm.adresseDepart.$modelValue);
 
-        // console.log(infoForm.adresseArrivee.$modelValue);
         this.annonce.adresseArrivee = this.parseAdresse(infoForm.adresseArrivee.$modelValue);
-        // console.log("adresse OK ? : ");
-        // console.log(this.annonce.adresseDepart);
-        // console.log(this.annonce.adresseArrivee);
-        // console.log("adresse OK : ");
+
 
 
         //this.annonce.adresseDepart = this.adresseDepart;
@@ -97,6 +92,7 @@ class controller {
 
         this.AnnoncesService.createNewAnnonce(this.annonce);
         console.log("post OK");
+
 
 
         console.log(this.LoginService.LoadCookie());

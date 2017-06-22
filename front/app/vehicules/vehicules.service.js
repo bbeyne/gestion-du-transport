@@ -16,7 +16,6 @@ export class VehiculesService {
     }
 
     createNewVehicule(vehicule) {
-        console.log("post :", vehicule)
         return this.$http.post(this.apiUrlVehicule + 'ajouterVoiture', vehicule)
             .then(response => response.data)
     }

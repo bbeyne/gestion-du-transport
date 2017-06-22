@@ -61,7 +61,6 @@ class controller {
         nouvelleReservVoit.dateHeureDebut=this.moment(new Date(this.date.getFullYear(),this.date.getMonth(),this.date.getDate(),this.heure,this.minute,0)).format('DD/MM/YYYY hh:mm:ss')
         nouvelleReservVoit.voiture=this.vehicules[this.currentPage-1]
         nouvelleReservVoit.profil=this.LoginService.LoadCookie();
-        console.log(nouvelleReservVoit.dateHeureDebut)
         this.ReservationVehiculeService.createNewReservVoit(nouvelleReservVoit);
     }
 

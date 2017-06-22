@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import dev.entity.Personne;
 import dev.entity.ReservVehicule;
 import dev.entity.Reservation;
-import dev.entity.Voiture;
 import dev.repository.ReservVehiculeRepository;
 import dev.repository.ReservationRepository;
 import dev.service.PersonneService;

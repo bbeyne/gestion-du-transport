@@ -26,7 +26,6 @@ export class AnnoncesService {
     }
 
     createNewAnnonce (annonce) {
-        console.log("test post :",annonce);
         return this.$http.post( this.apiUrlPost, annonce)
         .then(response => response.data);
     }
