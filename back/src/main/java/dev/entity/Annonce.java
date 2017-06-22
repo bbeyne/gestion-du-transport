@@ -22,7 +22,7 @@ public class Annonce {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm")
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private LocalDateTime dateHeureDepart;
 	private int nbPlacesDispo;
 	private String immatriculation;

@@ -70,6 +70,7 @@ public class ReservationApiController {
 				.filter(d->d.getDateHeureDebut().isBefore(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
+
 	@GetMapping(path="/Vehicule/encours")
 	public List<ReservVehicule> listeReservationVehicule(@PathParam(value="matricule") String matricule) {
 		return this.reservVehiculeRepo.findAll()
@@ -78,8 +79,16 @@ public class ReservationApiController {
 				.filter(d->d.getDateHeureDebut().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
+
 	@PostMapping("/Vehicule/encours/ajouterReserv")
     public void addMission(@RequestBody ReservVehicule r) {
 		reservVehiculeRepo.save(r);
+
+	}
+	
+	@PostMapping("/ajouterReservation")
+    public void addReservation(@RequestBody Reservation r) {
+		reservationRepo.save(r);
+
     }
 }

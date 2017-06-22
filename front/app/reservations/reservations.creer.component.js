@@ -4,13 +4,16 @@ import template from './reservations.creer.component.html';
 
 class controller {
         
-    constructor(ReservationService, LibrairieMapsService, $scope,LoginService, VehiculesService, ReservationVehiculeService,moment) {
+
+    constructor(ReservationService, LibrairieMapsService, $scope,LoginService, VehiculesService, ReservationVehiculeService,moment,  AnnoncesService) {
+
         this.ReservationService = ReservationService;
         this.LoginService=LoginService
         this.LibrairieMapsService = LibrairieMapsService
         this.ReservationVehiculeService=ReservationVehiculeService
         this.$scope = $scope
         this.VehiculesService=VehiculesService;
+        this.AnnoncesService = AnnoncesService;
         this.currentPage = 1;
         this.totalItems=0;
         this.moment=moment;
@@ -31,7 +34,11 @@ class controller {
             .then(vehicules => {this.vehicules = vehicules
                 this.totalItems = this.vehicules.length;
         })
+
+        this.AnnoncesService.getAnnoncesAfterDate()
+            .then(annonces => this.annonces = annonces)
     }
+
 
     changePage(num) {
             this.currentPage = (this.currentPage+num+this.totalItems)%this.totalItems+1;
@@ -39,6 +46,7 @@ class controller {
                 .then(reservationsVehicule=> {this.reservationsVehicule=reservationsVehicule
                     this.car=this.reservationsVehicule[0]
                 })
+
 
     }
 
@@ -58,6 +66,23 @@ class controller {
     }
 
 
+
+    ajouterReservation(reserv)  {
+        
+        this.reservation = {
+            statut:"EN_COURS",
+            idAnnonce :"",
+            idPersonne:""
+        }
+      
+        this.reservation.idAnnonce=reserv
+        this.reservation.idPersonne = this.LoginService.LoadCookie()
+        
+        
+        this.ReservationService.postNewReservation(this.reservation)
+}
+
+  
 }
 
 export let ReservationsCreerComponent = {

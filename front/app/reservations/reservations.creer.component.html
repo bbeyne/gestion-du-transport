@@ -16,7 +16,6 @@
            
                 <div class="col-md-6">
                     <input id="adresseDepart" name="adresseDepart" type="text" placeholder=""  class="form-control input-md"
-
                         ng-model="query"
                         ng-places-autocomplete
                         pa-options="optionsObject"
@@ -42,27 +41,6 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="adresseDepart">Date de départ</label>
-
-                <div class="col-md-2">
-                    <input class="form-control input-md" type="text">
-                </div>
-            </div>
-
-         <!--    <div class="form-group">
-                <div >
-                    <p class="col-md-offset-6 form-control-static">Durée du trajet :</p>
-                    <button ng-click="$ctrl.calculate()">essai</button>
-                </div>
-             </div>
-
-             <div class="form-group">
-                <div >
-                    <p class="col-md-offset-6 form-control-static">Distance : 250 km</p>
-                </div>
-            </div>-->
-
              <label class="lead"> Covoiturages </label>
 
              <table class="table table-striped contourTableau">
@@ -78,6 +56,23 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    <tr ng-repeat="annonce in $ctrl.annonces | filter:query " >
+                        <td>{{annonce.dateHeureDepart}}</td>
+                        <td>{{annonce.idAdresseDepart.numRue}} {{annonce.idAdresseDepart.libelle}}
+                            {{annonce.idAdresseDepart.nomRue}} {{annonce.idAdresseDepart.codePostale}}
+                            {{annonce.idAdresseDepart.ville}} </td>
+                        <td>
+                            {{annonce.idAdresseArrivee.numRue}} {{annonce.idAdresseArrivee.libelle}}
+                            {{annonce.idAdresseArrivee.nomRue}} {{annonce.idAdresseArrivee.codePostale}}
+                            {{annonce.idAdresseArrivee.ville}}
+                        </td>
+                        <td>{{annonce.marque}} {{annonce.modele}} </td>
+                        <td></td>
+                        <td>{{annonce.nbPlacesDispo}}</td>
+                        <td><button id="reserver" name=reserver class="btn btn-info btn-lg" ng-click="$ctrl.ajouterReservation(annonce)" >Réserver</button></td>
+
+                    </tr>
 
                 </tbody>
              </table>

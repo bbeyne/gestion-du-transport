@@ -30,6 +30,15 @@ public class AnnonceApiController {
 				.filter(d->d.getDateHeureDepart().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
+	
+	@GetMapping(path="/encoursAfterDate")
+	public List<Annonce> listeEnCoursAfterDate() {
+
+		return this.annonceRepository.findAll()
+				.stream()
+				.filter(d->d.getDateHeureDepart().isAfter(LocalDateTime.now()))
+				.collect(Collectors.toList());
+	}
 
 	@GetMapping(path="/historique")
 	public List<Annonce> listeHistorique(@PathParam(value="matricule") String matricule) {

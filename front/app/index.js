@@ -35,12 +35,16 @@ angular.module('app', [RouteModule, ngCookies, 'angularMoment','ui.bootstrap','n
 .value( 'API_URL', API_URL)
 .value('API_RESERVATION', API_URL + "/collaborateur/reservations/encours" )
 .value('API_HISTORIQUE', API_URL + "/collaborateur/reservations/historique" )
+.value('API_AJOUT_RESERVATION',API_URL + "/collaborateur/reservations/ajouterReservation")
 .value('API_VEHICULE', API_URL + "/admin/vehicule/" )
 .value('API_ANNONCE', API_URL + "/collaborateur/annonces/encours" )
+.value('API_ANNONCE_AFTER_DATE', API_URL + "/collaborateur/annonces/encoursAfterDate" )
 .value('API_ANNONCE_HISTORIQUE', API_URL + "/collaborateur/annonces/historique" )
 .value('API_ANNONCE_POST', API_URL + "/collaborateur/annonces/ajouterAnnonce" )
 .value('API_RESERVATION_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/encours" )
 .value('API_HISTORIQUE_Vehicule', API_URL + "/collaborateur/reservations/Vehicule/historique" )
+
+
 .component('accueil', AccueilComponent)
 .component('reservations', ReservationsComponent)
 .component('annonces', AnnoncesComponent)
