@@ -22,9 +22,9 @@
 
 <br>
 
-<div class="container" >
+<div class="container">
     <div class="row">
-        <div ng-repeat="vehicule in $ctrl.vehicules | filter:search" class="col-xs-12 col-sm-6 col-md-4 col-lg-4  toppad" >
+        <div ng-repeat="vehicule in $ctrl.vehicules | filter:search" class="col-xs-12 col-sm-6 col-md-4 col-lg-4  toppad">
             <div role="button" class="panel panel-info" ng-click="$ctrl.pageDetailVehicule(vehicule.immatriculation)">
                 <div class="panel-heading">
                     <h3 class="panel-title">Véhicule n°{{vehicule.id}}</h3>
@@ -32,7 +32,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12 col-lg-12 " align="center">
-                            <img alt="Car Pic" ng-src="{{vehicule.urlImage}}"  class="img-circle img-responsive">
+                            <img alt="Car Pic" ng-src="{{vehicule.urlImage}}" class="img-circle img-responsive">
                             <br/>
                         </div>
                         <div class="col-md-2"></div>

@@ -6,11 +6,13 @@ class controller {
         this.VehiculesService=VehiculesService
         this.ReservationVehiculeService=ReservationVehiculeService
         this.immatriculation=this.$location.$$hash
-
+        this.tabMatricule=[]
+        this.tab=[]
     }
+
     $onInit(){
         this.getVehicules()
-        this.getReservations()
+        this.getHistorique()
     }
 
     getVehicules(){
@@ -18,10 +20,22 @@ class controller {
             .then(vehicules => this.vehicules = vehicules)
     }
 
-    getReservations(){
-        this.ReservationVehiculeService.getReservations()
-            .then(reservations => this.reservations = reservations)
-           // .then(p=>{console.log(this.reservations)})
+    getHistorique(){
+        this.ReservationVehiculeService.getHistorique()
+            .then(historiqueReservations => this.historiqueReservations = historiqueReservations)
+            .then(p=>{
+                this.historiqueReservations.forEach(h => this.tabMatricule.push(h.profil.matricule))
+            })
+            .then(p=> {
+            this.tabMatricule.forEach( m=>
+                this.getChauffeur(m)
+            )
+        })
+    }
+
+    getChauffeur(matricule){
+        this.ReservationVehiculeService.getChauffeur(matricule)
+            .then(m => this.profile = m)
     }
 
     goBack(){
@@ -36,5 +50,6 @@ export let DetailVehiculesComponent = {
     template,
     controller,
     bindings: {
+
     }
 };
