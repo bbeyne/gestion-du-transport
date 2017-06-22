@@ -1,7 +1,7 @@
 export class AnnoncesService {
-    constructor($http, $q, API_ANNONCE, API_ANNONCE_HISTORIQUE, LoginService) {
+    constructor($http, API_ANNONCE, API_ANNONCE_HISTORIQUE, API_ANNONCE_POST, LoginService) {
         this.$http = $http;
-        this.$q = $q;
+        this.apiUrlPost = API_ANNONCE_POST;
         this.apiUrlAnnonce = API_ANNONCE;
         this.apiUrlHisto = API_ANNONCE_HISTORIQUE;
         this.LoginService= LoginService;
@@ -15,6 +15,18 @@ export class AnnoncesService {
     getHistorique() {
         return this.$http.get(this.apiUrlHisto+"?matricule="+this.LoginService.LoadCookie().matricule)
             .then(response => response.data);
-
     }
+
+    createNewAnnonce (annonce) {
+        console.log("test post :",annonce);
+        return this.$http.post( this.apiUrlPost, annonce)
+        .then(response => response.data);
+    }
+
+    // verifImmat(immatriculation){
+    //     let reponse;
+    //     let reg=/[A-Z]{2}-\d{3}-[A-Z]{2}/;
+    //     reg.test(immatriculation) ? reponse=true : reponse=false
+    //     return reponse;
+    // }
 }

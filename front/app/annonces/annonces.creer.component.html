@@ -1,25 +1,29 @@
-<form class="form-horizontal">
+<form  name="addAnnonce" class="form-horizontal" method="post">
     <fieldset>
-
         <!-- Form Name -->
-        <legend>Publier une annonce</legend>
+        <legend ng-click="$ctrl.publierAnnonce(addAnnonce)"> Publier une annonce</legend>
 
         <pre>Itinéraire</pre>
 
         <!-- Text input-->
         <div class="form-group">
-            <label  class="col-md-4 control-label" for="adresseDepart">Adresse de départ *</label>
+            <label class="col-md-4 control-label" for="adresseDepart">Adresse de départ *</label>
             <div class="col-md-4">
-                <input id="autocomplete" name="adresseDepart" type="text" placeholder="" class="form-control input-md" required="">
-             </div>
+                <input id="adresseDepart" name="adresseDepart" type="text" placeholder=""  class="form-control input-md"
+                    ng-model="adresseDepart"
+                    ng-places-autocomplete
+                    pa-options="optionsObject"
+                    pa-trigger="triggerFunc"
+                    pa-on-place-ready="placesCallback"
+                    required="">
+            </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label id="autocomplete" class="col-md-4 control-label" for="adresseDestination">Adresse de destination *</label>
+            <label id="adresseDestination" class="col-md-4 control-label" for="adresseDestination">Adresse de destination *</label>
             <div class="col-md-4">
-                <input id="adresseDestination" name="adresseDestination" type="text" placeholder="" class="form-control input-md" required="">
-
+                <input ng-model="adresseDestination" id="adresseDestination" name="adresseDestination" type="text" placeholder="" class="form-control input-md" >
             </div>
         </div>
 
@@ -34,10 +38,9 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="Immatriculation">Immatriculation *</label>
+            <label class="col-md-4 control-label" for="immatriculation">Immatriculation *</label>
             <div class="col-md-4">
-                <input id="Immatriculation" name="Immatriculation" type="text" placeholder="" class="form-control input-md" required="">
-
+                <input ng-model="immatriculation" id="immatriculation" name="immatriculation" type="text" placeholder="" class="form-control input-md" >
             </div>
         </div>
 
@@ -45,8 +48,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="marque">Marque *</label>
             <div class="col-md-4">
-                <input id="marque" name="marque" type="text" placeholder="" class="form-control input-md" required="">
-
+                <input ng-model="marque" id="marque" name="marque" type="text" placeholder="" class="form-control input-md" >
             </div>
         </div>
 
@@ -54,60 +56,81 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="modele">Modèle *</label>
             <div class="col-md-4">
-                <input id="modele" name="modele" type="text" placeholder="" class="form-control input-md" required="">
+                <input ng-model="modele" id="modele" name="modele" type="text" placeholder="" class="form-control input-md" >
 
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="nbPlace">Nombre de places disponibles *</label>
+            <label class="col-md-4 control-label" for="nbPlaces">Nombre de places disponibles *</label>
             <div class="col-md-2">
-                <input id="nbPlace" name="nbPlace" type="text" placeholder="" class="form-control input-md" required="">
-
+                <input ng-model="nbPlaces" id="nbPlaces" name="nbPlaces" type="text" placeholder="" class="form-control input-md" >
             </div>
         </div>
 
         <pre>Date et horaire</pre>
 
-        <div class="container">
-            <div class="row">
-                <div class='col-sm-6'>
-                    <div class="form-group">
-                        <div class='input-group date' id='datetimepicker1'>
-                            <input type='text' class="form-control" />
-                            <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <script type="text/javascript">
-                    $(function() {
-                        $('#datetimepicker1').datetimepicker();
-                    });
-                </script>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="date">Date / heure * </label>
+            <div class="col-md-2">
+                <input ng-model="date" id="date" name="date" type="date" placeholder="" class="form-control input-md" >
+                <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </div>
+            <!-- <label class="col-md-4 control-label" for="heure"></label> -->
+            <div class=" col-md-1">
+                <select ng-model="heure" id="heure" name="heure" class="form-control">
+                                <option value="0">00</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                            </select>
+            </div>
+            <div class="col-md-1">
+                <select ng-model="minute" id="minute" name="minute" class="form-control">
+                    <option value="0">00</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
             </div>
         </div>
-
-        <div class="container">
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker2').datetimepicker({
-                    locale: 'ru'
-                });
-            });
-        </script>
-    </div>
-</div>
 
         <!-- Button -->
-        <div class="form-group">
+        <div class="form-group" >
             <label class="col-md-4 control-label" for="publier"></label>
             <div class="col-md-4">
-                <button id="publier" name="publier" class="btn btn-primary">Publier</button>
+                <button type="submit" id="publier" name="publier" class="btn btn-primary" ng-click="$ctrl.publierAnnonce(addAnnonce)" >Publier</button>
             </div>
         </div>
-
     </fieldset>
 </form>
+
+<a class="btn btn-primary" type="button" href="#" ng-click="$ctrl.ouvrirPopUP()"><span class="glyphicon glyphicon-plus"></span> popup</a>
+
+
+
+
+<!-- <button type="button" class="btn btn-primary" ng-click="" >popup</button> -->
