@@ -5,7 +5,7 @@ import template from './reservations.creer.component.html';
 class controller {
         
 
-    constructor(ReservationService, LibrairieMapsService, $scope,LoginService, VehiculesService, ReservationVehiculeService,moment,  AnnoncesService) {
+    constructor(ReservationService, LibrairieMapsService, $scope,$location, LoginService, VehiculesService, ReservationVehiculeService,moment,  AnnoncesService) {
 
         this.ReservationService = ReservationService;
         this.LoginService=LoginService
@@ -18,7 +18,7 @@ class controller {
         this.totalItems=0;
         this.moment=moment;
         this.dispo=true;
-
+        this.$location=$location
         this.nouvelleReservVoit={
             dateHeureDebut: "",
             dateHeureFin: "",
@@ -62,6 +62,7 @@ class controller {
         nouvelleReservVoit.voiture=this.vehicules[this.currentPage-1]
         nouvelleReservVoit.profil=this.LoginService.LoadCookie();
         this.ReservationVehiculeService.createNewReservVoit(nouvelleReservVoit);
+        this.$location.path('/collaborateur/reservations');
     }
 
 
@@ -76,9 +77,8 @@ class controller {
       
         this.reservation.idAnnonce=reserv
         this.reservation.idPersonne = this.LoginService.LoadCookie()
-        
-        
         this.ReservationService.postNewReservation(this.reservation)
+        this.$location.path('/collaborateur/reservations');
 }
 
   

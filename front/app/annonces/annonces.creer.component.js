@@ -1,10 +1,11 @@
 import template from './annonces.creer.component.html';
 
 class controller {
-    constructor(AnnoncesService, LibrairieMapsService, $scope, moment, LoginService) {
+    constructor(AnnoncesService, LibrairieMapsService, $scope, moment, LoginService,$location) {
         this.$scope = $scope;
         this.LibrairieMapsService = LibrairieMapsService;
         this.LoginService= LoginService;
+        this.$location=$location
 
         this.moment = moment;
 
@@ -84,18 +85,12 @@ class controller {
         //
         //     //this.immatInvalid=true;
         // }
-        console.log(this.date);
-
-        console.log("date : ");
         console.log(this.annonce.dateHeureDepart);
 
 
         this.AnnoncesService.createNewAnnonce(this.annonce);
-        console.log("post OK");
 
-
-
-        console.log(this.LoginService.LoadCookie());
+        this.$location.path('/collaborateur/annonces')
     }
 
     parseAdresse(adresseModelValue) {
