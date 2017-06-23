@@ -15,6 +15,9 @@ export class AnnoncesService {
             .then(response => response.data);
     }
 
+    /**
+     * recupere via l'url :  toutes les annonces qui sont aprés la date et l'heure du jour
+     */
     getAnnoncesAfterDate(){
         return this.$http.get(this.apiUrlAnnonceAfterDate)
             .then(response => response.data);

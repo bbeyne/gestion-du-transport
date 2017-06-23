@@ -66,7 +66,11 @@ class controller {
     }
 
 
-
+    /**
+     * permet de sauvegarder la réservation du collaborateur. 
+     * redirection vers la liste des reservations en cours du collaborateur
+     * @param {*} reserv : reservation du covoiturage qu'a choisi le collaborateur
+     */
     ajouterReservation(reserv)  {
         
         this.reservation = {

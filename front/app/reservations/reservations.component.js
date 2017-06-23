@@ -24,6 +24,7 @@ class controller {
         this.pagesV = [];
     }
 
+   
     $onInit () {
 
             this.afficheCovoit=this.ReservationService.getAffiche();
@@ -73,6 +74,10 @@ class controller {
         this.afficheCovoit=this.ReservationService.getAffiche();
     }
 
+   /**
+    * ouverture d'une modal qui permet d'avoir plus de détails sur la reservation en cours ou historique selectionné
+    * @param {*} historique : details de la réservation 
+    */
    detailsReservation(historique){
 
 

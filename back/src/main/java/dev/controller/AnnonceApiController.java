@@ -35,6 +35,10 @@ public class AnnonceApiController {
 				.collect(Collectors.toList());
 	}
 	
+	/**
+	 * methode qui recupere les annonces qui sont aprés la date et heure du jour
+	 * @return la liste des annonces 
+	 */
 	@GetMapping(path="/encoursAfterDate")
 	public List<Annonce> listeEnCoursAfterDate() {
 
