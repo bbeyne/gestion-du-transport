@@ -57,8 +57,7 @@ class controller {
 
 
         this.annonce.adresseArrivee = this.parseAdresse(infoForm.adresseArrivee.$modelValue);
-
-
+        this.annonce.adresseDepart = this.parseAdresse(infoForm.adresseDepart.$modelValue);
 
         //this.annonce.adresseDepart = this.adresseDepart;
         //this.annonce.adresseArrivee = infoForm.adresseArrivee.$modelValue;
