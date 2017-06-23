@@ -16,6 +16,7 @@ export class ReservationVehiculeService {
         return this.$http.get(this.apiUrlResa+"Vehicule?vehiculeId="+vehiculeId)
             .then(response => response.data)
     }
+
     getChauffeur(matricule){
         return this.$http.get(this.apiUrlHistorique+"/chauffeur?matricule="+matricule)
             .then(response => response.data) 
@@ -23,6 +24,11 @@ export class ReservationVehiculeService {
 
     getHistorique() {
         return this.$http.get(this.apiUrlHisto+"?matricule="+this.LoginService.LoadCookie().matricule)
+            .then(response => response.data)
+    }
+
+    getHistoriqueByVoiture(vehiculeId) {
+        return this.$http.get(this.apiUrlHistorique+"Vehicule?vehiculeId="+vehiculeId)
             .then(response => response.data)
     }
 

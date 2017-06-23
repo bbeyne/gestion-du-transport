@@ -8,30 +8,46 @@ class controller {
         this.ReservationVehiculeService=ReservationVehiculeService
         this.immatriculation=this.$location.$$hash
         this.tabMatricule=[]
-        this.tab=[]
+        this.vehicules=[]
     }
 
     $onInit(){
         this.getVehicules()
-        this.getHistorique()
     }
+
 
     getVehicules(){
         this.VehiculesService.getVehicules()
             .then(vehicules => this.vehicules = vehicules)
+            .then(v => {
+                this.getVehiculeId()
+        })
+
     }
 
-    getHistorique(){
-        this.ReservationVehiculeService.getHistorique()
+    getVehiculeId(){
+        this.vehicules.forEach(v=>{
+            if(v.immatriculation===this.immatriculation){
+                this.getReservations(v.id)
+                this.getHistoriqueByVoiture(v.id)
+            }})
+    }
+
+    getHistoriqueByVoiture(id){
+        this.ReservationVehiculeService.getHistoriqueByVoiture(id)
             .then(historiqueReservations => this.historiqueReservations = historiqueReservations)
             .then(p=>{
                 this.historiqueReservations.forEach(h => this.tabMatricule.push(h.profil.matricule))
             })
             .then(p=> {
-            this.tabMatricule.forEach( m=>
-                this.getChauffeur(m)
-            )
+            this.tabMatricule.forEach( m=>this.getChauffeur(m))
         })
+
+    }
+
+    getReservations(id){
+      this.ReservationVehiculeService.getReservationsbyVoiture(id)
+            .then(reservations => this.prochainesReservations = reservations)
     }
 
     getChauffeur(matricule){

@@ -62,6 +62,20 @@ public class ReservationApiController {
 				.filter(d->d.getDateHeureDebut().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
+
+
+	@GetMapping(path="/historiqueVehicule")
+	public List<ReservVehicule> listeHistoriqueReservationVehicule(@PathParam(value="vehiculeId") int vehiculeId) {
+		return this.reservVehiculeRepo.findAll()
+				.stream()
+				.filter(d->d.getVoiture().getId()==vehiculeId)
+				.filter(d->d.getDateHeureDebut().isBefore(LocalDateTime.now()))
+				.collect(Collectors.toList());
+	}
+
+
+
+
 	@GetMapping(path="/Vehicule/historique")
 	public List<ReservVehicule> listeHistoriqueVehicule(@PathParam(value="matricule") String matricule) {
 		return this.reservVehiculeRepo.findAll()

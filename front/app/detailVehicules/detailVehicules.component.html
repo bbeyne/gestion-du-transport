@@ -3,13 +3,13 @@
    <div class="jumbotron col-md-12">
 
     <h2>
-        <a ng-click="$ctrl.goBack()" class="btn btn-lg btn-primary">
+        <a ng-click="$ctrl.goBack()" class="btn btn-lg btn-primary col-md-3">
             <span class="glyphicon glyphicon-chevron-left"></span> Véhicules</a>
               Immatriculation : {{$ctrl.immatriculation}}
     </h2>
 <br>
-    <div class="col-md-6">
-        <img width="300px" src="{{vehicule.urlImage}}" class="img-rounded">
+    <div>
+        <img width="300px" ng-src="{{vehicule.urlImage}}" class="img-rounded">
     </div>
     <div class="container col-md-6">
         <h3>{{vehicule.marque}}</h3>
@@ -19,6 +19,7 @@
    </div>
     <br>
     <div class="col-md-12">
+<!--*******************************************************************-->
         <label>Prochaine réservations</label>
         <table class="table table-striped">
             <thead>
@@ -28,25 +29,22 @@
                     <th>Responsable</th>
                 </tr>
             </thead>
-
             <tbody>
-                <tr ng-repeat="historique in $ctrl.historiques.slice((($ctrl.currentPage-1)*$ctrl.itemsPerPage), (($ctrl.currentPage)*$ctrl.itemsPerPage))">
-
-                    <!-- <td>{{historique.dateHeureDepart.dayOfMonth}}</td> -->
+                <tr ng-repeat="reservation in $ctrl.prochainesReservations ">
                     <td>
-
+                        {{ reservation.dateHeureDebut }}
                     </td>
                     <td>
-                        {{historique.idAdresseDepart.numRue}}
+                        {{ reservation.dateHeureFin }}
                     </td>
                     <td>
-                        {{historique.idAdresseArrivee.numRue}}
+                        {{ $ctrl.profile.nom }} - {{ $ctrl.profile.prenom }}
                     </td>
-                    <td>{{historique.nbPlacesDispo}}</td>
                 </tr>
 
             </tbody>
         </table>
+<!--*******************************************************************-->
 
         <label>Historique des réservations</label>
         <table class="table table-striped">
@@ -59,12 +57,12 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="historique in $ctrl.historiqueReservations track by $index">
+                <tr ng-repeat="reservation in $ctrl.historiqueReservations track by $index">
                     <td>
-                        {{historique.dateHeureDebut}}
+                        {{reservation.dateHeureDebut}}
                     </td>
                     <td>
-                        {{historique.dateHeureFin}}
+                        {{reservation.dateHeureFin}}
                     </td>
                     <td>
                         {{$ctrl.profile.nom}} - {{$ctrl.profile.prenom}}
