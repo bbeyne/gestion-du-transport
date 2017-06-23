@@ -31,6 +31,12 @@ public class ReservationApiController {
 	@Autowired
 	private ReservVehiculeRepository reservVehiculeRepo;
 	
+	/**
+	 * methode qui recupere les réservations en cours, filtre par rapport à la date et heure du jour (aprés)
+	 * 
+	 * @param matricule le matricule du collaborateur connecté
+	 * @return la liste des réservations encours du collaborateur
+	 */
 	@GetMapping(path="/encours")
 	public List<Reservation> listeReservation(@PathParam(value="matricule") String matricule) {
 
@@ -45,6 +51,11 @@ public class ReservationApiController {
 		return persoServ.PersonneByMatricule(matricule);
 	}
 
+	/**
+	 * methode qui recupere les réservations deja effectué par rapport à la date et heure du jour (avant)
+	 * @param matricule le matricule du collaborateur connecté
+	 * @return la liste des réservations, historique du collaborateur
+	 */
 	@GetMapping(path="/historique")
 	public List<Reservation> listeHistorique(@PathParam(value="matricule") String matricule) {
 		return this.reservationRepo.findAll()
@@ -99,6 +110,10 @@ public class ReservationApiController {
 
 	}
 	
+	/**
+	 * methode qui permet d'ajouter une nouvelle réservation
+	 * @param r la reservation du covoiturage par le collaborateur
+	 */
 	@PostMapping("/ajouterReservation")
     public void addReservation(@RequestBody Reservation r) {
 		reservationRepo.save(r);
