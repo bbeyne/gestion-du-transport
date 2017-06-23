@@ -11,7 +11,6 @@ class controller {
         this.LoginService.Authentification(this.email,this.password)
         .then(profil => {
             this.type=profil.type;
-            console.log(this.type)
             if (this.type !== 'INCONNU'){
             this.LoginService.SaveCookie(profil);
             this.type=profil.type;

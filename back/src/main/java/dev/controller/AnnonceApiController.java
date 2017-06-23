@@ -16,6 +16,14 @@ import dev.repository.AdresseRepository;
 
 import dev.repository.AnnonceRepository;
 
+
+/**
+ * 
+ * Controller pour la gestion des annonces
+ * 
+ * @author mouss
+ *
+ */
 @RestController
 @RequestMapping("/collaborateur/annonces")
 public class AnnonceApiController {
@@ -25,6 +33,15 @@ public class AnnonceApiController {
 	@Autowired
 	private AdresseRepository adresseRepository;
 
+	
+	/**
+	 * 
+	 * Retourne la liste des annonces dont la date de départ et postérieure à aujourd'hui
+	 * appartenant au profil connecté.
+	 * 
+	 * @param matricule
+	 * @return List<Annonce>
+	 */
 	@GetMapping(path="/encours")
 	public List<Annonce> listeEnCours(@PathParam(value="matricule") String matricule) {
 
@@ -36,8 +53,12 @@ public class AnnonceApiController {
 	}
 	
 	/**
-	 * methode qui recupere les annonces qui sont aprés la date et heure du jour
-	 * @return la liste des annonces 
+	 * 
+	 * Retourne la liste des dont la date de départ et postérieure à aujourd'hui
+	 * 
+	 * 
+	 * @param 
+	 * @return List<Annonce>
 	 */
 	@GetMapping(path="/encoursAfterDate")
 	public List<Annonce> listeEnCoursAfterDate() {
@@ -48,6 +69,16 @@ public class AnnonceApiController {
 				.collect(Collectors.toList());
 	}
 
+	
+	
+	/**
+	 * 
+	 * Retourne la liste des annonces dont la date de départ et antérieure à aujourd'hui
+	 * appartenant au profil connecté.
+	 * 
+	 * @param matricule
+	 * @return List<Annonce>
+	 */
 	@GetMapping(path="/historique")
 	public List<Annonce> listeHistorique(@PathParam(value="matricule") String matricule) {
 		return this.annonceRepository.findAll()
@@ -57,8 +88,14 @@ public class AnnonceApiController {
 				.collect(Collectors.toList());
 	}
 	
+	/**
+	 * 
+	 * Ajouter une annonce dans la base de donnée
+	 * 
+	 * @param a
+	 */
 	@PostMapping("/ajouterAnnonce")
-    public void addMission(@RequestBody Annonce a) {
+    public void addAnnonce(@RequestBody Annonce a) {
 
 		
 		Adresse adresseDepart = new Adresse( a.getAdresseDepart().getNumRue(), a.getAdresseDepart().getLibelle(), a.getAdresseDepart().getNomRue(), a.getAdresseDepart().getVille(), a.getAdresseDepart().getCodePostale(), a.getAdresseDepart().getPays());

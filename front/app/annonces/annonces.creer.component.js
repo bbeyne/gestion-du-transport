@@ -85,7 +85,6 @@ class controller {
         //
         //     //this.immatInvalid=true;
         // }
-        console.log(this.annonce.dateHeureDepart);
 
 
         this.AnnoncesService.createNewAnnonce(this.annonce);
@@ -117,8 +116,6 @@ class controller {
         this.adresse.ville = adresseModelValue.split(',')[1];
         this.adresse.codePostale = 75000;
         this.adresse.pays = "France";
-
-        console.log(this.adresse);
 
         return this.adresse;
     }
