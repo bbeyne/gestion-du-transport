@@ -33,11 +33,11 @@ public class LoginController {
 
 	@GetMapping
 	public Profile Authentification(@RequestParam(value = "email") String email, @RequestParam(value = "password") String password){
-		List<Personne> list = persRep.listerPersonne().stream().filter(p -> p.email.equals(email)).collect(Collectors.toList());
+		List<Personne> list = persRep.listerPersonne().stream().filter(p -> p.getEmail().equals(email)).collect(Collectors.toList());
 		if (!list.isEmpty()){
 			Personne personne = list.get(0);
-			if (personne.password.equals(DigestUtils.sha1Hex(password))){
-				return profilRep.findByMatricule(personne.matricule).get(0);
+			if (personne.getPassword().equals(DigestUtils.sha1Hex(password))){
+				return profilRep.findByMatricule(personne.getMatricule()).get(0);
 			}
 		}
 		return new Profile("", TYPE.INCONNU, "");

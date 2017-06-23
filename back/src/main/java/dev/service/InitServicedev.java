@@ -48,13 +48,13 @@ public class InitServicedev implements InitService {
 
 		for (Personne personne : list) {
 			if (personne == list.get(0)) {
-				Profile profile1 = new Profile(personne.matricule, TYPE.valueOf("ADMIN"), "00.00.00.00.01");
+				Profile profile1 = new Profile(personne.getMatricule(), TYPE.valueOf("ADMIN"), "00.00.00.00.01");
 				profilrep.save(profile1);
 			} else if (personne == list.get(1)) {
-				Profile profile2 = new Profile(personne.matricule, TYPE.valueOf("CHAUFFEUR"), "00.00.00.00.02");
+				Profile profile2 = new Profile(personne.getMatricule(), TYPE.valueOf("CHAUFFEUR"), "00.00.00.00.02");
 				profilrep.save(profile2);
 			} else {
-				Profile profile3 = new Profile(personne.matricule, TYPE.valueOf("COLLABORATEUR"), "00.00.00.00.03");
+				Profile profile3 = new Profile(personne.getMatricule(), TYPE.valueOf("COLLABORATEUR"), "00.00.00.00.03");
 				profilrep.save(profile3);
 			}
 		}
