@@ -9,6 +9,8 @@ class controller {
         this.immatriculation=this.$location.$$hash
         this.tabMatricule=[]
         this.vehicules=[]
+        this.isReserv=false
+        this.isHisto=false
     }
 
     $onInit(){
@@ -38,6 +40,9 @@ class controller {
             .then(historiqueReservations => this.historiqueReservations = historiqueReservations)
             .then(p=>{
                 this.historiqueReservations.forEach(h => this.tabMatricule.push(h.profil.matricule))
+                if(this.historiqueReservations[0]){
+                    this.isHisto=true
+                }
             })
             .then(p=> {
             this.tabMatricule.forEach( m=>this.getChauffeur(m))
@@ -48,6 +53,11 @@ class controller {
     getReservations(id){
       this.ReservationVehiculeService.getReservationsbyVoiture(id)
             .then(reservations => this.prochainesReservations = reservations)
+            .then(v=>{  if(this.prochainesReservations[0]){
+                        this.isReserv=true
+            }
+
+        })
     }
 
     getChauffeur(matricule){

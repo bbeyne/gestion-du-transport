@@ -1,74 +1,88 @@
 <div class="container row col-md-12" ng-repeat="vehicule in $ctrl.vehicules | filter:$ctrl.immatriculation">
 
-   <div class="jumbotron col-md-12">
+    <div class="jumbotron col-md-12">
 
-    <h2>
-        <a ng-click="$ctrl.goBack()" class="btn btn-lg btn-primary col-md-3">
-            <span class="glyphicon glyphicon-chevron-left"></span> Véhicules</a>
-              Immatriculation : {{$ctrl.immatriculation}}
-    </h2>
-<br>
-    <div>
-        <img width="300px" ng-src="{{vehicule.urlImage}}" class="img-rounded">
+        <h2>
+            <a ng-click="$ctrl.goBack()" class="btn btn-lg btn-primary col-md-3">
+                <span class="glyphicon glyphicon-chevron-left"></span> Véhicules</a>
+            Immatriculation : {{$ctrl.immatriculation}}
+        </h2>
+        <br>
+        <div class="col-md-6">
+            <img width="300px" ng-src="{{vehicule.urlImage}}" class="img-rounded">
+        </div>
+        <div class="container col-md-6">
+            <h3>{{vehicule.marque}}</h3>
+            <h3>{{vehicule.modele}}</h3>
+            <h3>{{vehicule.categorie}}</h3>
+        </div>
     </div>
-    <div class="container col-md-6">
-        <h3>{{vehicule.marque}}</h3>
-        <h3>{{vehicule.modele}}</h3>
-        <h3>{{vehicule.categorie}}</h3>
-    </div>
-   </div>
     <br>
-    <div class="col-md-12">
-<!--*******************************************************************-->
-        <label>Prochaine réservations</label>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Date / Heure début</th>
-                    <th>Date / heure fin</th>
-                    <th>Responsable</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="reservation in $ctrl.prochainesReservations ">
-                    <td>
-                        {{ reservation.dateHeureDebut }}
-                    </td>
-                    <td>
-                        {{ reservation.dateHeureFin }}
-                    </td>
-                    <td>
-                        {{ $ctrl.profile.nom }} - {{ $ctrl.profile.prenom }}
-                    </td>
-                </tr>
+    <div >
+        <!--*******************************************************************-->
+        <div class="col-md-12" ng-if="!$ctrl.isReserv">
+            <div class="alert alert-warning">
+                <strong>Info : </strong> Aucune réservation en cours
+            </div>
+        </div>
+        <div class="col-md-12" ng-if="$ctrl.isReserv">
 
-            </tbody>
-        </table>
-<!--*******************************************************************-->
+            <label>Prochaine réservations</label>
+            <table  class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date / Heure début</th>
+                        <th>Date / heure fin</th>
+                        <th>Responsable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="reservation in $ctrl.prochainesReservations ">
+                        <td>
+                            {{ reservation.dateHeureDebut }}
+                        </td>
+                        <td>
+                            {{ reservation.dateHeureFin }}
+                        </td>
+                        <td>
+                            {{ $ctrl.profile.nom }} - {{ $ctrl.profile.prenom }}
+                        </td>
+                    </tr>
 
-        <label>Historique des réservations</label>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Date / Heure début</th>
-                    <th>Date / heure fin</th>
-                    <th>Responsable</th>
-                </tr>
-            </thead>
+                </tbody>
+            </table>
+        </div>
+        <!--*******************************************************************-->
+        <div class="col-md-12" ng-if="!$ctrl.isHisto">
+            <div class="alert alert-warning">
+                <strong>Info : </strong> Aucune réservation enregistrée
+            </div>
+        </div>
+        <div class="col-md-12" ng-if="$ctrl.isHisto">
+            <label>Historique des réservations</label>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date / Heure début</th>
+                        <th>Date / heure fin</th>
+                        <th>Responsable</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr ng-repeat="reservation in $ctrl.historiqueReservations track by $index">
-                    <td>
-                        {{reservation.dateHeureDebut}}
-                    </td>
-                    <td>
-                        {{reservation.dateHeureFin}}
-                    </td>
-                    <td>
-                        {{$ctrl.profile.nom}} - {{$ctrl.profile.prenom}}
-                    </td>
-                 </tr>
-            </tbody>
-        </table>
+                <tbody>
+                    <tr ng-repeat="reservation in $ctrl.historiqueReservations track by $index">
+                        <td>
+                            {{reservation.dateHeureDebut}}
+                        </td>
+                        <td>
+                            {{reservation.dateHeureFin}}
+                        </td>
+                        <td>
+                            {{$ctrl.profile.nom}} - {{$ctrl.profile.prenom}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
