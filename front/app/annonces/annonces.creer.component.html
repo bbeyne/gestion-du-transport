@@ -5,6 +5,10 @@
 
         <pre>Itinéraire</pre>
 
+        <pre>depart : {{ adresseDepart}}</pre>
+        <pre>arrivé : {{ adresseArrivee}}</pre>
+        <pre>annonce : {{ $ctrl.annonce }}</pre>
+
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="adresseDepart">Adresse de départ *</label>
@@ -21,9 +25,15 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label id="adresseDestination" class="col-md-4 control-label" for="adresseDestination">Adresse de destination *</label>
+            <label class="col-md-4 control-label" for="adresseArrivee">Adresse de destination *</label>
             <div class="col-md-4">
-                <input ng-model="adresseDestination" id="adresseDestination" name="adresseDestination" type="text" placeholder="" class="form-control input-md" >
+                <input id="adresseArrivee" name="adresseArrivee" type="text" placeholder="" class="form-control input-md"
+                ng-model="adresseArrivee"
+                ng-places-autocomplete
+                pa-options="optionsObject"
+                pa-trigger="triggerFunc"
+                pa-on-place-ready="placesCallback"
+                required="">
             </div>
         </div>
 
@@ -63,18 +73,18 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="nbPlaces">Nombre de places disponibles *</label>
+            <label class="col-md-4 control-label" for="nbPlacesDispo">Nombre de places disponibles *</label>
             <div class="col-md-2">
-                <input ng-model="nbPlaces" id="nbPlaces" name="nbPlaces" type="text" placeholder="" class="form-control input-md" >
+                <input ng-model="nbPlacesDispo" id="nbPlacesDispo" name="nbPlacesDispo" type="text" placeholder="" class="form-control input-md" >
             </div>
         </div>
 
         <pre>Date et horaire</pre>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="date">Date / heure * </label>
+            <label class="col-md-4 control-label" for="dateHeureDepart">Date / heure * </label>
             <div class="col-md-2">
-                <input ng-model="date" id="date" name="date" type="date" placeholder="" class="form-control input-md" >
+                <input ng-model="dateHeureDepart" id="dateHeureDepart" name="dateHeureDepart" type="date" class="form-control input-md" >
                 <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
             </div>
             <!-- <label class="col-md-4 control-label" for="heure"></label> -->
@@ -129,7 +139,6 @@
 </form>
 
 <a class="btn btn-primary" type="button" href="#" ng-click="$ctrl.ouvrirPopUP()"><span class="glyphicon glyphicon-plus"></span> popup</a>
-
 
 
 

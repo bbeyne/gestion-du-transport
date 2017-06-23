@@ -98,7 +98,6 @@ class controller {
     })
     .result.catch(function (res) {
            if (!(res === 'cancel' || res === 'escape key press' || res === 'backdrop click')) {
-               console.log(res)
                throw res;
            }
        });

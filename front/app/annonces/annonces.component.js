@@ -27,7 +27,6 @@ class controller {
                     this.pages.push(i);
                 }
             });
-            console.log("init ok");
     }
     changePage(num) {
         if ( !(num ===0 || num > this.maxSize) ) {

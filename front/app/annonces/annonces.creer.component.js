@@ -1,47 +1,44 @@
 import template from './annonces.creer.component.html';
 
 class controller {
-    constructor(AnnoncesService, LibrairieMapsService, $scope) {
+    constructor(AnnoncesService, LibrairieMapsService, $scope, moment, LoginService,$location) {
         this.$scope = $scope;
         this.LibrairieMapsService = LibrairieMapsService;
+        this.LoginService= LoginService;
+        this.$location=$location
 
+        this.moment = moment;
 
         this.AnnoncesService = AnnoncesService;
 
-        this.adresseDepart = {
-            numRue: "",
-            libelle: "",
-            nomRue: "",
-            ville: "",
-            codePostale: "",
-            pays: "France"
-        };
-
-        this.adresse = {
-            numRue: "",
-            libelle: "",
-            nomRue: "",
-            ville: "",
-            codePostale: "",
-            pays: "France"
-        };
+        // this.adresse = {
+        //     numRue: "",
+        //     libelle: "",
+        //     nomRue: "",
+        //     ville: "",
+        //     codePostale: "00000",
+        //     pays: "France"
+        // };
 
         this.annonce = {
             adresseDepart: this.adresseDepart,
-            adresseDestination: this.adresseDestination,
+            adresseArrivee: this.adresseArrivee,
+            profil: {},
             immatriculation: "",
             marque: "",
             modele: "",
-            nbPlace: "",
-            date: "",
-            heure: "",
-            minute: "",
+            nbPlacesDispo: "",
+            dateHeureDepart: "",
+            statut: null
         };
     }
 
     $onInit() {
         this.AnnoncesService.getReservations()
             .then(annonces => this.annonces = annonces);
+
+        this.$scope = this.LibrairieMapsService.adresseAutoComplet(this.$scope);
+
     }
     changePage(num) {
         if (!(num === 0 || num > this.historiques.length - 1)) {
@@ -52,27 +49,30 @@ class controller {
         window.open('details.html', 'details', 'menubar=no, scrollbars=no, top=200, left=400, width=500, height=400');
     }
 
-    test() {
-        console.log("test");
-    }
+
 
     publierAnnonce(infoForm) {
 
-        console.log("post entrée");
 
 
 
-        this.annonce.adresseDepart = infoForm.adresseDepart. $modelValue.trim();
-        this.annonce.adresseDestination = infoForm.adresseDestination.$modelValue.trim();
+        this.annonce.adresseArrivee = this.parseAdresse(infoForm.adresseArrivee.$modelValue);
+
+
+
+        //this.annonce.adresseDepart = this.adresseDepart;
+        //this.annonce.adresseArrivee = infoForm.adresseArrivee.$modelValue;
         this.annonce.immatriculation = infoForm.immatriculation.$modelValue;
         this.annonce.marque = infoForm.marque.$modelValue;
         this.annonce.modele = infoForm.modele.$modelValue;
-        this.annonce.nbPlaces = infoForm.nbPlaces.$modelValue;
-        this.annonce.date = infoForm.date.$modelValue;
+        this.annonce.nbPlacesDispo = infoForm.nbPlacesDispo.$modelValue;
         this.annonce.heure = infoForm.heure.$modelValue;
         this.annonce.minute = infoForm.minute.$modelValue;
+        this.annonce.profil = this.LoginService.LoadCookie();
 
-        this.AnnoncesService.createNewAnnonce(this.annonce);
+        this.date = infoForm.dateHeureDepart.$modelValue;
+
+        this.annonce.dateHeureDepart=this.moment(new Date(this.date.getYear(),this.date.getMonth(),this.date.getDate(),infoForm.heure.$modelValue,infoForm.minute.$modelValue)).format('DD/MM/YYYY hh:mm:ss');
 
         // if(this.AnnoncesService.verifImmat(infoForm.immatriculation.$modelValue)){
         //     // this.AnnoncesService.createNewAnnonce(this.annonce);
@@ -85,9 +85,42 @@ class controller {
         //
         //     //this.immatInvalid=true;
         // }
+        console.log(this.annonce.dateHeureDepart);
 
-        console.log("post OK");
 
+        this.AnnoncesService.createNewAnnonce(this.annonce);
+
+        this.$location.path('/collaborateur/annonces')
+    }
+
+    parseAdresse(adresseModelValue) {
+
+        this.adresse = {
+            numRue: "",
+            libelle: "",
+            nomRue: "",
+            ville: "",
+            codePostale: "00000",
+            pays: "France"
+        };
+
+        adresseModelValue.split(',')[0].split(' ');
+
+        let length = adresseModelValue.split(',')[0].split(' ').length;
+
+        this.adresse.numRue = adresseModelValue.split(',')[0].split(' ')[0];
+        this.adresse.libelle = adresseModelValue.split(',')[0].split(' ')[1];
+        for (let i = 2; i < length; i++) {
+            this.adresse.nomRue += (adresseModelValue.split(',')[0].split(' ')[i] + " ");
+        }
+
+        this.adresse.ville = adresseModelValue.split(',')[1];
+        this.adresse.codePostale = 75000;
+        this.adresse.pays = "France";
+
+        console.log(this.adresse);
+
+        return this.adresse;
     }
 
 }

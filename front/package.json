@@ -33,11 +33,13 @@
     "angular-cookies": "^1.6.4",
     "angular-google-maps": "^2.4.1",
     "angular-google-places-map": "^1.2.1",
+    "angular-moment": "^1.0.1",
     "angular-route": "^1.6.4",
     "angular-ui-bootstrap": "^2.5.0",
     "bootstrap": "^3.3.7",
     "bootstrap-ui-datetime-picker": "^2.5.4",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "ng-places-autocomplete": "^1.2.1",
     "uuid": "^3.0.1"
   }

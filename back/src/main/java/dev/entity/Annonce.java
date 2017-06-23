@@ -15,20 +15,20 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Annonce {
 	public enum STATUT {
-		ANNULE, 
+		ANNULE,
 		TERMINE,
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm")
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dateHeureDepart;
 	private int nbPlacesDispo;
 	private String immatriculation;
 	private String marque;
 	private String modele;
-	
+
 	@Enumerated(EnumType.STRING)
 	private STATUT statut;
 	@ManyToOne
@@ -42,7 +42,7 @@ public class Annonce {
 	public Annonce() {
 		super();
 	}
-	
+
 	public Annonce(LocalDateTime dateHeureDepart, int nbPlacesDispo, STATUT statut, Profile idProfil, Adresse idAdresseDepart,
 			Adresse idAdresseArrivee) {
 		super();
@@ -53,7 +53,7 @@ public class Annonce {
 		this.AdresseDepart = idAdresseDepart;
 		this.AdresseArrivee = idAdresseArrivee;
 	}
-	
+
 	public Annonce(LocalDateTime dateHeureDepart, int nbPlacesDispo, String immatriculation, String marque,
 			String modele, STATUT statut, Profile profil, Adresse adresseDepart, Adresse adresseArrivee) {
 		super();
@@ -162,6 +162,6 @@ public class Annonce {
 	public void setModele(String modele) {
 		this.modele = modele;
 	}
-	
-	
+
+
 }

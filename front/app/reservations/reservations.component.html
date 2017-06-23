@@ -112,9 +112,9 @@
                 <tr ng-repeat="reservationV in $ctrl.reservationsVehicule track by $index" >
                     <td >{{reservationV.dateHeureDebut}}</td>
                      <td>{{reservationV.dateHeureFin}}</td>
-                    <td>{{reservation.idVoiture.immatriculation}} </td>
-                    <td>{{reservation.idVoiture.marque}} </td>
-                    <td>{{reservation.idVoiture.modele}} </td>
+                    <td>{{reservationV.voiture.immatriculation}} </td>
+                    <td>{{reservationV.voiture.marque}} </td>
+                    <td>{{reservationV.voiture.modele}} </td>
                 </tr>
             </tbody>
         </table>
