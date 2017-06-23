@@ -18,6 +18,9 @@ import dev.entity.Personne;
 
 @Service
 public class PersonneServiceDev implements PersonneService{
+	/**
+	 * Retourne l'ensemble des personnes depuis le fichier json
+	 */
 	public List<Personne> listerPersonne(){
 		ObjectMapper objectMapper = new ObjectMapper();
 	    URL url;
@@ -41,6 +44,9 @@ public class PersonneServiceDev implements PersonneService{
 	    }
 		return null;
 	}
+	/**
+	 * Recherche d'une personne par son matricule
+	 */
 	public Personne PersonneByMatricule(String matricule){
 		List<Personne> list= listerPersonne();
 		return list.stream().filter(p->p.matricule.equals(matricule)).collect(Collectors.toList()).get(0);

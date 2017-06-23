@@ -40,7 +40,9 @@ public class InitServicedev implements InitService {
 	private VoitureRepository voitureRep;
 	@Autowired
 	private ReservVehiculeRepository reservVoitRep;
-
+	/**
+	 * Initialisation de la BDD
+	 */
 	public void Init() {
 		List<Personne> list = personneserv.listerPersonne();
 

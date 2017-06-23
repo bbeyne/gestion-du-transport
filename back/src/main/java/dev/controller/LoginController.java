@@ -16,6 +16,13 @@ import dev.entity.Profile.TYPE;
 import dev.repository.ProfilRepository;
 import dev.service.PersonneService;
 
+/**
+ * 	
+	 * classe qui permet de verifier si la personne avec l'email et le mdp existe dans la base de donnees existe
+	 
+ * @author BEN
+ *
+ */
 @RestController
 @RequestMapping("/connexion")
 public class LoginController {
@@ -23,6 +30,7 @@ public class LoginController {
 	private ProfilRepository profilRep;
 	@Autowired
 	private PersonneService persRep;
+
 	@GetMapping
 	public Profile Authentification(@RequestParam(value = "email") String email, @RequestParam(value = "password") String password){
 		List<Personne> list = persRep.listerPersonne().stream().filter(p -> p.email.equals(email)).collect(Collectors.toList());

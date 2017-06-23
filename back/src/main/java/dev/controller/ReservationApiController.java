@@ -46,6 +46,11 @@ public class ReservationApiController {
 				.filter(d->d.getIdAnnonce().getDateHeureDepart().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
+	/**
+	 * methode qui recupere la personne(nom, prenom, ... )  depuis le matricule entree
+	 * @param matricule
+	 * @return La personne trouvee
+	 */
 	@GetMapping(path="/historique/chauffeur")
 	public Personne NomChauffeur(@PathParam(value="matricule") String matricule) {
 		return persoServ.PersonneByMatricule(matricule);
@@ -64,6 +69,11 @@ public class ReservationApiController {
 				.filter(d->d.getIdAnnonce().getDateHeureDepart().isBefore(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
+	/**
+	 * methode qui retourne la liste des reservations de vehicule apres la date du jour et depuis l'id du vehicule
+	 * @param vehiculeId = Id du vehicule recherché
+	 * @return Liste de reservation
+	 */
 	@GetMapping(path="/Vehicule/encoursVehicule")
 	public List<ReservVehicule> listeReservationVehicule(@PathParam(value="vehiculeId") int vehiculeId) {
 		return this.reservVehiculeRepo.findAll()
@@ -73,7 +83,11 @@ public class ReservationApiController {
 				.collect(Collectors.toList());
 	}
 
-
+	/**
+	 * methode qui retourne la liste des reservations de vehicule avant la date du jour et depuis l'id du vehicule
+	 * @param vehiculeId = Id du vehicule recherché
+	 * @return Liste de reservation
+	 */
 	@GetMapping(path="/historiqueVehicule")
 	public List<ReservVehicule> listeHistoriqueReservationVehicule(@PathParam(value="vehiculeId") int vehiculeId) {
 		return this.reservVehiculeRepo.findAll()
@@ -84,7 +98,11 @@ public class ReservationApiController {
 	}
 
 
-
+	/**
+	 * methode qui retourne la liste des reservations de vehicule avant la date du jour et depuis le matricule d'une personne
+	 * @param matricule 
+	 * @return Liste de reservation
+	 */
 
 	@GetMapping(path="/Vehicule/historique")
 	public List<ReservVehicule> listeHistoriqueVehicule(@PathParam(value="matricule") String matricule) {
@@ -94,7 +112,11 @@ public class ReservationApiController {
 				.filter(d->d.getDateHeureDebut().isBefore(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
-
+	/**
+	 * methode qui retourne la liste des reservations de vehicule après la date du jour et depuis le matricule d'une personne
+	 * @param matricule 
+	 * @return Liste de reservation
+	 */
 	@GetMapping(path="/Vehicule/encours")
 	public List<ReservVehicule> listeReservationVehicule(@PathParam(value="matricule") String matricule) {
 		return this.reservVehiculeRepo.findAll()
@@ -103,7 +125,10 @@ public class ReservationApiController {
 				.filter(d->d.getDateHeureDebut().isAfter(LocalDateTime.now()))
 				.collect(Collectors.toList());
 	}
-
+	/**
+	 * methode qui ajoute une reservations de vehicule dans la base de donnees
+	 * @param r ReservationVehicule
+	 */
 	@PostMapping("/Vehicule/encours/ajouterReserv")
     public void addMission(@RequestBody ReservVehicule r) {
 		reservVehiculeRepo.save(r);

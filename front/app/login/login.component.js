@@ -6,7 +6,10 @@ class controller {
         this.LoginService = LoginService
         this.type=''
     }
-
+    /**
+    * methode qui prend les donnees passe dans le formulaire, lverifie les infos avec le service 
+    * puis enregistre le profil s'il est trouve
+    */
     authentif (form) {
         this.LoginService.Authentification(this.email,this.password)
         .then(profil => {
